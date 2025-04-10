@@ -49,32 +49,11 @@ const Footer = () => {
           </div>
 
           <div className="hidden gap-8 lg:block">
-            <div className="flex gap-5 text-gray-200">
-              <Link
-                href="/about"
-                className="hover:text-white transition-colors duration-200"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/projects"
-                className="hover:text-white transition-colors duration-200"
-              >
-                Project
-              </Link>
-              <Link
-                href="/services"
-                className="hover:text-white transition-colors duration-200"
-              >
-                Services
-              </Link>
-              <Link
-                href="/terms"
-                className="hover:text-white transition-colors duration-200"
-              >
-                Terms & Condition
-              </Link>
-            </div>
+          <div className="flex gap-5 text-gray-200">
+    <Link href="/studio" className="hover:text-white transition-colors duration-200">Studio</Link>
+    <Link href="/projects" className="hover:text-white transition-colors duration-200">Project</Link>
+    <Link href="/contect" className="hover:text-white transition-colors duration-200">Contact</Link>
+  </div>
           </div>
           <div className="">
             <p className="text-sm text-gray-200 md:mt-0">

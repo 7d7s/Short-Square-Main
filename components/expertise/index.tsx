@@ -67,23 +67,20 @@ const slides: Slide[] = [
   {
     title: "Chasing Clouds at Mont Blanc's Pinnacle",
     location: "Mont Blanc, France",
-    image:
-      "https://img.freepik.com/free-photo/cheetah-standing-dead-tree_181624-16716.jpg?t=st=1743235339~exp=1743238939~hmac=4f2b11cfb124ec9f1f375fdf253b75cd3c454d582d32be66dc0bb8485c702348&w=996",
-    category: "Landscape",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744263858/wild_ii7zgp.avif",
+    category: "Landscape"
   },
   {
     title: "Serene Waters of Moraine Lake",
     location: "Alberta, Canada",
-    image:
-      "https://img.freepik.com/free-photo/landscape-tropical-green-forest_181624-30814.jpg?t=st=1743235379~exp=1743238979~hmac=71e135c7ae16502ae83aa9bab1c6f812d78e00c67ddba9e562de7f6ec561e92f&w=996",
-    category: "Wildlife",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744263857/tiger_u6hbln.avif",
+    category: "Wildlife"
   },
   {
     title: "Golden Dunes of Sahara Desert",
     location: "Sahara, Africa",
-    image:
-      "https://img.freepik.com/free-photo/grassy-field-with-trees-giraffes-walking-around-with-light-blue-sky-background_181624-3477.jpg?t=st=1743235400~exp=1743239000~hmac=25dbfece498a5e259629d42e5b47831543629db3f96763af482caf86623b69ef&w=996",
-    category: "Architectural",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744263857/giraf_it6brd.avif",
+    category: "Architectural"
   },
 ];
 

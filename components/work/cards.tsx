@@ -14,24 +14,21 @@ type Card = {
 const cards: Card[] = [
   {
     title: "Majestic Creatures of the African Savanna",
-    description:
-      "Capturing the Exquisite Patterns and Dynamic Energy of Africa's Most Iconic Big Cat",
-    image:
-      "https://img.freepik.com/free-photo/cheetah-standing-dead-tree_181624-16716.jpg",
+    description: "Capturing the Exquisite Patterns and Dynamic Energy of Africa's Most Iconic Big Cat",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744263858/wild_ii7zgp.avif",
   },
   {
     title: "A Temple's Serene Silhouette",
     description: "A beautiful temple surrounded by nature's calmness.",
-    image:
-      "https://img.freepik.com/free-photo/landscape-tropical-green-forest_181624-30814.jpg",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744263857/tiger_u6hbln.avif",
   },
   {
     title: "Moments Framed in Portraits",
     description: "Capturing the emotions and beauty in human portraits.",
-    image:
-      "https://img.freepik.com/free-photo/grassy-field-with-trees-giraffes-walking-around_181624-3477.jpg",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744263857/giraf_it6brd.avif",
   },
 ];
+
 
 const CardSlider = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
