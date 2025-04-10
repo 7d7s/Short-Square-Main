@@ -138,8 +138,8 @@ export default function ProjectsPage() {
           height={1000}
           alt={img.title}
           className={`w-full ${
-            filteredImages.length <= 1 && index === 0 ? 'h-auto' : 'h-72'
-          } object-cover relative`}
+            filteredImages.length <= 1 && index === 0 ? 'h-72' : 'h-72'
+          } object-cover rounded-xl relative`}
         />
         
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4">
@@ -163,7 +163,7 @@ export default function ProjectsPage() {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2, duration: 0.3 }}
-        className="hidden md:block md:p-6 p-4 col-span-2"
+        className="hidden md:block px-6 col-span-2"
       >
         <div className="space-y-4">
           {filteredImages
@@ -178,14 +178,14 @@ export default function ProjectsPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 + i * 0.1 }}
-                className="flex items-start gap-3 p-2 rounded transition"
+                className="flex items-start rounded transition"
                 onClick={() => {
                   // Handle click to focus this item
                 }}
               >
                 <div>
-                  <h4 className="font-medium line-clamp-1 text-xl">{item.title}</h4>
-                  <p className="text-xs text-gray-500 mt-1 line-clamp-2">
+                  <h4 className="font-medium  text-xl">{item.title}</h4>
+                  <p className="text-sm text-gray-300 mt-1 line-clamp-2">
                     {item.client} • {item.category}
                   </p>
                   <p className='py-6'>{item.descriptin}</p>
