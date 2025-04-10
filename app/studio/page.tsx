@@ -2,7 +2,7 @@
 import { FaCamera, FaLightbulb, FaRulerCombined, FaWifi, FaParking, FaCoffee } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import FeatureCard from '@/components/common/featureCard'
-import ImageCard from '@/components/common/imageCard';
+import ImageCard from '@/components/common/GalleryCard';
 import Banner from '@/components/common/banner';
 import GetInTouch from '@/components/getInTouch'
 import PricingCard, { PricingCardProps } from "@/components/common/pricingCard";;
@@ -193,6 +193,7 @@ export default function StudioPage() {
             Studio Gallery
           </motion.h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
           {images.map((img) => (
         <ImageCard key={img.id} img={img} />
       ))}

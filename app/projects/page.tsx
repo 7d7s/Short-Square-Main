@@ -35,12 +35,12 @@ export default function ProjectsPage() {
 
   // Sample projects data
   const images = [
-    { id: 1, title: "Bride Portrait",client: "vijay", year: "2020",  category: "Wedding", descriptin: "A visual journey showcasing passion, perspective, and perfectly timed moments that speak louder than words.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/wedding2_sulv3s.jpg" },
-    { id: 2, title: "Fashion Shoot",client: "rahulk", year: "2021",  category: "Fashion", descriptin: "From fleeting moments to lasting impressions — I capture what words often fail to express.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion_zs20r0.avif" },
-    { id: 3, title: "Architecture Marvel",client: "vibha", year: "2022",  category: "Fashion", descriptin: "A visual journey showcasing passion, perspective, and perfectly timed moments that speak louder than words.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/a_wkz3id.jpg" },
-    { id: 4, title: "Urban Documentary",client: "nk", year: "2023",  category: "Documentary", descriptin: "From fleeting moments to lasting impressions — I capture what words often fail to express.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/d3_ourkxr.jpg" },
-    { id: 5, title: "Classic Commercial",client: "ram", year: "2021",  category: "Commercial", descriptin: "A visual journey showcasing passion, perspective, and perfectly timed moments that speak louder than words.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/camera4_ituqwy.jpg" },
-    { id: 6, title: "Portrait Perfection",client: "vijay", year: "2025",  category: "Portrait", descriptin: "A visual journey showcasing passion, perspective, and perfectly timed moments that speak louder than words.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/c_pb096u.jpg" },
+    { id: 1, title: "Bride Portrait",client: "vijay", year: "2020",  category: "Wedding", descriptin: "A visual journey showcasing passion, perspective, and perfectly timed moments that speak louder than words.  From fleeting moments to lasting impressions I capture what words often fail to express. Where creativity meets clarity exploring life through focused frames and powerful photographic storytelling.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/wedding2_sulv3s.jpg" },
+    { id: 2, title: "Fashion Shoot",client: "rahulk", year: "2021",  category: "Fashion", descriptin: "From fleeting moments to lasting impressions ,I capture what words often fail to express. From fleeting moments to lasting impressions I capture what words often fail to express. Where creativity meets clarity — exploring life through focused frames and powerful photographic storytelling.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion_zs20r0.avif" },
+    { id: 3, title: "Architecture Marvel",client: "vibha", year: "2022",  category: "Fashion", descriptin: "A visual journey showcasing passion, perspective, and perfectly timed moments that speak louder than words. From fleeting moments to lasting impressions I capture what words often fail to express. Where creativity meets clarity exploring life through focused frames and powerful photographic storytelling.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/a_wkz3id.jpg" },
+    { id: 4, title: "Urban Documentary",client: "nk", year: "2023",  category: "Documentary", descriptin: "From fleeting moments to lasting impressions I capture what words often fail to express. From fleeting moments to lasting impressions I capture what words often fail to express. Where creativity meets clarity — exploring life through focused frames and powerful photographic storytelling.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/d3_ourkxr.jpg" },
+    { id: 5, title: "Classic Commercial",client: "ram", year: "2021",  category: "Commercial", descriptin: "A visual journey showcasing passion, perspective, and perfectly timed moments that speak louder than words. From fleeting moments to lasting impressions I capture what words often fail to express. Where creativity meets clarity exploring life through focused frames and powerful photographic storytelling.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/camera4_ituqwy.jpg" },
+    { id: 6, title: "Portrait Perfection",client: "vijay", year: "2025",  category: "Portrait", descriptin: "A visual journey showcasing passion, perspective, and perfectly timed moments that speak louder than words. From fleeting moments to lasting impressions I capture what words often fail to express. Where creativity meets clarity exploring life through focused frames and powerful photographic storytelling.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/c_pb096u.jpg" },
     // Add more...
   ];
 
@@ -77,8 +77,8 @@ export default function ProjectsPage() {
             className="py-6 bg-white rounded-2xl my-6 sticky top-0 z-20 shadow-sm"
           >
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-col md:flex-row md:justify-between justify-center items-center gap-4">
+          <div className="flex flex-wrap gap-2 md:justify-start justify-center items-center">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -138,7 +138,7 @@ export default function ProjectsPage() {
           height={1000}
           alt={img.title}
           className={`w-full ${
-            filteredImages.length <= 1 && index === 0 ? 'h-72' : 'h-72'
+            filteredImages.length <= 1 && index === 0 ? 'h-72 max-w-sm' : 'h-72'
           } object-cover rounded-xl relative`}
         />
         
@@ -163,7 +163,7 @@ export default function ProjectsPage() {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2, duration: 0.3 }}
-        className="hidden md:block px-6 col-span-2"
+        className="md:px-6 col-span-2"
       >
         <div className="space-y-4">
           {filteredImages
@@ -188,7 +188,7 @@ export default function ProjectsPage() {
                   <p className="text-sm text-gray-300 mt-1 line-clamp-2">
                     {item.client} • {item.category}
                   </p>
-                  <p className='py-6'>{item.descriptin}</p>
+                  <p className='py-5 text-justify leading-relaxed'>{item.descriptin}</p>
                 </div>
               </motion.div>
             ))}

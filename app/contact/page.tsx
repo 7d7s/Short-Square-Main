@@ -1,8 +1,10 @@
 "use client";
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi';
 import Banner from '@/components/common/banner';
 import GetInTouch from '@/components/getInTouch';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 interface FormData {
   name: string;
@@ -81,6 +83,13 @@ export default function ContactPage() {
       answer: "Delivery time depends on the project scope, but typically 2-3 weeks after the shoot."
     }
   ];
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const toggleFAQ = (index: number) => {
+    setActiveIndex(index === activeIndex ? -1 : index);
+  };
+
 
   return (
     <div className="min-h-screen">
@@ -257,30 +266,37 @@ export default function ContactPage() {
           </div>
           
           <div className="space-y-4 mt-10">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 ease-in-out">
-                <details className="group">
-                  <summary className="list-none p-6 cursor-pointer flex justify-between items-center hover:bg-gray-50 transition-colors duration-200">
-                    <h3 className="text-lg font-medium text-gray-800">{faq.question}</h3>
-                    <svg
-                      className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-200"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </summary>
-                  <div className="px-6 pb-6 pt-0 text-gray-600 transition-all duration-300 ease-in-out transform origin-top scale-y-0 group-open:scale-y-100">
-                    <p className="mt-2">{faq.answer}</p>
-                  </div>
-                </details>
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className={`md:p-7 p-5 rounded-2xl border ${activeIndex === index ? '' : ''}`}
+              onClick={() => toggleFAQ(index)}
+            >
+              <div className="flex justify-between items-center cursor-pointer">
+                <div className="flex items-center space-x-6">
+                  <h3 className="text-xl text-green-dark">{faq.question}</h3>
+                </div>
+                {activeIndex === index ? (
+                  <IoIosArrowUp className="text-green-dark" size={25}/>
+                ) : (
+                  <IoIosArrowDown  className="text-green-dark" size={25}/>
+                )}
               </div>
-            ))}
+              <AnimatePresence>
+                {activeIndex === index && faq.answer && (
+                  <motion.p 
+                    className="mt-2 text-gray-300"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  >
+                    {faq.answer}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
           </div>
         </div>
       </section>
