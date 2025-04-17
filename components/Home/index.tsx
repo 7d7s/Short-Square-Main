@@ -6,7 +6,7 @@ import Work from "@/components/work";
 
 function Home() {
   return (
-    <div>
+    <div className="container mx-auto">
       <Hero />
       <AboutUs />
       <ExpertiseSec />

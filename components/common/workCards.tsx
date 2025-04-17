@@ -1,6 +1,5 @@
 "use client";
 import { IoIosArrowForward } from "react-icons/io";
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,27 +8,27 @@ type Card = {
   title: string;
   description: string;
   image: string;
+  tags: string[];
 };
 
 const cards: Card[] = [
   {
-    title: "Majestic Creatures of the African Savanna",
-    description:
-      "Capturing the Exquisite Patterns and Dynamic Energy of Africa's Most Iconic Big Cat",
-    image:
-      "https://img.freepik.com/free-photo/cheetah-standing-dead-tree_181624-16716.jpg",
+    title: "Capturing Love, One Moment at a Time.",
+    description: "We capture the magic of love, one beautiful moment at a time.",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744794512/a_k2mxoq.png",
+    tags: ["Couple", "Portrait"],
   },
   {
     title: "A Temple's Serene Silhouette",
     description: "A beautiful temple surrounded by nature's calmness.",
-    image:
-      "https://img.freepik.com/free-photo/landscape-tropical-green-forest_181624-30814.jpg",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744716998/temple_vwcym5.jpg",
+    tags: ["Landscape", "Spiritual", "Travel"],
   },
   {
     title: "Moments Framed in Portraits",
     description: "Capturing the emotions and beauty in human portraits.",
-    image:
-      "https://img.freepik.com/free-photo/grassy-field-with-trees-giraffes-walking-around_181624-3477.jpg",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744717887/Framed_in_Portraits_bsoncf.avif",
+    tags: ["Portrait", "Art", "Emotions"],
   },
 ];
 
@@ -48,11 +47,7 @@ const CardSlider = () => {
   }, []);
 
   return (
-    <section
-      className="container mx-auto mt-8"
-      data-aos="fade-up"
-      data-aos-delay="600"
-    >
+    <section className="container mx-auto mt-8" data-aos="fade-up" data-aos-delay="600">
       <div className="flex flex-col md:flex-row gap-4 md:h-[400px]">
         {cards.map((card, index) => (
           <motion.div
@@ -65,9 +60,7 @@ const CardSlider = () => {
               width: isMobile ? "100%" : activeIndex === index ? "44%" : "28%",
             }}
             transition={{ type: "spring", damping: 20, stiffness: 100 }}
-            whileHover={
-              !isMobile && activeIndex !== index ? { scale: 1.02 } : {}
-            }
+            whileHover={!isMobile && activeIndex !== index ? { scale: 1.02 } : {}}
           >
             <Image
               src={card.image}
@@ -78,30 +71,19 @@ const CardSlider = () => {
               priority={index === activeIndex}
             />
 
-            {/* Tags - Hidden on mobile, visible on larger screens */}
-            {(activeIndex === index || isMobile) && (
+            {/* Dynamic Tags */}
+            {(activeIndex === index || isMobile) && card.tags?.length > 0 && (
               <div className="absolute top-7 right-0 hidden md:block">
-                <div className="grid grid-cols-2 gap-10">
-                  <div className="col-span-2 text-black">
-                    <div className="">
-                      <span className="text-sm lg:px-3 p-2 lg:py-2 border rounded-full bg-white/50 hover:bg-white/70 transition-all cursor-pointer backdrop-blur-md me-2">
-                        Landscape
+                <div className="text-black">
+                  <div className="flex flex-wrap gap-2">
+                    {card.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="text-sm lg:px-3 p-2 lg:py-2 border rounded-full bg-white/50 hover:bg-white/70 transition-all cursor-pointer backdrop-blur-md me-2"
+                      >
+                        {tag}
                       </span>
-                      <span className="text-sm lg:px-3 p-2 lg:py-2 border rounded-full bg-white/50 hover:bg-white/70 transition-all cursor-pointer backdrop-blur-md me-2">
-                        Wildlife
-                      </span>
-                    </div>
-                    <div className="mt-5">
-                      <span className="text-sm lg:px-3 p-2 lg:py-2 border rounded-full bg-white/50 hover:bg-white/70 transition-all cursor-pointer backdrop-blur-md me-2">
-                        Travel
-                      </span>
-                      <span className="text-sm lg:px-3 p-2 lg:py-2 border rounded-full bg-white/50 hover:bg-white/70 transition-all cursor-pointer backdrop-blur-md me-2">
-                        Portrait
-                      </span>
-                      <span className="text-sm lg:px-3 p-2 lg:py-2 border rounded-full bg-white/50 hover:bg-white/70 transition-all cursor-pointer backdrop-blur-md me-2">
-                        Wildlife
-                      </span>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -124,7 +106,6 @@ const CardSlider = () => {
                   {card.title}
                 </motion.h3>
 
-                {/* Only show description for active card */}
                 {(activeIndex === index || isMobile) && (
                   <motion.p
                     className="text-sm lg:text-base opacity-80 mb-3"
@@ -137,7 +118,7 @@ const CardSlider = () => {
                 )}
 
                 <motion.button
-                  className="lg:px-4 px-2 py-2 flex items-center justify-between border uppercase  text-left border-white rounded-full group-hover:bg-white group-hover:text-black transition text-xs lg:text-base"
+                  className="lg:px-4 px-2 py-2 flex items-center justify-between border uppercase text-left border-white rounded-full group-hover:bg-white group-hover:text-black transition text-xs lg:text-base"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0 }}
