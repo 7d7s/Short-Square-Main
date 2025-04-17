@@ -32,11 +32,10 @@ const Footer = () => {
         >
           <div className="lg:max-w-[420] text-gray-300">
             <div className="space-y-2">
-              <p className="">456 Oak Avenue,</p>
-              <p className="">Cityville, MA 56789,</p>
-              <p className="">United States</p>
-              <p className="">+1 (555) 125-4567</p>
-              <p className="">mk@hello.com</p>
+              <p className="">MKGraphY, I-102, Second Floor, Block I,</p>
+              <p className="">Kirti Nagar, Delhi, 110015</p>
+              <p className="">+91 (834) 237-4567</p>
+              <p className="">support@mk.com</p>
             </div>
           </div>
         </div>
@@ -49,36 +48,15 @@ const Footer = () => {
           </div>
 
           <div className="hidden gap-8 lg:block">
-            <div className="flex gap-5 text-gray-200">
-              <Link
-                href="/about"
-                className="hover:text-white transition-colors duration-200"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/projects"
-                className="hover:text-white transition-colors duration-200"
-              >
-                Project
-              </Link>
-              <Link
-                href="/services"
-                className="hover:text-white transition-colors duration-200"
-              >
-                Services
-              </Link>
-              <Link
-                href="/terms"
-                className="hover:text-white transition-colors duration-200"
-              >
-                Terms & Condition
-              </Link>
-            </div>
+          <div className="flex gap-5 text-gray-200">
+    <Link href="/studio" className="hover:text-white transition-colors duration-200">Studio</Link>
+    <Link href="/projects" className="hover:text-white transition-colors duration-200">Project</Link>
+    <Link href="/contect" className="hover:text-white transition-colors duration-200">Contact</Link>
+  </div>
           </div>
           <div className="">
             <p className="text-sm text-gray-200 md:mt-0">
-              ©mk 2025. All Rights Reserved
+            &copy; {new Date().getFullYear()} MKGraphY. All rights reserved.
             </p>
           </div>
         </div>

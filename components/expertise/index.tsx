@@ -16,9 +16,9 @@ type CategoryContent = {
 };
 
 type CategoryContentMap = {
-  Landscape: CategoryContent;
-  Wildlife: CategoryContent;
-  Architectural: CategoryContent;
+  Wedding: CategoryContent;
+  Nature: CategoryContent;
+  Fashion: CategoryContent;
   Travel: CategoryContent;
   Portrait: CategoryContent;
 };
@@ -33,86 +33,95 @@ type Slide = {
 };
 
 const categoryContent: CategoryContentMap = {
-  Landscape: {
-    heading: "Nature's grandeur captured in every frame",
-    subheading: "When landscapes transform into timeless art",
+  Wedding: {
+    heading: "Capturing Love Stories Across India",
+    subheading: "From royal palaces of Rajasthan to beach weddings in Goa, we document your special day with elegance and emotion. Every glance, every tear, every smile - preserved forever in timeless frames.",
   },
-  Wildlife: {
-    heading: "Wild moments preserved forever captured in every frame",
-    subheading: "Where nature's drama unfolds before our lens",
+  Nature: {
+    heading: "India's Untamed Beauty",
+    subheading: "From the snow-capped Himalayas to the backwaters of Kerala, we capture nature's grandeur. Witness the vibrant wildlife of Ranthambore and serene landscapes of the Western Ghats through our lens.",
   },
-  Architectural: {
-    heading: "Structures that tell stories captured in every frame",
-    subheading: "Architectural marvels through our perspective",
+  Fashion: {
+    heading: "Where Tradition Meets Trend",
+    subheading: "Showcasing India's vibrant fashion scene - from traditional handlooms to contemporary designs. Our studio and outdoor shoots highlight textures, colors, and styles unique to Indian fashion.",
   },
   Travel: {
-    heading: "Journeys frozen in time captured in every frame",
-    subheading: "Discover the world through our vision",
+    heading: "Incredible India Through Our Lens",
+    subheading: "Discover hidden gems and iconic landmarks across our diverse nation. From bustling bazaars to tranquil temples, we frame the essence of India's cultural tapestry.",
   },
   Portrait: {
-    heading: "Emotions illuminated captured in every frame",
-    subheading: "Capturing the essence of human spirit",
+    heading: "Emotions Illuminated, Stories Told",
+    subheading: "Portraits that reveal the soul. Whether it's a child's innocent smile or the wisdom in an elder's eyes, we capture authentic emotions with perfect lighting and composition.",
   },
 };
 
 const categories: CategoryName[] = [
-  "Landscape",
-  "Wildlife",
-  "Architectural",
+  "Wedding",
+  "Nature",
+  "Fashion",
   "Travel",
   "Portrait",
 ];
 
 const slides: Slide[] = [
   {
-    title: "Chasing Clouds at Mont Blanc's Pinnacle",
-    location: "Mont Blanc, France",
-    image:
-      "https://img.freepik.com/free-photo/cheetah-standing-dead-tree_181624-16716.jpg?t=st=1743235339~exp=1743238939~hmac=4f2b11cfb124ec9f1f375fdf253b75cd3c454d582d32be66dc0bb8485c702348&w=996",
-    category: "Landscape",
+    title: "Royal Wedding at Udaipur Palace",
+    location: "City Palace, Udaipur, Rajasthan",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png",
+    category: "Wedding"
   },
   {
-    title: "Serene Waters of Moraine Lake",
-    location: "Alberta, Canada",
-    image:
-      "https://img.freepik.com/free-photo/landscape-tropical-green-forest_181624-30814.jpg?t=st=1743235379~exp=1743238979~hmac=71e135c7ae16502ae83aa9bab1c6f812d78e00c67ddba9e562de7f6ec561e92f&w=996",
-    category: "Wildlife",
+    title: "Sunrise at Dal Lake",
+    location: "Dal Lake, Srinagar, Jammu & Kashmir",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791310/sun_jgovbq.png",
+    category: "Nature"
   },
   {
-    title: "Golden Dunes of Sahara Desert",
-    location: "Sahara, Africa",
-    image:
-      "https://img.freepik.com/free-photo/grassy-field-with-trees-giraffes-walking-around-with-light-blue-sky-background_181624-3477.jpg?t=st=1743235400~exp=1743239000~hmac=25dbfece498a5e259629d42e5b47831543629db3f96763af482caf86623b69ef&w=996",
-    category: "Architectural",
+    title: "Traditional Handloom Photoshoot",
+    location: "Pochampally, Telangana",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791600/traditional_ltnzlb.avif",
+    category: "Fashion"
   },
+  {
+    title: "Street Photography in Old Delhi",
+    location: "Chandni Chowk, Delhi",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791051/street_Photography_xz99dw.avif",
+    category: "Travel"
+  },
+  {
+    title: "Bridal Portrait Session",
+    location: "Leela Palace, Bengaluru",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791050/p_ktihfq.avif",
+    category: "Portrait"
+  }
 ];
 
 const ExpertiseSec = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeCategory, setActiveCategory] =
-    useState<CategoryName>("Landscape");
+  const [activeCategory, setActiveCategory] = useState<CategoryName>("Wedding");
   const sliderRef = useRef<Slider>(null);
   const [direction, setDirection] = useState(0);
 
   const currentContent = categoryContent[activeCategory];
+  const currentSlide = slides[activeIndex];
 
   // Slick Carousel Settings
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 2500,
     slidesToShow: 1.1,
     slidesToScroll: 1,
     centerMode: false,
     centerPadding: "0px",
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 300,
     pauseOnHover: true,
     arrows: false,
     beforeChange: (current: number, next: number) => {
       setDirection(next > current ? 1 : -1);
       setActiveIndex(next);
-      setActiveCategory(slides[next]?.category || "Landscape");
+      setActiveCategory(slides[next]?.category || "Wedding");
     },
     responsive: [
       {
@@ -138,16 +147,12 @@ const ExpertiseSec = () => {
 
   const goToNext = () => {
     setDirection(1);
-    const nextIndex = (activeIndex + 1) % slides.length;
     sliderRef.current?.slickNext();
-    setActiveCategory(slides[nextIndex]?.category || "Landscape");
   };
 
   const goToPrev = () => {
     setDirection(-1);
-    const prevIndex = (activeIndex - 1 + slides.length) % slides.length;
     sliderRef.current?.slickPrev();
-    setActiveCategory(slides[prevIndex]?.category || "Landscape");
   };
 
   const handleCategoryClick = (category: CategoryName) => {
@@ -157,8 +162,6 @@ const ExpertiseSec = () => {
     if (categoryIndex !== -1) {
       setDirection(categoryIndex > activeIndex ? 1 : -1);
       sliderRef.current?.slickGoTo(categoryIndex);
-      setActiveIndex(categoryIndex);
-      setActiveCategory(category);
     }
   };
 
@@ -179,152 +182,82 @@ const ExpertiseSec = () => {
   };
 
   return (
-    <>
-      <section className="bg-primary-brown md:px-7 p-5 rounded-xl">
-        <div className="container mx-auto text-white py-10">
-          <div className="grid grid-cols-1  md:grid-cols-3 gap-10 items-center">
-            <div
-              className="text-gray-50 text-sm md:col-span-2"
-              data-aos="fade-up"
-            >
-              {/* <p className="mb-2">(02)</p> */}
-              <h3 className="text-2xl font-medium">Our Expertise</h3>
-              <div className="mt-4 lg:col-span-2 md:col-span-3">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeCategory}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <h2 className="text-xl md:text-2xl lg:text-5xl text-white font-light leading-tight">
-                      {currentContent.heading}
-                    </h2>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-
-            <div
-              className="text-right text-gray-300"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <ul className="md:space-y-2 md:block flex justify-around text-xs md:text-base">
-                {categories.map((category) => (
-                  <motion.li
-                    key={category}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`cursor-pointer transition-all duration-200 ${
-                      activeCategory === category
-                        ? "text-white font-semibold"
-                        : "opacity-50 hover:opacity-80"
-                    }`}
-                    onClick={() => handleCategoryClick(category)}
-                  >
-                    {category}
-                  </motion.li>
-                ))}
-              </ul>
+    <section className="bg-primary-brown md:px-7 p-5 rounded-xl">
+      <div className="container mx-auto text-white py-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+          <div className="text-gray-50 text-sm md:col-span-2">
+            <h3 className="text-2xl font-medium">Our Vision, Your Legacy – Expertly Captured</h3>
+            <div className="mt-4 lg:col-span-2 md:col-span-3 md:h-[180px] h-[40px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeCategory}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <h2 className="text-xl md:text-2xl lg:text-5xl text-white font-light leading-tight">
+                    {currentContent.heading}
+                  </h2>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
+
+          <div className="text-right text-gray-300">
+            <ul className="md:space-y-2 md:block flex justify-around text-xs md:text-base">
+              {categories.map((category) => (
+                <motion.li
+                  key={category}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`cursor-pointer transition-all duration-200 ${
+                    activeCategory === category
+                      ? "text-white font-semibold"
+                      : "opacity-50 hover:opacity-80"
+                  }`}
+                  onClick={() => handleCategoryClick(category)}
+                >
+                  {category}
+                </motion.li>
+              ))}
+            </ul>
+          </div>
         </div>
+      </div>
 
-        <div
-          className=" text-white lg:py-12"
-          data-aos="fade-up"
-          data-aos-delay="600"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-10 items-end">
-            <div className=" grid grid-cols-3 md:col-span-2 lg:col-span-1 mt-5">
-              <div className="lg:col-span-3 col-span-2">
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div
-                    key={activeIndex}
-                    custom={direction}
-                    variants={textVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{ duration: 0.4 }}
-                  >
-                    <h2 className="text-md md:text-xl lg:text-3xl font-medium mb-2">
-                      {slides[activeIndex].title}
-                    </h2>
-                    <p className="text-gray-400">
-                      {slides[activeIndex].location}
-                    </p>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              <div className="lg:text-start text-right mt-5">
+      <div className="text-white lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-10 items-end">
+          <div className="grid grid-cols-3 md:col-span-2 lg:col-span-1 mt-5">
+            <div className="lg:col-span-3 col-span-2">
+              <AnimatePresence mode="wait" custom={direction}>
                 <motion.div
-                  className="lg:flex space-x-4 pb-4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
+                  key={activeIndex}
+                  custom={direction}
+                  variants={textVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.4 }}
                 >
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="md:p-3 p-2 bg-gray-700 hover:text-black rounded-full hover:bg-white transition md:text:lg text-xs"
-                    onClick={goToPrev}
-                  >
-                    <FaArrowLeft />
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="md:p-3 p-2 bg-gray-700 hover:text-black rounded-full hover:bg-white transition md:text:lg text-xs"
-                    onClick={goToNext}
-                  >
-                    <FaArrowRight />
-                  </motion.button>
+                  <p className="text-md md:text-lg font-medium mb-2">
+                    {currentSlide.title}
+                  </p>
+                  <p className="text-gray-400 text-sm">
+                    {currentSlide.location}
+                  </p>
                 </motion.div>
-
-                <motion.a
-                  href="#"
-                  className=" text-gray-50 hover:text-white transition flex items-center justify-end lg:justify-start"
-                  whileHover={{ x: 5 }}
-                >
-                  See all &nbsp; <LuSquareArrowOutUpRight />
-                </motion.a>
-              </div>
+              </AnimatePresence>
+              <p className="text-sm text-gray-300 mt-4">
+                {currentContent.subheading}
+              </p>
             </div>
-
-            <div className="md:col-span-2">
-              <Slider ref={sliderRef} {...settings} className="w-full">
-                {slides.map((slide, index) => (
-                  <div key={index} className="px-2">
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <Image
-                        src={slide.image}
-                        width={1000}
-                        height={1000}
-                        alt={slide.title}
-                        className="md:ms-20 rounded-xl shadow-lg w-full md:h-96 h-auto object-cover"
-                      />
-                    </motion.div>
-                  </div>
-                ))}
-              </Slider>
-
-              <motion.div
-                className="mt-8 hidden  items-center space-x-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
+            <div className="lg:text-start text-right mt-5">
+              <motion.div className="lg:flex space-x-4 pb-4">
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-gray-700 hover:text-black rounded-full hover:bg-white transition"
+                  className="md:p-3 p-2 bg-gray-700 hover:text-black rounded-full hover:bg-white transition md:text:lg text-xs"
                   onClick={goToPrev}
                 >
                   <FaArrowLeft />
@@ -332,7 +265,7 @@ const ExpertiseSec = () => {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-gray-700 hover:text-black rounded-full hover:bg-white transition"
+                  className="md:p-3 p-2 bg-gray-700 hover:text-black rounded-full hover:bg-white transition md:text:lg text-xs"
                   onClick={goToNext}
                 >
                   <FaArrowRight />
@@ -341,16 +274,39 @@ const ExpertiseSec = () => {
 
               <motion.a
                 href="#"
-                className="mt-6 hidden text-gray-300 hover:text-white transition"
+                className="text-gray-50 hover:text-white transition flex items-center justify-end lg:justify-start text-sm"
                 whileHover={{ x: 5 }}
               >
-                See all →
+                View Gallery <LuSquareArrowOutUpRight className="ml-1" />
               </motion.a>
             </div>
           </div>
+
+          <div className="md:col-span-2">
+            <Slider ref={sliderRef} {...settings} className="w-full">
+              {slides.map((slide, index) => (
+                <div key={index} className="px-2">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Image
+                      src={slide.image}
+                      width={1000}
+                      height={667}
+                      alt={slide.title}
+                      className="md:ms-20 rounded-xl shadow-lg w-full md:h-96 h-auto object-cover"
+                      priority={index === activeIndex}
+                    />
+                  </motion.div>
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

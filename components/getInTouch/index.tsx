@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import DynamicButton from "@/components/common/button"; // Adjust the import path as needed
+import DynamicButton from "@/components/common/button";
 
 interface ReadyToCreateProps {
   title: string;

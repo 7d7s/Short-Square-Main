@@ -9,7 +9,7 @@ const awards = [
     year: "2015",
     title: "Sony World Photography Awards",
     image:
-      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/c_pb096u.jpg",
+      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744794923/sunset_wsbvva.avif",
     description:
       "As the sun gently descends in the western sky, casting a warm golden glow upon the rolling hills and meadows, the countryside settles into a tranquil serenity.",
   },
@@ -17,7 +17,7 @@ const awards = [
     year: "2017",
     title: "Travel Photographer Of The Year",
     image:
-      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/camera3_ftdr6h.jpg",
+      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744795283/trsvel_v4ouvo.avif",
     description:
       "A breathtaking journey through the world's most remote locations, capturing the essence of adventure and wanderlust.",
   },
@@ -33,7 +33,7 @@ const awards = [
     year: "2023",
     title: "International Photography Awards",
     image:
-      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744261600/i_pescd1.avif",
+      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744795662/aa_spqgjh.avif",
     description:
       "Recognizing talent and innovation in photography, celebrating the finest visual narratives of the year.",
   },

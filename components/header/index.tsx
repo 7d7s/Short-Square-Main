@@ -7,11 +7,11 @@ import {
   FaInstagram,
   FaPinterest,
   FaTwitter,
-  FaFacebook,
+  FaFacebook,   
   FaLayerGroup,
 } from "react-icons/fa";
 import Link from "next/link";
-import { FaPhoneVolume, FaRegSnowflake } from "react-icons/fa6";
+import { FaPhoneVolume } from "react-icons/fa6";
 import { MdArrowOutward, MdDashboard } from "react-icons/md";
 import { GiFilmProjector } from "react-icons/gi";
 
@@ -48,16 +48,16 @@ export default function Navbar() {
     <>
       <div className="absolute top-0 left-0 right-0 z-30 md:pt-16 pt-8">
         <div className="container mx-auto px-5">
-          <div className="grid lg:grid-cols-3 grid-cols-2 gap-8 items-center">
-            <div className="flex items-center md:pl-7 lg:pl-0 ml-4">
-              <FaRegSnowflake className="text-xl" /> &nbsp;
-              <span className="uppercase text-xl font-medium">MKGrapY</span>
+          <div className="grid lg:grid-cols-3 grid-cols-2 gap-8 items-center md:px-5 ">
+            <div className=" ">
+              <Link href="/" className="flex items-center"><FaCamera className="text-xl" /> &nbsp;
+              <span className="text-xl font-medium">MKGrapY</span></Link>
             </div>
 
             <div className="">
               <nav className="lg:bg-white/50 lg:backdrop-blur-md lg:shadow-md w-auto md:px-6 px-0 py-4 rounded-full flex items-center justify-between md:transform">
                 {/* Desktop Navigation */}
-                <div className="hidden mx-auto lg:flex items-center space-x-6 text-primary-gunmetal">
+                <div className="hidden mx-auto lg:flex items-center space-x-4 text-primary-gunmetal">
                   <Link href={"/"} className="font-bold hover:text-white/80">
                     Home
                   </Link>
@@ -126,7 +126,7 @@ export default function Navbar() {
               <div className="group space-x-2 relative w-auto text-end flex justify-end">
                 <Link
                   href="#"
-                  className="relative rounded-full font-semibold px-6 py-4 shadow-lg overflow-hidden text-black bg-white/70 backdrop-blur-md transition-all duration-500 ease-in-out flex items-center gap-2 group"
+                  className="relative rounded-full font-semibold px-6 py-4 shadow-lg overflow-hidden text-primary-gunmetal bg-white/70 backdrop-blur-md transition-all duration-500 ease-in-out flex items-center gap-2 group"
                 >
                   <span className="absolute inset-0 bg-primary-brown transition-transform duration-500 ease-in-out -translate-x-full group-hover:translate-x-0"></span>
                   <span className="relative text-sm z-10 flex items-center gap-2 uppercase group-hover:text-white">
