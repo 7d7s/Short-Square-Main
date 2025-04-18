@@ -51,7 +51,7 @@ const Footer = () => {
           <div className="flex gap-5 text-gray-200">
     <Link href="/studio" className="hover:text-white transition-colors duration-200">Studio</Link>
     <Link href="/projects" className="hover:text-white transition-colors duration-200">Project</Link>
-    <Link href="/contect" className="hover:text-white transition-colors duration-200">Contact</Link>
+    <Link href="/contact" className="hover:text-white transition-colors duration-200">Contact</Link>
   </div>
           </div>
           <div className="">
