@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -8,6 +7,7 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { LuSquareArrowOutUpRight } from "react-icons/lu";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 // Define types
 type CategoryContent = {
@@ -91,7 +91,7 @@ const slides: Slide[] = [
   {
     title: "Bridal Portrait Session",
     location: "Leela Palace, Bengaluru",
-    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791050/p_ktihfq.avif",
+    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg",
     category: "Portrait"
   }
 ];
@@ -226,7 +226,7 @@ const ExpertiseSec = () => {
         </div>
       </div>
 
-      <div className="text-white lg:py-12">
+      <div className="text-white lg:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-10 items-end">
           <div className="grid grid-cols-3 md:col-span-2 lg:col-span-1 mt-5">
             <div className="lg:col-span-3 col-span-2">
@@ -272,13 +272,12 @@ const ExpertiseSec = () => {
                 </motion.button>
               </motion.div>
 
-              <motion.a
-                href="#"
+              <Link
+                href="/projects"
                 className="text-gray-50 hover:text-white transition flex items-center justify-end lg:justify-start text-sm"
-                whileHover={{ x: 5 }}
               >
-                View Gallery <LuSquareArrowOutUpRight className="ml-1" />
-              </motion.a>
+                View <LuSquareArrowOutUpRight className="ml-1" />
+              </Link>
             </div>
           </div>
 

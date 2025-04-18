@@ -92,10 +92,10 @@ function Hero() {
 
   const sliderData: SlideData[] = [
     {
-      img: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744788695/wedding1_z4h16n.jpg",
+      img: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/camera_q8ak7w.jpg",
       title: "Capturing Love, One Moment at a Time.",
       desc: "First Slide Description",
-      heroImg: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744788695/wedding1_z4h16n.jpg",
+      heroImg: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/camera_q8ak7w.jpg",
     },
     {
       img: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744716998/temple_vwcym5.jpg",
@@ -104,10 +104,10 @@ function Hero() {
       heroImg: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744716998/temple_vwcym5.jpg",
     },
     {
-      img: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744789303/fashio_exfcmi.avif",
+      img: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg",
       title: "Bold. Beautiful. Captured with Style",
       desc: "Third Slide Description",
-      heroImg: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744789303/fashio_exfcmi.avif",
+      heroImg: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg",
     },
   ];
 

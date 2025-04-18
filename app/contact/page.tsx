@@ -211,8 +211,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-700 mb-1">Email</h3>
-                      <p className="text-gray-600">contact@mkgraphy.com</p>
-                      <p className="text-gray-600">bookings@mkgraphy.com</p>
+                      <p className="text-gray-600">contact@shortsquare.com</p>
+                      <p className="text-gray-600">bookings@shortsquare.com</p>
                     </div>
                   </div>
 
@@ -222,8 +222,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-700 mb-1">Phone</h3>
-                      <p className="text-gray-600">+91 (808) 571-4567</p>
-                      <p className="text-gray-600">+91 (834) 987-6543 (WhatsApp)</p>
+                      <p className="text-gray-600">+91 (880) 000-7740</p>
+                      <p className="text-gray-600">+91 (880) 000-7740 (WhatsApp)</p>
                     </div>
                   </div>
 
@@ -261,7 +261,7 @@ export default function ContactPage() {
       <section className="pb-5 px-4">
         <div className="container mx-auto grid lg:grid-cols-2">
           <div className='mt-10'>
-            <h2 className="text-3xl font-bold text-white mb-10">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold dark:text-white text-black mb-10">Frequently Asked Questions</h2>
             <p className='lg:max-w-96'>Got questions? {"We’ve"} got answers to help you understand our process, pricing, and more.</p>
           </div>
           
@@ -269,7 +269,7 @@ export default function ContactPage() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`md:p-7 p-5 rounded-2xl border ${activeIndex === index ? '' : ''}`}
+              className={`md:p-7 p-5 rounded-2xl dark:border-white border-black border ${activeIndex === index ? '' : ''}`}
               onClick={() => toggleFAQ(index)}
             >
               <div className="flex justify-between items-center cursor-pointer">
@@ -285,7 +285,7 @@ export default function ContactPage() {
               <AnimatePresence>
                 {activeIndex === index && faq.answer && (
                   <motion.p 
-                    className="mt-2 text-gray-300"
+                    className="mt-2 dark:text-gray-300 text-balck"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
