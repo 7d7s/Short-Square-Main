@@ -3,7 +3,6 @@ import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FaCamera,
   FaInstagram,
   FaPinterest,
   FaTwitter,
@@ -46,12 +45,12 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="absolute top-0 left-0 right-0 z-30 md:pt-16 pt-8">
+      <div className="absolute top-0 left-0 right-0 z-30 md:pt-16 pt-8 text-white ">
         <div className="container mx-auto px-5">
-          <div className="grid lg:grid-cols-3 grid-cols-2 gap-8 items-center md:px-5 ">
+          <div className="grid lg:grid-cols-3 grid-cols-2 gap-8 items-center px-5 ">
             <div className=" ">
-              <Link href="/" className="flex items-center"><FaCamera className="text-xl" /> &nbsp;
-              <span className="text-xl font-medium">MKGrapY</span></Link>
+              <Link href="/" className="flex items-center">
+              <span className="text-xl font-medium">ShortSquare </span></Link>
             </div>
 
             <div className="">
@@ -83,7 +82,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Mobile Menu Button */}
-                <div className="flex justify-end text-end w-full lg:hidden pr-5">
+                <div className="flex justify-end text-end w-full lg:hidden md:pr-5">
                   <button
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label="Toggle menu"
@@ -172,7 +171,7 @@ export default function Navbar() {
                 damping: 25,
                 stiffness: 200,
               }}
-              className="relative h-full w-4/5 max-w-xs bg-white shadow-2xl"
+              className="relative h-full w-4/5 max-w-xs bg-white dark:bg-black  shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex flex-col h-full p-5">
@@ -183,17 +182,16 @@ export default function Navbar() {
                       initial={{ scale: 0.8, rotate: -30 }}
                       animate={{ scale: 1, rotate: 0 }}
                       transition={{ delay: 0.2 }}
-                      className="text-2xl text-primary-gunmetal"
+                      className="text-2xl text-primary-gunmetal dark:text-white"
                     >
-                      <FaCamera />
                     </motion.div>
                     <motion.span
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.1 }}
-                      className="font-serif text-lg font-medium text-gray-800"
+                      className="text-lg font-medium text-primary-gunmetal dark:text-white"
                     >
-                      MkGraphY
+                      ShortSquare 
                     </motion.span>
                   </div>
                   <motion.button
@@ -202,7 +200,7 @@ export default function Navbar() {
                     aria-label="Close menu"
                     onClick={closeMenu}
                   >
-                    <FaTimes className="text-primary-gunmetal" />
+                    <FaTimes className="text-primary-gunmetal dark:text-white" />
                   </motion.button>
                 </div>
 
@@ -223,16 +221,14 @@ export default function Navbar() {
                       >
                         <Link
                           href={item.href}
-                          className="flex items-center px-3 py-3 text-gray-700 hover:text-primary-umber rounded-lg transition-colors group"
+                          className="flex items-center px-3 py-3 text-primary-gunmetal dark:text-white hover:text-primary-umber rounded-lg transition-colors group"
                           onClick={closeMenu}
                         >
-                          <span className="mr-3 text-lg text-primary-gunmetal group-hover:text-primary-umber">
+                          <span className="mr-3 text-lg text-primary-gunmetal dark:text-white group-hover:text-primary-umber">
                             {item.icon}
                           </span>
                           <span className="font-medium">{item.name}</span>
-                          <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                            <FaCamera className="text-sm text-primary-gunmetal" />
-                          </span>
+                      
                         </Link>
                       </motion.div>
                     ))}
@@ -261,7 +257,7 @@ export default function Navbar() {
                         key={i}
                         whileHover={{ y: -2 }}
                         href="#"
-                        className="text-gray-500 hover:text-blue-600 transition-colors"
+                        className="text-primary-gunmetal dark:text-white hover:text-blue-600 transition-colors"
                         aria-label={`Social media link ${i}`}
                       >
                         <Icon />

@@ -43,24 +43,24 @@ export default function AwardsTimeline() {
   const [selectedAward, setSelectedAward] = useState(awards[0]);
 
   return (
-    <section className="container mx-auto text-white ">
+    <section className="container mx-auto  dark:text-white text-black ">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div className="text-gray-50 text-sm" data-aos="fade-up">
+        <div className="dark:text-white text-black text-sm" data-aos="fade-up">
           {/* <p className="mb-2">(04)</p> */}
           <h3 className="text-2xl font-medium">Award</h3>
         </div>
         <div className="" data-aos="fade-up" data-aos-delay="300">
           <h2 className="text-xl md:text-2xl lg:text-5xl text-gray-500 leading-tight">
-            <span className="font-medium text-white">Award</span> is a pixel
-            that reflecting our ongoging{" "}
-            <span className="font-medium text-white"> dedication</span> most
-            <span className="font-medium text-white"> innovation</span> and
+            <span className="font-medium dark:text-white text-black">Award</span> is a pixel
+            that reflecting our ongoging
+            <span className="font-medium dark:text-white text-black"> dedication</span> most
+            <span className="font-medium dark:text-white text-black"> innovation</span> and
             excellence
           </h2>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8  text-white py-10 mb-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8  dark:text-white text-black py-10 mb-10">
         {/* Left Side */}
         <div
           className="order-2 lg:order-1 space-y-4 lg:col-span-2 md:col-span-2"
@@ -83,10 +83,10 @@ export default function AwardsTimeline() {
                   {award.title}
                 </p>
               </div>
-              <p className="text-2xl hidden md:block group-hover:text-white text-gray-400 transform transition-transform duration-300">
+              <p className="text-2xl hidden md:block group-hover:text-white dark:text-gray-400 text-gray-500 transform transition-transform duration-300">
                 {award.title}
               </p>
-              <FaArrowRight className="group-hover:bg-white group-hover:text-black p-3 md:w-14 w-10 h-10 border md:h-14 rounded-full transform transition-transform duration-300 group-hover:rotate-[-50deg]  text-gray-400" />
+              <FaArrowRight className="group-hover:bg-white group-hover:text-black p-3 md:w-14 w-10 h-10 dark:border border border-gray-500 md:h-14 rounded-full transform transition-transform duration-300 group-hover:rotate-[-50deg]  text-gray-400" />
             </div>
           ))}
         </div>
@@ -105,7 +105,7 @@ export default function AwardsTimeline() {
             className="rounded-lg w-full lg:max-w-xl object-cover shadow-lg"
           />
           <h2 className="text-xl mt-6">{selectedAward.title}</h2>
-          <p className="text-gray-400 mt-3 lg:max-w-lg">
+          <p className="dark:text-gray-400 text-gray-500 mt-3 lg:max-w-lg">
             {selectedAward.description}
           </p>
         </div>

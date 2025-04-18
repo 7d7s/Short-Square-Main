@@ -30,10 +30,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
       <div className="p-8 h-full flex flex-col">
         <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
         <p className="text-4xl font-bold text-amber-600 mb-1">{price}</p>
-        <p className="text-gray-500 mb-6">{duration}</p>
+        <p className="dark:text-gray-400 text-white mb-6">{duration}</p>
         <ul className="space-y-3 mb-8 flex-grow">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-center">
+            <li key={index} className="flex dark:text-gray-400 text-white items-center">
               <svg
                 className="w-5 h-5 text-amber-500 mr-2"
                 fill="none"

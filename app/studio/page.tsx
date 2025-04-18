@@ -5,7 +5,7 @@ import FeatureCard from '@/components/common/featureCard'
 import ImageCard from '@/components/common/GalleryCard';
 import Banner from '@/components/common/banner';
 import GetInTouch from '@/components/getInTouch'
-import PricingCard, { PricingCardProps } from "@/components/common/pricingCard";;
+// import PricingCard, { PricingCardProps } from "@/components/common/pricingCard";;
 
 interface FeatureCard {
     icon: React.ReactNode;
@@ -14,45 +14,45 @@ interface FeatureCard {
   }
 
 //Pricing Data
-const pricingOptions: PricingCardProps[] = [
-  {
-    title: "Half Day",
-    price: "$150",
-    duration: "4 hours",
-    features: [
-      "Access to basic equipment",
-      "1 backdrop setup",
-      "Natural light only",
-      "Lounge access",
-    ],
-  },
-  {
-    title: "Full Day",
-    price: "$275",
-    duration: "8 hours",
-    features: [
-      "Full equipment access",
-      "3 backdrop setups",
-      "Lighting equipment",
-      "Assistant available",
-      "Lounge access",
-    ],
-    popular: true,
-  },
-  {
-    title: "Premium",
-    price: "$450",
-    duration: "12 hours",
-    features: [
-      "Full equipment access",
-      "Unlimited backdrops",
-      "Professional lighting",
-      "Dedicated assistant",
-      "Priority scheduling",
-      "Refreshments included",
-    ],
-  },
-];
+// const pricingOptions: PricingCardProps[] = [
+//   {
+//     title: "Half Day",
+//     price: "$150",
+//     duration: "4 hours",
+//     features: [
+//       "Access to basic equipment",
+//       "1 backdrop setup",
+//       "Natural light only",
+//       "Lounge access",
+//     ],
+//   },
+//   {
+//     title: "Full Day",
+//     price: "$275",
+//     duration: "8 hours",
+//     features: [
+//       "Full equipment access",
+//       "3 backdrop setups",
+//       "Lighting equipment",
+//       "Assistant available",
+//       "Lounge access",
+//     ],
+//     popular: true,
+//   },
+//   {
+//     title: "Premium",
+//     price: "$450",
+//     duration: "12 hours",
+//     features: [
+//       "Full equipment access",
+//       "Unlimited backdrops",
+//       "Professional lighting",
+//       "Dedicated assistant",
+//       "Priority scheduling",
+//       "Refreshments included",
+//     ],
+//   },
+// ];
 
 // Features Data 
 const studioFeatures = [
@@ -169,7 +169,7 @@ export default function StudioPage() {
     />
 
       {/* Studio Features with stagger animation */}
-      <section  className="py-16 rounded-2xl my-10 px-4 md:px-8 bg-primary-brown">
+      <section  className="py-16 rounded-2xl my-10 px-4 md:px-8 text-white bg-primary-brown">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0 }}
@@ -200,7 +200,7 @@ export default function StudioPage() {
       <section className="py-16  px-4 rounded-2xl">
         <div className="">
           <motion.h2 
-            className="text-3xl font-bold text-center text-white mb-12"
+            className="text-3xl font-bold text-center dark:text-white text-black mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -218,7 +218,7 @@ export default function StudioPage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-16 my-10 px-4 rounded-2xl bg-primary-brown">
+      {/* <section className="py-16 my-10 px-4 rounded-2xl bg-primary-brown">
       <motion.h2
         className="text-3xl font-bold text-center mb-12 text-white"
         initial={{ opacity: 0 }}
@@ -236,7 +236,7 @@ export default function StudioPage() {
           </motion.div>
         ))}
       </div>
-    </section>
+    </section> */}
 
       {/* CTA Section with parallax effect */}
       <GetInTouch

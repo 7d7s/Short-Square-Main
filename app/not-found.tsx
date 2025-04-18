@@ -43,7 +43,7 @@ export default function NotFoundPage() {
 
   return (
     <motion.div 
-      className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex flex-col items-center justify-center p-6 text-center text-white overflow-hidden"
+      className="min-h-screen rounded-xl mb-5 bg-gradient-to-br from-gray-900 to-gray-800 flex flex-col items-center justify-center p-6 text-center text-white overflow-hidden"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
