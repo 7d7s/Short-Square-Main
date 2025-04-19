@@ -211,9 +211,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-700 mb-1">Email</h3>
-                      <p className="text-gray-600">contact@shortsquare.com</p>
-                      <p className="text-gray-600">bookings@shortsquare.com</p>
-                    </div>
+                      <p className="text-gray-600">contact@shotsquare.com</p>
+                      </div>
                   </div>
 
                   <div className="flex items-start">
@@ -222,8 +221,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-700 mb-1">Phone</h3>
-                      <p className="text-gray-600">+91 (880) 000-7740</p>
-                      <p className="text-gray-600">+91 (880) 000-7740 (WhatsApp)</p>
+                      <p className="text-gray-600">+91 8800007740</p>
                     </div>
                   </div>
 
@@ -243,7 +241,7 @@ export default function ContactPage() {
               {/* Map Embed */}
               <div className="bg-white rounded-xl shadow-md overflow-hidden">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224569.58236164317!2d76.69473190572896!3d28.42228244899542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5fe8e5c64b1e!2sGurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1744204065049!5m2!1sen!2sin" 
+                  src="https://www.google.com/maps/place/Vig+tower/@28.6513548,77.1441273,19z/data=!3m1!4b1!4m6!3m5!1s0x390d030331accc81:0xbb27ef270b1fb476!8m2!3d28.6513536!4d77.144771!16s%2Fg%2F11dxhcxg2g?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D" 
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
