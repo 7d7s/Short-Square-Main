@@ -34,8 +34,8 @@ const Footer = () => {
             <div className="space-y-2">
               <p className="">ShortSquare, I-102, Second Floor, Block I,</p>
               <p className="">Kirti Nagar, Delhi, 110015</p>
-              <p className="">+91 (834) 237-4567</p>
-              <p className="">support@mk.com</p>
+              <p className="">+91 8800007740</p>
+              <p className="">support@shotsquare.com</p>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@ const Footer = () => {
           </div>
           <div className="">
             <p className="text-sm text-gray-200 md:mt-0">
-            &copy; {new Date().getFullYear()} shortsquare. All rights reserved.
+            &copy; {new Date().getFullYear()} shotsquare. All rights reserved.
             </p>
           </div>
         </div>
