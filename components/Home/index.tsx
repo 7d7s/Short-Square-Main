@@ -4,6 +4,7 @@ import ExpertiseSec from "@/components/expertise";
 import Hero from "@/components/header/hero";
 import Work from "@/components/work";
 
+
 function Home() {
   return (
     <div className="container mx-auto">

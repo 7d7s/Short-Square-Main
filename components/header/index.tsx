@@ -50,7 +50,7 @@ export default function Navbar() {
           <div className="grid lg:grid-cols-3 grid-cols-2 gap-8 items-center px-5 ">
             <div className=" ">
               <Link href="/" className="flex items-center">
-              <span className="text-xl font-medium">ShortSquare </span></Link>
+              <span className="text-xl font-medium">Shotsquare </span></Link>
             </div>
 
             <div className="">
@@ -124,12 +124,12 @@ export default function Navbar() {
             <div className="lg:block hidden">
               <div className="group space-x-2 relative w-auto text-end flex justify-end">
                 <Link
-                  href="#"
+                  href="tel:+918800007740"
                   className="relative rounded-full font-semibold px-6 py-4 shadow-lg overflow-hidden text-primary-gunmetal bg-white/70 backdrop-blur-md transition-all duration-500 ease-in-out flex items-center gap-2 group"
                 >
                   <span className="absolute inset-0 bg-primary-brown transition-transform duration-500 ease-in-out -translate-x-full group-hover:translate-x-0"></span>
                   <span className="relative text-sm z-10 flex items-center gap-2 uppercase group-hover:text-white">
-                    Back A Call
+                    Book A Call
                   </span>
                 </Link>
                 <Link
@@ -191,7 +191,7 @@ export default function Navbar() {
                       transition={{ delay: 0.1 }}
                       className="text-lg font-medium text-primary-gunmetal dark:text-white"
                     >
-                      ShortSquare 
+                      Shotsquare 
                     </motion.span>
                   </div>
                   <motion.button

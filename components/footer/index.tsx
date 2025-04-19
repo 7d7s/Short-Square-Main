@@ -32,7 +32,7 @@ const Footer = () => {
         >
           <div className="lg:max-w-[420] text-gray-300">
             <div className="space-y-2">
-              <p className="">ShortSquare, I-102, Second Floor, Block I,</p>
+              <p className="">Shotsquare, I-102, Second Floor, Block I,</p>
               <p className="">Kirti Nagar, Delhi, 110015</p>
               <p className="">+91 8800007740</p>
               <p className="">support@shotsquare.com</p>
