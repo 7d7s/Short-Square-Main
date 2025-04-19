@@ -44,14 +44,14 @@ const Footer = () => {
       <footer className="md:mt-12  border-t border-gray-200 mt-8 pt-8">
         <div className="flex flex-col md:flex-row  md:justify-between justify-center items-center gap-5">
           <div className="">
-            <h2 className="text-2xl font-bold text-white">ShortSquare </h2>
+            <h2 className="text-2xl font-bold text-white">ShotSquare </h2>
           </div>
 
           <div className="hidden gap-8 lg:block">
           <div className="flex gap-5 text-gray-200">
     <Link href="/studio" className="hover:text-white transition-colors duration-200">Studio</Link>
     <Link href="/projects" className="hover:text-white transition-colors duration-200">Project</Link>
-    <Link href="/contect" className="hover:text-white transition-colors duration-200">Contact</Link>
+    <Link href="/contact" className="hover:text-white transition-colors duration-200">Contact</Link>
   </div>
           </div>
           <div className="">
