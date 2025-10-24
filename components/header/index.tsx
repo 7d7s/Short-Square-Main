@@ -22,16 +22,10 @@ interface NavItem {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  // const [mobileDropdown, setMobileDropdown] = useState(false);
 
-  // const toggleMobileDropdown = (e: React.MouseEvent) => {
-  //   e.stopPropagation();
-  //   setMobileDropdown(!mobileDropdown);
-  // };
 
   const closeMenu = () => {
     setIsOpen(false);
-    // setMobileDropdown(false);
   };
 
   const navItems: NavItem[] = [
@@ -247,7 +241,7 @@ export default function Navbar() {
                     className="block w-full text-center bg-gradient-to-r from-[#22333b] to-[#5d4f3f] text-white py-3 px-6 rounded-lg font-medium hover:shadow-lg transition-all"
                     onClick={closeMenu}
                   >
-                    Book a Session
+                    Book a call
                   </Link>
 
                   {/* Social links */}

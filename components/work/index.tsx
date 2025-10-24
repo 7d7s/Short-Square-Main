@@ -5,7 +5,7 @@ import DynamicButton from "@/components/common/button";
 
 const Work = () => {
   return (
-    <section className="container mx-auto  text-white py-20">
+    <section className="container mx-auto  text-white py-16">
       <div className="grid grid-cols-1 md:col-span-2 md:grid-cols-2 gap-10 items-center">
         <div
           className="dark:text-white text-black text-sm lg:col-span-1 md:col-span-2"
