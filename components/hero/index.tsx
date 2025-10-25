@@ -8,10 +8,6 @@ import "slick-carousel/slick/slick.css";
 import { motion, AnimatePresence } from "framer-motion";
 import Particles from "@/components/common/particles";
 
-interface SlideTag {
-  name: string;
-}
-
 interface SlideData {
   img: string;
   title: string;
@@ -19,9 +15,12 @@ interface SlideData {
   heroImg: string;
 }
 
+interface SlideTag {
+  name: string;
+}
+
 function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [direction, setDirection] = useState(1);
   const [displayTitle, setDisplayTitle] = useState("");
   const [typingComplete, setTypingComplete] = useState(false);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -50,24 +49,9 @@ function Hero() {
   ];
 
   const slideTags: SlideTag[][] = [
-    [
-      { name: "Wedding" },
-      { name: "Portrait" },
-      { name: "Couple" },
-      { name: "Romance" },
-    ],
-    [
-      { name: "Travel" },
-      { name: "Nature" },
-      { name: "Adventure" },
-      { name: "Landscape" },
-    ],
-    [
-      { name: "Fashion" },
-      { name: "Portrait" },
-      { name: "Studio" },
-      { name: "Model" },
-    ],
+    [{ name: "Wedding" }, { name: "Portrait" }, { name: "Couple" }, { name: "Romance" }],
+    [{ name: "Travel" }, { name: "Nature" }, { name: "Adventure" }, { name: "Landscape" }],
+    [{ name: "Fashion" }, { name: "Portrait" }, { name: "Studio" }, { name: "Model" }],
   ];
 
   const settings = {
@@ -81,16 +65,8 @@ function Hero() {
     centerMode: true,
     centerPadding: "8%",
     autoplaySpeed: 5000,
-    beforeChange: (current: number, next: number) => {
-      setDirection(next > current ? 1 : -1);
-      setActiveSlide(next);
-      startTypingAnimation(sliderData[next].title);
-    },
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2, centerPadding: "0%" } },
-      { breakpoint: 768, settings: { slidesToShow: 1, centerPadding: "5%" } },
-      { breakpoint: 480, settings: { slidesToShow: 1, centerPadding: "0%" } },
-    ],
+    beforeChange: (current: number, next: number) => setActiveSlide(next),
+    afterChange: (next: number) => startTypingAnimation(sliderData[next].title),
   };
 
   const startTypingAnimation = useCallback((text: string) => {
@@ -107,14 +83,11 @@ function Hero() {
     const typeNext = () => {
       if (i < text.length) {
         setDisplayTitle(text.slice(0, ++i));
-        typingTimeoutRef.current = setTimeout(typeNext, 35 + Math.random() * 25);
+        typingTimeoutRef.current = setTimeout(typeNext, 40 + Math.random() * 30);
       } else {
         setTypingComplete(true);
         if (cursorRef.current)
           cursorRef.current.style.animation = "blink 1s infinite";
-
-        sliderRef.current?.slickPause();
-        setTimeout(() => sliderRef.current?.slickPlay(), 2000);
       }
     };
     typingTimeoutRef.current = setTimeout(typeNext, 300);
@@ -123,23 +96,9 @@ function Hero() {
   useEffect(() => {
     startTypingAnimation(sliderData[0].title);
     return () => {
-      if (typingTimeoutRef.current) {
-        clearTimeout(typingTimeoutRef.current);
-      }
+      if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
     };
-  }, [startTypingAnimation, sliderData]);
-
-  const fadeVariants = {
-    enter: { opacity: 0 },
-    center: { opacity: 1 },
-    exit: { opacity: 0 },
-  };
-
-  const headingVariants = {
-    enter: (dir: number) => ({ x: dir > 0 ? 50 : -50, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (dir: number) => ({ x: dir > 0 ? -50 : 50, opacity: 0 }),
-  };
+  }, [startTypingAnimation]);
 
   return (
     <>
@@ -154,15 +113,13 @@ function Hero() {
         {/* Background */}
         <div className="absolute inset-0">
           <Particles />
-          <AnimatePresence custom={direction} initial={false}>
+          <AnimatePresence mode="wait">
             <motion.div
               key={activeSlide}
-              custom={direction}
-              variants={fadeVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
               className="absolute inset-0"
             >
               <Image
@@ -181,29 +138,21 @@ function Hero() {
         <div className="relative z-20 container mx-auto flex flex-col justify-between h-full">
           {/* Heading */}
           <div className="pt-56 md:pt-72 text-center lg:text-left">
-            <AnimatePresence custom={direction} mode="wait">
-              <motion.h1
-                key={activeSlide}
-                custom={direction}
-                variants={headingVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="text-3xl md:text-5xl lg:text-7xl font-semibold text-white tracking-tight w-11/12 lg:w-8/12 mx-auto lg:mx-0"
-              >
-                {displayTitle}
-                {!typingComplete && (
-                  <span
-                    ref={cursorRef}
-                    className="inline-block w-[2px] h-10 bg-white ml-1"
-                  />
-                )}
-              </motion.h1>
-            </AnimatePresence>
+            <motion.h1
+              className="text-3xl md:text-5xl lg:text-7xl font-semibold text-white tracking-tight w-11/12 lg:w-8/12 mx-auto lg:mx-0"
+              transition={{ duration: 0.7 }}
+            >
+              {displayTitle}
+              {!typingComplete && (
+                <span
+                  ref={cursorRef}
+                  className="inline-block w-[3px] h-[1em] bg-white ml-1 align-bottom"
+                />
+              )}
+            </motion.h1>
           </div>
 
-          {/* Fixed bottom section */}
+          {/* Bottom section */}
           <div className="absolute bottom-10 left-0 w-full">
             <div className="grid grid-cols-3 items-end gap-y-6">
               {/* Tags */}
@@ -214,7 +163,7 @@ function Hero() {
                       key={i}
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: 0.3 + i * 0.1 }}
+                      transition={{ delay: 0.2 + i * 0.1 }}
                       className="px-4 py-2 border border-white/20 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-md transition-all cursor-pointer shadow-sm"
                     >
                       {tag.name}
@@ -228,9 +177,7 @@ function Hero() {
                 <Slider ref={sliderRef} {...settings}>
                   {sliderData.map((item, i) => (
                     <div key={i} className="px-2">
-                      <motion.div
-                        className="p-2.5 border border-white/10 rounded-xl bg-white/10 backdrop-blur-md shadow-md hover:shadow-lg transition-all flex items-center"
-                      >
+                      <div className="p-2.5 border border-white/10 rounded-xl bg-white/10 backdrop-blur-md shadow-md flex items-center hover:shadow-lg transition-all">
                         <Image
                           src={item.img}
                           width={80}
@@ -238,10 +185,10 @@ function Hero() {
                           alt="Slide"
                           className="rounded-lg object-cover w-20 h-20"
                         />
-                        <p className="ml-3 text-lg font-medium text-white/90 line-clamp-2">
+                        <p className="ml-3 text-sm lg:text-base font-medium text-white/90 line-clamp-2">
                           {item.title}
                         </p>
-                      </motion.div>
+                      </div>
                     </div>
                   ))}
                 </Slider>
