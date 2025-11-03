@@ -1,5 +1,6 @@
 "use client";
-import { useState, useRef } from "react";
+
+import { useState, useRef, useCallback, useMemo } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -9,299 +10,310 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
-// Define types
-type CategoryContent = {
-  heading: string;
-  subheading: string;
-};
+// ---------- Types ----------
+type CategoryName = "Wedding" | "Nature" | "Fashion" | "Travel" | "Portrait";
 
-type CategoryContentMap = {
-  Wedding: CategoryContent;
-  Nature: CategoryContent;
-  Fashion: CategoryContent;
-  Travel: CategoryContent;
-  Portrait: CategoryContent;
-};
-
-type CategoryName = keyof CategoryContentMap;
-
-type Slide = {
+interface Slide {
   title: string;
   location: string;
   image: string;
   category: CategoryName;
-};
+}
 
-const categoryContent: CategoryContentMap = {
+interface CategoryContent {
+  heading: string;
+  subheading: string;
+}
+
+// ---------- Data ----------
+const categoryContent: Record<CategoryName, CategoryContent> = {
   Wedding: {
     heading: "Capturing Love Stories Across India",
-    subheading: "From royal palaces of Rajasthan to beach weddings in Goa, we document your special day with elegance and emotion. Every glance, every tear, every smile - preserved forever in timeless frames.",
+    subheading:
+      "From royal palaces of Rajasthan to beach weddings in Goa, we document your special day with elegance and emotion.",
   },
   Nature: {
     heading: "India's Untamed Beauty",
-    subheading: "From the snow-capped Himalayas to the backwaters of Kerala, we capture nature's grandeur. Witness the vibrant wildlife of Ranthambore and serene landscapes of the Western Ghats through our lens.",
+    subheading:
+      "From the Himalayas to Kerala's backwaters — experience India's breathtaking natural wonders through our lens.",
   },
   Fashion: {
     heading: "Where Tradition Meets Trend",
-    subheading: "Showcasing India's vibrant fashion scene - from traditional handlooms to contemporary designs. Our studio and outdoor shoots highlight textures, colors, and styles unique to Indian fashion.",
+    subheading:
+      "Bold, vibrant, and timeless — we capture fashion that celebrates India's artistry and spirit.",
   },
   Travel: {
     heading: "Incredible India Through Our Lens",
-    subheading: "Discover hidden gems and iconic landmarks across our diverse nation. From bustling bazaars to tranquil temples, we frame the essence of India's cultural tapestry.",
+    subheading:
+      "Discover hidden gems and iconic landmarks through frames that tell cultural stories beyond words.",
   },
   Portrait: {
     heading: "Emotions Illuminated, Stories Told",
-    subheading: "Portraits that reveal the soul. Whether it's a child's innocent smile or the wisdom in an elder's eyes, we capture authentic emotions with perfect lighting and composition.",
+    subheading:
+      "Intimate portraits that reveal emotion and character — crafted with precision lighting and soul.",
   },
 };
-
-const categories: CategoryName[] = [
-  "Wedding",
-  "Nature",
-  "Fashion",
-  "Travel",
-  "Portrait",
-];
 
 const slides: Slide[] = [
   {
     title: "Royal Wedding at Udaipur Palace",
     location: "City Palace, Udaipur, Rajasthan",
-    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png",
-    category: "Wedding"
+    image:
+      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png",
+    category: "Wedding",
   },
   {
     title: "Sunrise at Dal Lake",
     location: "Dal Lake, Srinagar, Jammu & Kashmir",
-    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791310/sun_jgovbq.png",
-    category: "Nature"
+    image:
+      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791310/sun_jgovbq.png",
+    category: "Nature",
   },
   {
     title: "Traditional Handloom Photoshoot",
     location: "Pochampally, Telangana",
-    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791600/traditional_ltnzlb.avif",
-    category: "Fashion"
+    image:
+      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791600/traditional_ltnzlb.avif",
+    category: "Fashion",
   },
   {
     title: "Street Photography in Old Delhi",
     location: "Chandni Chowk, Delhi",
-    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791051/street_Photography_xz99dw.avif",
-    category: "Travel"
+    image:
+      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791051/street_Photography_xz99dw.avif",
+    category: "Travel",
   },
   {
     title: "Bridal Portrait Session",
     location: "Leela Palace, Bengaluru",
-    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg",
-    category: "Portrait"
-  }
+    image:
+      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg",
+    category: "Portrait",
+  },
 ];
 
+// ---------- Component ----------
 const ExpertiseSec = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeCategory, setActiveCategory] = useState<CategoryName>("Wedding");
-  const sliderRef = useRef<Slider>(null);
   const [direction, setDirection] = useState(0);
+  const sliderRef = useRef<Slider>(null);
 
+  const activeCategory = slides[activeIndex].category;
   const currentContent = categoryContent[activeCategory];
-  const currentSlide = slides[activeIndex];
 
-  // Slick Carousel Settings
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 2500,
-    slidesToShow: 1.1,
-    slidesToScroll: 1,
-    centerMode: false,
-    centerPadding: "0px",
-    autoplay: true,
-    autoplaySpeed: 300,
-    pauseOnHover: true,
-    arrows: false,
-    beforeChange: (current: number, next: number) => {
-      setDirection(next > current ? 1 : -1);
-      setActiveIndex(next);
-      setActiveCategory(slides[next]?.category || "Wedding");
-    },
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1.1,
-        },
+  const settings = useMemo(
+    () => ({
+      dots: false,
+      infinite: true,
+      speed: 1200,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      pauseOnHover: true,
+      arrows: false,
+      lazyLoad: "ondemand" as const,
+      beforeChange: (current: number, next: number) => {
+        setDirection(next > current ? 1 : -1);
+        setActiveIndex(next);
       },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 1,
+            speed: 1000
+          }
         },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            speed: 800
+          }
         },
-      },
-    ],
-  };
+      ],
+    }),
+    []
+  );
 
-  const goToNext = () => {
-    setDirection(1);
-    sliderRef.current?.slickNext();
-  };
+  const goToNext = useCallback(() => sliderRef.current?.slickNext(), []);
+  const goToPrev = useCallback(() => sliderRef.current?.slickPrev(), []);
 
-  const goToPrev = () => {
-    setDirection(-1);
-    sliderRef.current?.slickPrev();
-  };
-
-  const handleCategoryClick = (category: CategoryName) => {
-    const categoryIndex = slides.findIndex(
-      (slide) => slide.category === category
-    );
-    if (categoryIndex !== -1) {
-      setDirection(categoryIndex > activeIndex ? 1 : -1);
-      sliderRef.current?.slickGoTo(categoryIndex);
-    }
-  };
-
-  // Animation variants
   const textVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 50 : -50,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction > 0 ? -50 : 50,
-      opacity: 0,
-    }),
+    enter: (dir: number) => ({ x: dir > 0 ? 50 : -50, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -50 : 50, opacity: 0 }),
   };
 
   return (
-    <section className="bg-primary-brown md:px-7 p-5 rounded-xl">
-      <div className="container mx-auto text-white py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-          <div className="text-gray-50 text-sm md:col-span-2">
-            <h3 className="text-2xl font-medium">Our Vision, Your Legacy – Expertly Captured</h3>
-            <div className="mt-4 lg:col-span-2 md:col-span-3 md:h-[180px] h-[40px]">
+    <section className="relative overflow-hidden rounded-3xl p-4 md:p-8 bg-primary-brown text-white">
+      <div className="relative container mx-auto z-10">
+        {/* Header */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-start mb-12 md:mb-16">
+          <div className="md:col-span-2">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-lg md:text-xl font-medium text-gray-300 tracking-wider uppercase mb-2"
+            >
+              Our Vision, Your Legacy – Expertly Captured
+            </motion.h3>
+            <div className="min-h-[100px] md:min-h-[140px] lg:min-h-0 flex items-start mt-3">
               <AnimatePresence mode="wait">
-                <motion.div
+                <motion.h2
                   key={activeCategory}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-3xl md:text-5xl lg:text-6xl font-light mt-4 leading-tight text-white"
                 >
-                  <h2 className="text-xl md:text-2xl lg:text-5xl text-white font-light leading-tight">
-                    {currentContent.heading}
-                  </h2>
-                </motion.div>
+                  {currentContent.heading}
+                </motion.h2>
               </AnimatePresence>
             </div>
           </div>
 
+          {/* Categories */}
           <div className="text-right text-gray-300">
-            <ul className="md:space-y-2 md:block flex justify-around text-xs md:text-base">
-              {categories.map((category) => (
+            <ul className="flex md:flex-col justify-between md:justify-end md:space-y-4 text-gray-400 text-sm md:text-base">
+              {(Object.keys(categoryContent) as CategoryName[]).map((cat) => (
                 <motion.li
-                  key={category}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`cursor-pointer transition-all duration-200 ${
-                    activeCategory === category
-                      ? "text-white font-semibold"
-                      : "opacity-50 hover:opacity-80"
-                  }`}
-                  onClick={() => handleCategoryClick(category)}
+                  key={cat}
+                  whileHover={{ scale: 1.05, color: "#fff" }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => {
+                    const idx = slides.findIndex((s) => s.category === cat);
+                    if (idx !== -1) sliderRef.current?.slickGoTo(idx);
+                  }}
+                  className={`relative cursor-pointer transition-all duration-300 px-2 py-1 rounded-lg ${cat === activeCategory
+                    ? "text-white font-semibold"
+                    : "hover:text-white/80"
+                    }`}
                 >
-                  {category}
+                  {cat}
+                  {cat === activeCategory && (
+                    <motion.div
+                      layoutId="activeCategory"
+                      className="text-lg"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
                 </motion.li>
               ))}
             </ul>
           </div>
         </div>
-      </div>
 
-      <div className="text-white lg:pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-10 items-end">
-          <div className="grid grid-cols-3 md:col-span-2 lg:col-span-1 mt-5">
-            <div className="lg:col-span-3 col-span-2">
-              <AnimatePresence mode="wait" custom={direction}>
-                <motion.div
-                  key={activeIndex}
-                  custom={direction}
-                  variants={textVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.4 }}
-                >
-                  <p className="text-md md:text-lg font-medium mb-2">
-                    {currentSlide.title}
-                  </p>
-                  <p className="text-gray-400 text-sm">
-                    {currentSlide.location}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-              <p className="text-sm text-gray-300 mt-4">
-                {currentContent.subheading}
-              </p>
-            </div>
-            <div className="lg:text-start text-right mt-5">
-              <motion.div className="lg:flex space-x-4 pb-4">
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="md:p-3 p-2 bg-gray-700 hover:text-black rounded-full hover:bg-white transition md:text:lg text-xs"
-                  onClick={goToPrev}
-                >
-                  <FaArrowLeft />
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="md:p-3 p-2 bg-gray-700 hover:text-black rounded-full hover:bg-white transition md:text:lg text-xs"
-                  onClick={goToNext}
-                >
-                  <FaArrowRight />
-                </motion.button>
-              </motion.div>
-
-              <Link
-                href="/projects"
-                className="text-gray-50 hover:text-white transition flex items-center justify-end lg:justify-start text-sm"
-              >
-                View <LuSquareArrowOutUpRight className="ml-1" />
-              </Link>
-            </div>
-          </div>
-
-          <div className="md:col-span-2">
-            <Slider ref={sliderRef} {...settings} className="w-full">
-              {slides.map((slide, index) => (
-                <div key={index} className="px-2">
+        {/* Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 items-end">
+          <div className="md:col-span-2 relative order-1 md:order-2 lg:order-2">
+            <Slider ref={sliderRef} {...settings}>
+              {slides.map((slide, i) => (
+                <div key={i}>
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
+                    initial={{ opacity: 0.8, y: 20, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    whileHover={{ scale: 1.01 }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                      scale: { duration: 0.3 },
+                    }}
+                    className="overflow-hidden rounded-2xl border border-white/10 relative group"
                   >
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+
                     <Image
                       src={slide.image}
-                      width={1000}
-                      height={667}
                       alt={slide.title}
-                      className="md:ms-20 rounded-xl shadow-lg w-full md:h-96 h-auto object-cover"
-                      priority={index === activeIndex}
+                      width={1200}
+                      height={800}
+                      className="w-full h-80 md:h-96 lg:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
+                      priority={i === activeIndex}
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
                     />
+
+                    {/* Image Indicator */}
+                    <div className="absolute bottom-4 right-4 z-20">
+                      <div className="bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 text-xs text-white/90">
+                        {i + 1} / {slides.length}
+                      </div>
+                    </div>
                   </motion.div>
                 </div>
               ))}
             </Slider>
+          </div>
+
+          <div className="space-y-6 md:col-span-2 lg:col-span-1 order-2 md:order-1 lg:order-1">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={activeIndex}
+                custom={direction}
+                variants={textVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="space-y-2"
+              >
+                <h4 className="text-2xl md:text-4xl font-semibold text-white leading-tight">
+                  {slides[activeIndex].title}
+                </h4>
+                <p className="text-gray-300 text-base tracking-wide font-medium">
+                  {slides[activeIndex].location}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-gray-300 text-lg leading-relaxed border-l-2 border-white/20 pl-4 italic"
+            >
+              {currentContent.subheading}
+            </motion.p>
+
+            <div className="flex items-center justify-between md:justify-start gap-6 pt-6">
+              <div className="flex space-x-4">
+                {[
+                  { icon: <FaArrowLeft size={14} />, action: goToPrev },
+                  { icon: <FaArrowRight size={14} />, action: goToNext },
+                ].map((btn, i) => (
+                  <motion.button
+                    key={i}
+                    whileHover={{
+                      scale: 1.1,
+                      backgroundColor: "rgba(255,255,255,0.15)",
+                    }}
+                    whileTap={{ scale: 0.9 }}
+                    className="p-3 backdrop-blur-md bg-white/10 rounded-full border border-white/20 shadow-sm transition-all duration-300 hover:shadow-xl"
+                    onClick={btn.action}
+                  >
+                    {btn.icon}
+                  </motion.button>
+                ))}
+              </div>
+
+              <Link
+                href="/projects"
+                className="group flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-all duration-300 font-medium"
+              >
+                View All Projects
+                <motion.span
+                  whileHover={{ x: 3, y: -3 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <LuSquareArrowOutUpRight size={18} />
+                </motion.span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

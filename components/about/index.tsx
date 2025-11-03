@@ -4,7 +4,7 @@ import DynamicButton from "@/components/common/button";
 
 const AboutUs = () => {
   return (
-    <section className="container mx-auto  py-20">
+    <section className="container mx-auto py-16">
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-10 ">
         <div
           className="dark:text-gray-50 text-black text-sm md:col-span-2 lg:col-span-1 flex flex-col justify-between items-start"
