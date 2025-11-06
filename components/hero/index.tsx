@@ -98,7 +98,7 @@ function Hero() {
     return () => {
       if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
     };
-  }, [startTypingAnimation]);
+  });
 
   return (
     <>

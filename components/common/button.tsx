@@ -20,7 +20,7 @@ const DynamicButton = ({
     <div className="group space-x-2 relative w-auto text-end flex justify-end items-center">
       <Link
         href="tel:+918800007740"
-        className={`relative rounded-full font-semibold md:px-6 md:py-4 py-2 px-3 shadow-lg overflow-hidden ${textColor} ${bgColor} dark:text-white text-black backdrop-blur-md transition-all duration-500 ease-in-out flex items-center gap-2 group`}
+        className={`relative rounded-full font-semibold md:px-6 md:py-4 py-3 px-4 shadow-lg overflow-hidden ${textColor} ${bgColor} dark:text-white text-black backdrop-blur-md transition-all duration-500 ease-in-out flex items-center gap-2 group`}
       >
         <span
           className={`absolute inset-0  ${hoverBgColor} transition-transform duration-500 ease-in-out -translate-x-full group-hover:translate-x-0`}

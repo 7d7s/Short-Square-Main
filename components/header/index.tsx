@@ -1,34 +1,20 @@
 "use client";
+
 import { useState } from "react";
-import { FaTimes } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  FaInstagram,
-  FaPinterest,
-  FaTwitter,
-  FaFacebook,   
-  FaLayerGroup,
-} from "react-icons/fa";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaTimes, FaInstagram, FaPinterest, FaTwitter, FaFacebook } from "react-icons/fa";
+import { FaLayerGroup } from "react-icons/fa";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { MdArrowOutward, MdDashboard } from "react-icons/md";
 import { GiFilmProjector } from "react-icons/gi";
 
-interface NavItem {
-  name: string;
-  icon: React.ReactNode;
-  href: string;
-}
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
-  const navItems: NavItem[] = [
+  const navItems = [
     { name: "Home", icon: <MdDashboard />, href: "/" },
     { name: "Studio", icon: <FaLayerGroup />, href: "/studio" },
     { name: "Projects", icon: <GiFilmProjector />, href: "/projects" },
@@ -37,228 +23,245 @@ export default function Navbar() {
 
   const socialIcons = [FaInstagram, FaFacebook, FaTwitter, FaPinterest];
 
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <>
-      <div className="absolute top-0 left-0 right-0 z-30 md:pt-16 pt-8 text-white ">
-        <div className="container mx-auto px-5">
-          <div className="grid lg:grid-cols-3 grid-cols-2 gap-8 items-center px-5 ">
-            <div className=" ">
-              <Link href="/" className="flex items-center">
-              <span className="text-xl font-medium">Shotsquare </span></Link>
-            </div>
+      {/* TOP NAVBAR */}
+      <div className="absolute top-0 left-0 right-0 z-50 md:pt-14 pt-8 text-white">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-3 grid-cols-2 gap-8 items-center">
 
-            <div className="">
-              <nav className="lg:bg-white/50 lg:backdrop-blur-md lg:shadow-md w-auto md:px-6 px-0 py-4 rounded-full flex items-center justify-between md:transform">
-                {/* Desktop Navigation */}
-                <div className="hidden mx-auto lg:flex items-center space-x-4 text-primary-gunmetal">
-                  <Link href={"/"} className="font-bold hover:text-white/80">
-                    Home
-                  </Link>
+            {/* LOGO */}
+            <motion.div
+              className="flex items-center"
+              whileHover={{ scale: 1.05 }}
+            >
+              <Link href="/" className="group">
+                <span className="text-2xl font-bold bg-gradient-to-r from-white to-[#c8b390] bg-clip-text text-transparent group-hover:opacity-90 transition">
+                  Shotsquare
+                </span>
+              </Link>
+            </motion.div>
 
-                  <Link
-                    href={"/studio"}
-                    className="border-r border-l px-3 font-bold hover:text-white/80"
-                  >
-                    Studio
-                  </Link>
-                  <Link
-                    href="/projects"
-                    className="border-r border-white pr-3 font-bold hover:text-white/80"
-                  >
-                    Projects
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="font-bold hover:text-white/80"
-                  >
-                    Contact
-                  </Link>
-                </div>
+            {/* DESKTOP NAV */}
+            <div className="hidden lg:flex justify-center">
+              <motion.nav
+                initial={{ y: -18, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl px-8 py-3 rounded-full flex items-center space-x-8"
+              >
+                {navItems.map((item) => {
+                  const isActive = pathname === item.href;
 
-                {/* Mobile Menu Button */}
-                <div className="flex justify-end text-end w-full lg:hidden md:pr-5">
-                  <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label="Toggle menu"
-                    className="relative w-10 h-10 flex items-center justify-center"
-                  >
-                    <motion.div
-                      initial={false}
-                      animate={isOpen ? "open" : "closed"}
-                      className="relative w-6 h-5"
-                    >
-                      <motion.span
-                        className="absolute block w-full h-0.5 bg-white rounded-full"
-                        variants={{
-                          closed: { top: "0%", rotate: 0 },
-                          open: { top: "50%", rotate: 45 },
-                        }}
-                      />
-                      <motion.span
-                        className="absolute block w-full h-0.5 bg-white rounded-full"
-                        variants={{
-                          closed: { top: "50%", opacity: 1 },
-                          open: { top: "50%", opacity: 0 },
-                        }}
-                      />
-                      <motion.span
-                        className="absolute block w-full h-0.5 bg-white rounded-full"
-                        variants={{
-                          closed: { top: "100%", rotate: 0 },
-                          open: { top: "50%", rotate: -45 },
-                        }}
-                      />
+                  return (
+                    <motion.div key={item.name} whileHover={{ y: -2 }}>
+                      <Link
+                        href={item.href}
+                        className={`relative text-sm uppercase tracking-wider font-medium transition-all duration-300 group
+                          ${isActive ? "text-white" : "text-white/70 hover:text-white"}`}
+                      >
+                        {item.name}
+
+                        {/* ACTIVE OR HOVER UNDERLINE */}
+                        <span
+                          className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-[#c8b390] to-[#9a8368] transition-all duration-300
+                            ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                        />
+                      </Link>
                     </motion.div>
-                  </button>
-                </div>
-              </nav>
+                  );
+                })}
+              </motion.nav>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="lg:block hidden">
-              <div className="group space-x-2 relative w-auto text-end flex justify-end">
-                <Link
-                  href="tel:+918800007740"
-                  className="relative rounded-full font-semibold px-6 py-4 shadow-lg overflow-hidden text-primary-gunmetal bg-white/70 backdrop-blur-md transition-all duration-500 ease-in-out flex items-center gap-2 group"
-                >
-                  <span className="absolute inset-0 bg-primary-brown transition-transform duration-500 ease-in-out -translate-x-full group-hover:translate-x-0"></span>
-                  <span className="relative text-sm z-10 flex items-center gap-2 uppercase group-hover:text-white">
-                    Book A Call
-                  </span>
-                </Link>
-                <Link
-                  href="#"
-                  className="relative rounded-full font-semibold p-4 shadow-lg overflow-hidden text-black bg-white transition-all duration-500 ease-in-out flex items-center gap-2 group"
-                >
-                  <MdArrowOutward size={20} />
-                </Link>
-              </div>
+            {/* DESKTOP CTA BUTTONS */}
+            <div className="hidden lg:flex justify-end">
+              <motion.div
+                initial={{ y: -18, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="flex items-center space-x-3"
+              >
+
+                {/* BOOK A CALL */}
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link
+                    href="tel:+918800007740"
+                    className="relative rounded-full font-semibold px-6 py-3 shadow-2xl overflow-hidden text-white bg-gradient-to-r from-[#c8b390] to-[#9a8368] backdrop-blur-lg transition-all duration-500 ease-in-out flex items-center gap-2 group"
+                  >
+                    <span className="absolute inset-0 bg-white/10 transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"></span>
+                    <span className="relative text-sm z-10 flex items-center gap-2 uppercase tracking-wide">
+                      Book A Call
+                    </span>
+                  </Link>
+                </motion.div>
+              </motion.div>
             </div>
+
+            {/* MOBILE MENU */}
+            <div className="flex justify-end lg:hidden">
+              <motion.button
+                onClick={() => setIsOpen((prev) => !prev)}
+                aria-label="Toggle menu"
+                className="w-10 h-10 flex items-center justify-center bg-white/10 border border-white/20 backdrop-blur-lg rounded-full shadow-xl"
+                whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.15)" }}
+                whileTap={{ scale: 0.9 }}
+              >
+                {/* Animated Hamburger */}
+                <motion.div
+                  animate={isOpen ? "open" : "closed"}
+                  className="relative w-5 h-4"
+                >
+                  <motion.span
+                    className="absolute block w-full h-0.5 bg-white rounded-full"
+                    variants={{
+                      closed: { top: 0, rotate: 0 },
+                      open: { top: "50%", rotate: 45 },
+                    }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <motion.span
+                    className="absolute block w-full h-0.5 bg-white rounded-full"
+                    variants={{
+                      closed: { top: "50%", opacity: 1 },
+                      open: { top: "50%", opacity: 0 },
+                    }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <motion.span
+                    className="absolute block w-full h-0.5 bg-white rounded-full"
+                    variants={{
+                      closed: { top: "100%", rotate: 0 },
+                      open: { top: "50%", rotate: -45 },
+                    }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
+              </motion.button>
+            </div>
+
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="fixed inset-0 z-50 lg:hidden"
           >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-              onClick={closeMenu}
-            />
+            {/* backdrop */}
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={closeMenu} />
 
+            {/* slide panel */}
             <motion.div
-              initial={{ x: "-100%" }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{
-                type: "spring",
-                damping: 25,
-                stiffness: 200,
-              }}
-              className="relative h-full w-4/5 max-w-xs bg-white dark:bg-black  shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 260 }}
+              className="relative h-full w-full md:w-96 ml-auto bg-gradient-to-br from-primary-brown to-[#1a1008] border-l border-white/10 shadow-2xl"
             >
               <div className="flex flex-col h-full p-5">
-                {/* Header with logo and close button */}
-                <div className="flex justify-between items-center pb-4 border-b border-gray-100">
-                  <div className="flex items-center space-x-2">
-                    <motion.div
-                      initial={{ scale: 0.8, rotate: -30 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      transition={{ delay: 0.2 }}
-                      className="text-2xl text-primary-gunmetal dark:text-white"
-                    >
-                    </motion.div>
-                    <motion.span
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 }}
-                      className="text-lg font-medium text-primary-gunmetal dark:text-white"
-                    >
-                      Shotsquare 
-                    </motion.span>
-                  </div>
+
+                {/* header */}
+                <div className="flex justify-between items-center pb-8 border-b border-white/10">
+                  <span className="text-2xl font-bold bg-gradient-to-r from-white to-[#c8b390] bg-clip-text text-transparent">
+                    Shotsquare
+                  </span>
+
                   <motion.button
-                    whileTap={{ scale: 0.9 }}
-                    className="p-2 rounded-full hover:bg-primary-umber transition-colors"
-                    aria-label="Close menu"
                     onClick={closeMenu}
+                    whileHover={{ scale: 1.1, rotate: 90 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="p-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-lg"
                   >
-                    <FaTimes className="text-primary-gunmetal dark:text-white" />
+                    <FaTimes size={16} className="text-white" />
                   </motion.button>
                 </div>
 
-                {/* Navigation links with staggered animation */}
-                <motion.div
-                  className="flex-1 overflow-y-auto py-6"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <nav className="space-y-4">
-                    {navItems.map((item, i) => (
+                {/* nav links */}
+                <div className="flex-1 overflow-y-auto py-8 space-y-4">
+                  {navItems.map((item, idx) => {
+                    const isActive = pathname === item.href;
+
+                    return (
                       <motion.div
                         key={item.name}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 + i * 0.05 }}
+                        transition={{ delay: 0.1 + idx * 0.07 }}
                       >
                         <Link
                           href={item.href}
-                          className="flex items-center px-3 py-3 text-primary-gunmetal dark:text-white hover:text-primary-umber rounded-lg transition-colors group"
                           onClick={closeMenu}
+                          className={`flex items-center px-4 py-4 rounded-2xl border transition-all duration-300 group
+                            ${
+                              isActive
+                                ? "bg-white/10 border-white/30"
+                                : "border-transparent hover:bg-white/10 hover:border-white/20"
+                            }`}
                         >
-                          <span className="mr-3 text-lg text-primary-gunmetal dark:text-white group-hover:text-primary-umber">
+                          <span
+                            className={`mr-4 text-xl transition duration-300
+                            ${isActive ? "text-[#c8b390]" : "text-[#c8b390] group-hover:scale-110"}
+                          `}
+                          >
                             {item.icon}
                           </span>
-                          <span className="font-medium">{item.name}</span>
-                      
+
+                          <span
+                            className={`text-lg font-medium transition duration-300
+                            ${isActive ? "text-[#c8b390]" : "text-white group-hover:text-[#c8b390]"}`}
+                          >
+                            {item.name}
+                          </span>
+
+                          <motion.div
+                            className={`ml-auto transition-opacity duration-300
+                              ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                            whileHover={{ x: 5 }}
+                          >
+                            <MdArrowOutward size={18} />
+                          </motion.div>
                         </Link>
                       </motion.div>
-                    ))}
-                  </nav>
-                </motion.div>
+                    );
+                  })}
+                </div>
 
-                {/* Footer with CTA button */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="mt-auto pt-4 border-t border-gray-100"
-                >
+                {/* footer */}
+                <div className="pt-8 border-t border-white/10">
                   <Link
                     href="/book-session"
-                    className="block w-full text-center bg-gradient-to-r from-[#22333b] to-[#5d4f3f] text-white py-3 px-6 rounded-lg font-medium hover:shadow-lg transition-all"
+                    className="block w-full text-center rounded-2xl py-4 px-6 font-semibold bg-gradient-to-r from-[#c8b390] to-[#9a8368] text-white shadow-xl hover:shadow-[#c8b390]/25 transition-all"
                     onClick={closeMenu}
                   >
-                    Book a call
+                    Book a Session
                   </Link>
 
-                  {/* Social links */}
-                  <div className="flex justify-center space-x-4 mt-4">
-                    {socialIcons.map((Icon, i) => (
+                  <div className="mt-6 text-center text-white/70 text-sm">
+                    <p>+91 8800007740</p>
+                  </div>
+
+                  <div className="mt-6 flex justify-center space-x-6">
+                    {socialIcons.map((Icon, idx) => (
                       <motion.a
-                        key={i}
-                        whileHover={{ y: -2 }}
+                        key={idx}
                         href="#"
-                        className="text-primary-gunmetal dark:text-white hover:text-blue-600 transition-colors"
-                        aria-label={`Social media link ${i}`}
+                        whileHover={{ y: -2, scale: 1.2 }}
+                        className="text-white/80 hover:text-[#c8b390] transition p-2"
                       >
-                        <Icon />
+                        <Icon size={20} />
                       </motion.a>
                     ))}
                   </div>
-                </motion.div>
+                </div>
+
               </div>
             </motion.div>
           </motion.div>
