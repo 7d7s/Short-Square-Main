@@ -30,7 +30,7 @@ const Banner = ({ title, description, imageUrl }: BannerProps) => {
       {/* Content */}
       <div className="absolute inset-0 flex items-center z-30 px-6 md:px-16 lg:px-24 mt-16 md:mt-24">
         <div className="max-w-4xl">
-          <motion.h1 className="text-5xl md:text-7xl font-semibold text-white mb-6 tracking-tighter">
+          <motion.h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold text-white mb-6 tracking-tighter">
             {titleChars.map((char, index) => (
               <motion.span
                 key={index}
