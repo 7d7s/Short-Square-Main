@@ -1,10 +1,10 @@
 "use client";
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi';
+import { motion } from 'framer-motion';
+import { FiMail, FiPhone, FiMapPin, FiSend, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
 import Banner from '@/components/common/banner';
 import GetInTouch from '@/components/getInTouch';
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import Faq from '@/components/common/Faq';
 
 interface FormData {
   name: string;
@@ -45,7 +45,7 @@ export default function ContactPage() {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -84,12 +84,6 @@ export default function ContactPage() {
     }
   ];
 
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const toggleFAQ = (index: number) => {
-    setActiveIndex(index === activeIndex ? -1 : index);
-  };
-
 
   return (
     <div className="container mx-auto">
@@ -100,58 +94,111 @@ export default function ContactPage() {
       />
 
       {/* Contact Content */}
-      <section className="py-16 px-4 bg-primary-brown rounded-2xl my-10">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 h-auto">
+      <section className="py-0 md:py-20 rounded-3xl my-10 px-0 md:px-4 lg:px-6 text-white bg-transparent md:bg-primary-brown relative overflow-hidden">
+        <div className="container mx-auto max-w-6xl relative z-10">
+          {/* Header Section */}
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl font-semibold mb-4 tracking-tight"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+            >
+              Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#c8b390]">Touch</span>
+            </motion.h2>
+            <motion.p
+              className="max-w-2xl mx-auto text-white/80 text-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              Ready to create something amazing? Reach out and let&apos;s start your photography journey.
+            </motion.p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Contact Form */}
-            <div className="border rounded-xl shadow-md p-8 h-auto">
-              <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
-              
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white/10 border border-white/10 rounded-2xl p-8 hover:bg-white/15 transition-all duration-500"
+            >
+              <div className="mb-8">
+                <h3 className="text-2xl font-semibold text-white mb-3">Send Us a Message</h3>
+                <p className="text-white/70">We&apos;ll get back to you within 24 hours</p>
+              </div>
+
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
-                  Thank you! Your message has been sent successfully.
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-green-500/20 backdrop-blur-sm border border-green-400/30 text-green-100 rounded-xl"
+                >
+                  <div className="flex items-center">
+                    <FiCheckCircle className="text-green-400 mr-2 text-xl" />
+                    Thank you! Your message has been sent successfully.
+                  </div>
+                </motion.div>
               )}
-              
+
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg">
-                  Oops! Something went wrong. Please try again later.
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-red-500/20 backdrop-blur-sm border border-red-400/30 text-red-100 rounded-xl"
+                >
+                  <div className="flex items-center">
+                    <FiAlertCircle className="text-red-400 mr-2 text-xl" />
+                    Oops! Something went wrong. Please try again later.
+                  </div>
+                </motion.div>
               )}
 
-              <form onSubmit={handleSubmit} className='text-black'>
-                <div className="mb-6 ">
-                  <label htmlFor="name" className="block text-white font-medium mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  />
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-white font-medium mb-3 text-sm">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#c8b390] focus:border-[#c8b390] transition-all duration-300"
+                      placeholder="Enter your name"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-white font-medium mb-3 text-sm">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#c8b390] focus:border-[#c8b390] transition-all duration-300"
+                      placeholder="your@email.com"
+                    />
+                  </div>
                 </div>
 
-                <div className="mb-6">
-                  <label htmlFor="email" className="block text-white font-medium mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div className="mb-6">
-                  <label htmlFor="subject" className="block text-white font-medium mb-2">
+                <div>
+                  <label htmlFor="subject" className="block text-white font-medium mb-3 text-sm">
                     Subject
                   </label>
                   <input
@@ -161,12 +208,13 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#c8b390] focus:border-[#c8b390] transition-all duration-300"
+                    placeholder="What's this regarding?"
                   />
                 </div>
 
-                <div className="mb-6">
-                  <label htmlFor="message" className="block text-white font-medium mb-2">
+                <div>
+                  <label htmlFor="message" className="block text-white font-medium mb-3 text-sm">
                     Your Message
                   </label>
                   <textarea
@@ -176,135 +224,136 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#c8b390] focus:border-[#c8b390] transition-all duration-300 resize-none"
+                    placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
 
-                <button
+                <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-3 px-6 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition duration-300 flex items-center justify-center ${
-                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
-                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`w-full py-4 px-6 bg-gradient-to-br from-[#c8b390] to-[#9a8368] hover:from-[#9a8368] hover:to-[#c8b390] text-white font-semibold rounded-xl transition-all duration-300 flex items-center justify-center ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                    }`}
                 >
                   {isSubmitting ? (
-                    'Sending...'
+                    <div className="flex items-center">
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
+                      Sending...
+                    </div>
                   ) : (
                     <>
-                      <FiSend className="mr-2" />
+                      <FiSend className="mr-3" />
                       Send Message
                     </>
                   )}
-                </button>
+                </motion.button>
               </form>
-            </div>
+            </motion.div>
 
             {/* Contact Info */}
-            <div>
-              <div className="bg-white rounded-xl shadow-md p-8 mb-8">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">Contact Information</h2>
-                
+            <div className="space-y-8">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-2xl p-8 hover:bg-white/15 transition-all duration-500"
+              >
+                <h3 className="text-2xl font-semibold text-white mb-8">Contact Information</h3>
+
                 <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="bg-amber-100 p-3 rounded-full mr-4">
-                      <FiMail className="text-amber-600 text-xl" />
-                    </div>
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className="flex items-start group cursor-pointer"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#c8b390] to-[#9a8368] flex items-center justify-center text-xl shadow-sm mr-4"
+                    >
+                      <FiMail className="text-white" />
+                    </motion.div>
                     <div>
-                      <h3 className="font-medium text-gray-700 mb-1">Email</h3>
-                      <p className="text-gray-600">contact@shotsquare.com</p>
-                      </div>
-                  </div>
+                      <h4 className="font-semibold text-white mb-1">Email</h4>
+                      <p className="text-white/70 group-hover:text-white transition-colors">contact@shotsquare.com</p>
+                    </div>
+                  </motion.div>
 
-                  <div className="flex items-start">
-                    <div className="bg-amber-100 p-3 rounded-full mr-4">
-                      <FiPhone className="text-amber-600 text-xl" />
-                    </div>
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className="flex items-start group cursor-pointer"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#c8b390] to-[#9a8368] flex items-center justify-center text-xl shadow-sm mr-4"
+                    >
+                      <FiPhone className="text-white" />
+                    </motion.div>
                     <div>
-                      <h3 className="font-medium text-gray-700 mb-1">Phone</h3>
-                      <p className="text-gray-600">+91 8800007740</p>
+                      <h4 className="font-semibold text-white mb-1">Phone</h4>
+                      <p className="text-white/70 group-hover:text-white transition-colors">+91 8800007740</p>
+                      <p className="text-white/50 text-sm mt-1">Mon-Sat, 10AM-7PM</p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex items-start">
-                    <div className="bg-amber-100 p-3 rounded-full mr-4">
-                      <FiMapPin className="text-amber-600 text-xl" />
-                    </div>
+                  <motion.div
+                    whileHover={{ x: 5 }}
+                    className="flex items-start group cursor-pointer"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#c8b390] to-[#9a8368] flex items-center justify-center text-xl shadow-sm mr-4"
+                    >
+                      <FiMapPin className="text-white" />
+                    </motion.div>
                     <div>
-                      <h3 className="font-medium text-gray-700 mb-1">Studio Address</h3>
-                      <p className="text-gray-600">I-102, Second Floor, Block I,</p>
-                      <p className="text-gray-600"> Kirti Nagar, Delhi, 110015</p>
+                      <h4 className="font-semibold text-white mb-1">Studio Address</h4>
+                      <p className="text-white/70 group-hover:text-white transition-colors">I-102, Second Floor, Block I,</p>
+                      <p className="text-white/70 group-hover:text-white transition-colors">Kirti Nagar, Delhi, 110015</p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Map Embed */}
-              <div className="bg-white rounded-xl shadow-md overflow-hidden">
-                <iframe 
-                  src="https://www.google.com/maps/place/Vig+tower/@28.6513548,77.1441273,19z/data=!3m1!4b1!4m6!3m5!1s0x390d030331accc81:0xbb27ef270b1fb476!8m2!3d28.6513536!4d77.144771!16s%2Fg%2F11dxhcxg2g?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D" 
+              {/* Map */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden hover:bg-white/15 transition-all duration-500"
+              >
+                <div className="p-5 border-b border-white/10">
+                  <h4 className="text-xl font-semibold text-white flex items-center">
+                    <FiMapPin className="mr-2 text-[#c8b390]" />
+                    Find Our Studio
+                  </h4>
+                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28011.80940513879!2d77.12064333312232!3d28.64545765523457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0304934fb67d%3A0x232534e44837b1bf!2sKirti%20Nagar%2C%20Delhi!5e0!3m2!1sen!2sin!4v1745056433107!5m2!1sen!2sin"
                   width="100%"
-                  height="300"
-                  style={{ border: 0 }}
-                  allowFullScreen
+                  height="100%"
+                  className="border-0"
+                  allowFullScreen={true}
                   loading="lazy"
-                  className="rounded-xl"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="pb-5 px-4">
-        <div className="container mx-auto grid lg:grid-cols-2">
-          <div className='mt-10'>
-            <h2 className="text-3xl font-bold dark:text-white text-black mb-10">Frequently Asked Questions</h2>
-            <p className='lg:max-w-96'>Got questions? {"We’ve"} got answers to help you understand our process, pricing, and more.</p>
-          </div>
-          
-          <div className="space-y-4 mt-10">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className={`md:p-7 p-5 rounded-2xl dark:border-white border-black border ${activeIndex === index ? '' : ''}`}
-              onClick={() => toggleFAQ(index)}
-            >
-              <div className="flex justify-between items-center cursor-pointer">
-                <div className="flex items-center space-x-6">
-                  <h3 className="text-xl text-green-dark">{faq.question}</h3>
-                </div>
-                {activeIndex === index ? (
-                  <IoIosArrowUp className="text-green-dark" size={25}/>
-                ) : (
-                  <IoIosArrowDown  className="text-green-dark" size={25}/>
-                )}
-              </div>
-              <AnimatePresence>
-                {activeIndex === index && faq.answer && (
-                  <motion.p 
-                    className="mt-2 dark:text-gray-300 text-balck"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  >
-                    {faq.answer}
-                  </motion.p>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-          </div>
-        </div>
-      </section>
+      <Faq faqs={faqs} />
 
-    {/* CTA Section */}
-       <GetInTouch
-           title="Ready to Start Your Project?"
-           subtitle="Get in touch with our team to discuss your ideas"
-           buttonText="Contact us call"
-          />
+      {/* CTA Section */}
+      <GetInTouch
+        title="Ready to Start Your Project?"
+        subtitle="Get in touch with our team to discuss your ideas"
+        buttonText="Contact us call"
+      />
     </div>
   );
 }
