@@ -1,18 +1,18 @@
 {
-  "metadataBase": "https://shotsquare.com",
-  "title": "Shotsquare Photography - Professional Photography Services in India",
-  "description": "Shotsquare Photography specializes in wedding, portrait, fashion, travel, and nature photography across India. Capturing life's precious moments with artistry and elegance.",
+  "metadataBase": "https://www.shotsquare.com",
+  "title": "ShotSquare Photography - Professional Photography Services in India",
+  "description": "ShotSquare Photography specializes in wedding, portrait, fashion, travel, and nature photography across India. Capturing life's precious moments with artistry and elegance.",
   "openGraph": {
-    "title": "Shotsquare Photography - Professional Photography Services",
+    "title": "ShotSquare Photography - Professional Photography Services",
     "description": "Expert photography services capturing weddings, portraits, fashion, travel, and nature across India with artistic excellence.",
-    "url": "https://shotsquare.com",
-    "siteName": "Shotsquare Photography",
+    "url": "https://www.shotsquare.com",
+    "siteName": "ShotSquare Photography",
     "images": [
       {
         "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png",
         "width": 1200,
         "height": 630,
-        "alt": "Shotsquare Photography Portfolio"
+        "alt": "ShotSquare Photography Portfolio"
       }
     ],
     "locale": "en_US",
@@ -20,11 +20,10 @@
   },
   "twitter": {
     "card": "summary_large_image",
-    "title": "Shotsquare Photography",
+    "title": "ShotSquare Photography",
     "description": "Expert photography services capturing weddings, portraits, fashion, travel, and nature across India with artistic excellence.",
     "images": [
       "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png"
     ]
   }
 }
-  

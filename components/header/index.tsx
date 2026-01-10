@@ -39,7 +39,7 @@ export default function Navbar() {
             >
               <Link href="/" className="group">
                 <span className="text-2xl font-bold bg-gradient-to-r from-white to-[#c8b390] bg-clip-text text-transparent group-hover:opacity-90 transition">
-                  Shotsquare
+                  ShotSquare
                 </span>
               </Link>
             </motion.div>
@@ -200,10 +200,9 @@ export default function Navbar() {
                           href={item.href}
                           onClick={closeMenu}
                           className={`flex items-center px-4 py-4 rounded-2xl border transition-all duration-300 group
-                            ${
-                              isActive
-                                ? "bg-white/10 border-white/30"
-                                : "border-transparent hover:bg-white/10 hover:border-white/20"
+                            ${isActive
+                              ? "bg-white/10 border-white/30"
+                              : "border-transparent hover:bg-white/10 hover:border-white/20"
                             }`}
                         >
                           <span

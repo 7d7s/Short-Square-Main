@@ -1,0 +1,25 @@
+{
+    "title": "Contact Us - ShotSquare Photography",
+    "description": "Get in touch with ShotSquare Photography for your wedding, fashion, or portrait photography needs. Visit our studio in Delhi or book a shoot.",
+    "openGraph": {
+        "title": "Contact ShotSquare Photography - Let's Create Magic",
+        "description": "Ready to collaborate? Reach out today for inquiries about wedding photography, fashion shoots, or studio rentals in Delhi.",
+        "url": "https://www.shotsquare.com/contact",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/d_pmkzwt.jpg",
+                "width": 1200,
+                "height": 630,
+                "alt": "Contact ShotSquare Photography"
+            }
+        ]
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Contact ShotSquare Photography",
+        "description": "Book your photography session with ShotSquare. We capture your best moments.",
+        "images": [
+            "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/d_pmkzwt.jpg"
+        ]
+    }
+}

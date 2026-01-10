@@ -1,0 +1,25 @@
+{
+    "title": "Studio Rental & Services - ShotSquare Photography",
+    "description": "Rent our fully equipped photography studio in Kirti Nagar, Delhi. Features professional lighting, spacious shooting area, and amenities.",
+    "openGraph": {
+        "title": "Professional Photography Studio Rental - ShotSquare",
+        "description": "State-of-the-art photography studio available for rent. High-end equipment, makeup area, and versatile backgrounds for your creative needs.",
+        "url": "https://www.shotsquare.com/studio",
+        "images": [
+            {
+                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/d3_ourkxr.jpg",
+                "width": 1200,
+                "height": 630,
+                "alt": "ShotSquare Studio"
+            }
+        ]
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Rent Our Studio - ShotSquare",
+        "description": "Book our professional studio space for your next photoshoot.",
+        "images": [
+            "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/d3_ourkxr.jpg"
+        ]
+    }
+}
