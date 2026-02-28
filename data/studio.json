@@ -1,0 +1,123 @@
+{
+    "banner": {
+        "title": "Our Creative Space",
+        "description": "A premium, state-of-the-art photography studio designed to bring your grandest visions to life.",
+        "imageUrl": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/d3_ourkxr.jpg"
+    },
+    "features": {
+        "section": {
+            "titleHighlight": "Features",
+            "titleRest": "Studio ",
+            "description": "Our studio is equipped with top-notch, industry-leading facilities to ensure your shoot is flawless from start to finish."
+        },
+        "items": [
+            {
+                "iconName": "FaCamera",
+                "title": "Professional Equipment",
+                "description": "High-end cameras, prime lenses, and cinematic lighting available on-demand."
+            },
+            {
+                "iconName": "FaLightbulb",
+                "title": "Versatile Lighting",
+                "description": "Dynamic, adjustable lighting grids built for any style of photography or film."
+            },
+            {
+                "iconName": "FaRulerCombined",
+                "title": "Spacious Area",
+                "description": "1200 sq. ft. of open, highly customizable space with movable cyclorama walls."
+            },
+            {
+                "iconName": "FaWifi",
+                "title": "High-Speed Connectivity",
+                "description": "Ultra-fast internet for instant, seamless photo reviews and cloud uploads."
+            },
+            {
+                "iconName": "FaParking",
+                "title": "Premium Parking",
+                "description": "Ample, secured parking space dedicated exclusively to you and your crew."
+            },
+            {
+                "iconName": "FaCoffee",
+                "title": "Luxury Lounge",
+                "description": "A comfortable green room and lounge area stocked with artisanal coffee and refreshments."
+            }
+        ]
+    },
+    "gallery": {
+        "section": {
+            "titleHighlight": "Gallery",
+            "titleRest": "Studio "
+        },
+        "images": [
+            {
+                "id": 1,
+                "title": "Bride Portrait",
+                "client": "Vijay Weds Seema",
+                "year": "2020",
+                "category": "Wedding",
+                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png"
+            },
+            {
+                "id": 2,
+                "title": "Fashion Shoot",
+                "client": "Vogue Series",
+                "year": "2023",
+                "category": "Fashion",
+                "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772271110/preeta_mehta_9-9-2562001_1_fu0bkd.jpg"
+            },
+            {
+                "id": 3,
+                "title": "Architecture Marvel",
+                "client": "Heritage Estates",
+                "year": "2022",
+                "category": "Architecture",
+                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/a_wkz3id.jpg"
+            },
+            {
+                "id": 4,
+                "title": "Urban Street",
+                "client": "Cityscapes",
+                "year": "2023",
+                "category": "Travel",
+                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791051/street_Photography_xz99dw.avif"
+            },
+            {
+                "id": 5,
+                "title": "Natural Horizon",
+                "client": "Wilderness Mag",
+                "year": "2021",
+                "category": "Nature",
+                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791310/sun_jgovbq.png"
+            },
+            {
+                "id": 6,
+                "title": "Cultural Legacy",
+                "client": "Taj Mahal",
+                "year": "2024",
+                "category": "Portrait",
+                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744798263/tajmahal_tl1hwc.avif"
+            },
+            {
+                "id": 7,
+                "title": "Portrait Perfection",
+                "client": "Intimate Frames",
+                "year": "2023",
+                "category": "Portrait",
+                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744717887/Framed_in_Portraits_bsoncf.avif"
+            },
+            {
+                "id": 8,
+                "title": "Sunset Serenity",
+                "client": "Golden Hour",
+                "year": "2024",
+                "category": "Nature",
+                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744794923/sunset_wsbvva.avif"
+            }
+        ]
+    },
+    "cta": {
+        "title": "Ready to Start Your Project?",
+        "subtitle": "Get in touch with our expert team to discuss your next big idea.",
+        "buttonText": "Schedule a Consultation"
+    }
+}

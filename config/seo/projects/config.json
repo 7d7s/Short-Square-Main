@@ -1,25 +1,28 @@
 {
-    "title": "Our Portfolio - ShotSquare Photography",
-    "description": "Explore our diverse portfolio covering Wedding, Fashion, Nature, Travel, and Portrait photography. Witness the stories we've captured.",
+    "title": "Our Portfolio - ShortSquare Photography",
+    "description": "Explore our extensive portfolio featuring weddings, corporate events, fashion shoots, and majestic landscapes. See the world through our lens.",
     "openGraph": {
-        "title": "ShotSquare Photography Portfolio - Capturing Stories",
-        "description": "Browse through our curated collection of photography projects. From intimate weddings to high-fashion shoots, see our work.",
-        "url": "https://www.shotsquare.com/projects",
+        "title": "ShortSquare Photography Portfolio - Capturing Stories",
+        "description": "Browse our latest photography projects across India. From intimate portraits to grand celebrations.",
+        "url": "https://www.shortsquare.com/projects",
+        "siteName": "ShortSquare Photography",
         "images": [
             {
-                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/d3_ourkxr.jpg",
+                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791051/street_Photography_xz99dw.avif",
                 "width": 1200,
                 "height": 630,
-                "alt": "ShotSquare Projects Portfolio"
+                "alt": "ShortSquare Projects Portfolio"
             }
-        ]
+        ],
+        "locale": "en_US",
+        "type": "website"
     },
     "twitter": {
         "card": "summary_large_image",
-        "title": "ShotSquare Portfolio",
-        "description": "Check out our latest photography projects and creative work.",
+        "title": "ShortSquare Portfolio",
+        "description": "Browse our latest photography projects. From intimate portraits to grand celebrations.",
         "images": [
-            "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/d3_ourkxr.jpg"
+            "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791051/street_Photography_xz99dw.avif"
         ]
     }
 }

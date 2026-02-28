@@ -16,41 +16,52 @@ interface ImageCardProps {
 
 const ImageCard = ({ img }: ImageCardProps) => {
   return (
-    <>
-      <motion.div
-        key={img.id}
-        layout
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ duration: 0.3 }}
-        className="group rounded overflow-hidden relative"
-      >
-        <Image
-          src={img.url}
-          width={1000}
-          height={600} // optional for dynamic height
-          alt={img.title}
-          className="w-full h-full min-h-fit object-cover relative"
-          priority={false}
-        />
-  
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4">
-          <div className="transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-            <span className="text-sm text-amber-300 font-medium">{img.client}</span>
-            <h3 className="text-xl font-bold text-white mt-1">{img.title}</h3>
-            <div className="flex justify-between items-center mt-2">
-              <span className="text-sm text-gray-300">{img.year || "2023"}</span>
-              <span className="text-xs px-2 py-1 bg-amber-500 text-white rounded-full">
-                {img.category}
-              </span>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+    <motion.div
+      key={img.id}
+      layout
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-[#0a0a09] shadow-2xl isolate"
+    >
+      {/* Base Image with dramatic scale on hover */}
+      <Image
+        src={img.url}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        alt={img.title}
+        className="object-cover w-full h-full transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110 opacity-80 group-hover:opacity-100"
+        priority={false}
+      />
 
-<div className="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-</>
+      {/* Deep Sheer Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-out z-10" />
+
+      {/* Primary Content Container */}
+      <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10 z-30">
+
+        {/* Floating Typography Block */}
+        <div className="transform translate-y-12 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col items-start gap-4">
+
+          <div className="flex gap-4 w-full justify-between items-center text-[#c8b390] font-light text-[0.65rem] tracking-[0.3em] uppercase">
+            <span>{img.category}</span>
+            <span>{img.year}</span>
+          </div>
+
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-tight font-light drop-shadow-2xl">
+            {img.title}
+          </h3>
+
+          <div className="w-8 h-[1px] bg-[#c8b390]/50 my-2" />
+
+          <span className="text-white/60 text-xs tracking-widest uppercase font-light">
+            {img.client}
+          </span>
+
+        </div>
+      </div>
+    </motion.div>
   );
 };
 

@@ -6,9 +6,10 @@ import { FiSearch } from 'react-icons/fi';
 import Banner from '@/components/common/banner';
 import GetInTouch from '@/components/getInTouch';
 
+import projectsData from '@/data/projects.json';
+import ImageCard from '@/components/common/GalleryCard';
+
 export default function ProjectsContent() {
-
-
     //sticky header
     const [isSticky, setIsSticky] = useState(true);
     const secondSectionRef = useRef<HTMLDivElement>(null);
@@ -33,75 +34,27 @@ export default function ProjectsContent() {
         };
     }, []);
 
-    // Sample projects data
-    const images = [
-        { id: 1, title: "Bride Portrait", client: "Rajeev and Sunita", year: "2020", category: "Wedding", descriptin: "Capturing the magic of your special day with timeless wedding photography that tells your unique love story. From the first look to the last dance, we preserve every precious moment.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744794512/a_k2mxoq.png" },
-        { id: 3, title: "Fashion Shoot", client: "Delhi", year: "2022", category: "Fashion", descriptin: "High-end fashion photography that showcases style and elegance. We bring out the best in every garment and model with our creative vision.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744789303/fashio_exfcmi.avif" },
-        { id: 4, title: "Nature", client: "Nature", year: "2023", category: "Nature", descriptin: "Breathtaking nature photography that captures the raw beauty of our planet. From majestic landscapes to intimate wildlife moments.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744795662/aa_spqgjh.avif" },
-        { id: 5, title: "Travel", client: "Traveling", year: "2021", category: "Travel", descriptin: "Travel photography that transports you to distant lands. Capturing the essence of cultures, people, and places around the world.", url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744795283/trsvel_v4ouvo.avif" },
-        {
-            id: 6, title: "Bride Portrait", client: "Vijay And Seema", year: "2025", category: "Wedding",
-            description: "Elegant wedding portraits that capture the emotion and beauty of your celebration. Every glance, every smile preserved forever.",
-            url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png"
-        },
-        {
-            id: 7,
-            title: "Bride Portrait",
-            client: "Shivam And Sonam",
-            year: "2023",
-            category: "Wedding",
-            description: "Authentic wedding photography that tells the story of your love. Candid moments and carefully composed portraits.",
-            url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744799492/wedding3_n8k84l.avif"
-        },
-        {
-            id: 8,
-            title: "Portrait",
-            client: "Portrait",
-            year: "2025",
-            category: "Portrait",
-            description: "Stunning portrait photography that reveals the true essence of the subject. Professional lighting and composition for impactful results.",
-            url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744799740/potraits2_i2xaaf.avif"
-        },
-        {
-            id: 2,
-            title: "Fashion Shoot",
-            client: "Delhi",
-            year: "2021",
-            category: "Fashion",
-            description: "Editorial fashion photography with a distinctive style. Creating visual stories that elevate brands and showcase designs.",
-            url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744799960/po_stddub.avif"
-        },
-        {
-            id: 9,
-            title: "Portrait",
-            client: "Portrait",
-            year: "2023",
-            category: "Portrait",
-            description: "Professional portrait sessions that capture personality and character. Perfect for professional headshots or personal art.",
-            url: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744799741/potraits_p2euvj.avif"
-        },
-        // Add more...
-    ];
-
-    const categories = ["All", "Wedding", "Portrait", "Travel", "Nature", "Fashion"];
+    const categories = projectsData.categories;
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [searchTerm, setSearchTerm] = useState("");
 
-    const filteredImages = images.filter((img) => {
+    const filteredImages = projectsData.projects.filter((img: any) => {
         const matchesCategory = selectedCategory === "All" || img.category === selectedCategory;
         const matchesSearch = img.title.toLowerCase().includes(searchTerm.toLowerCase());
         return matchesCategory && matchesSearch;
     });
 
     return (
-
-        <div className="container mx-auto text-black">
+        <div className="container mx-auto text-black relative">
             {/* Banner Section */}
             <Banner
-                title="Our Portfolio"
-                description="Each project is a story captured in frames — crafted with passion, light, and true moments."
-                imageUrl="https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/d3_ourkxr.jpg"
+                title={projectsData.banner.title}
+                description={projectsData.banner.description}
+                imageUrl={projectsData.banner.imageUrl}
             />
+
+            {/* Ambient Background Decor for Dark Section */}
+            <div className="absolute top-[40vh] left-0 right-0 bottom-0 bg-[#0a0a09] -z-20"></div>
 
             {/* Filters Section */}
             <AnimatePresence>
@@ -111,85 +64,77 @@ export default function ProjectsContent() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="py-6 dark:bg-white bg-primary-gunmetal border border-black rounded-2xl my-6 sticky top-0 z-20 shadow-sm"
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        className="py-3 xl:py-6 bg-[#0a0a09]/80 backdrop-blur-[40px] border-b border-white/[0.08] sticky top-0 z-40 shadow-[0_20px_40px_rgba(0,0,0,0.8)] saturate-150"
                     >
-                        <div className="container mx-auto px-4">
-                            <div className="flex flex-col md:flex-row md:justify-between justify-center items-center gap-4">
-                                <div className="flex flex-wrap gap-2 md:justify-start justify-center items-center">
+                        <div className="container mx-auto px-6 md:px-12">
+                            <div className="flex flex-col xl:flex-row xl:justify-between justify-center items-center gap-2 xl:gap-12">
+
+                                <div className="flex overflow-x-auto gap-8 justify-start xl:justify-center items-center w-full xl:w-auto pb-1 xl:pb-0 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                                     {categories.map((cat) => (
                                         <button
                                             key={cat}
                                             onClick={() => setSelectedCategory(cat)}
-                                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === cat
-                                                ? "bg-black text-white shadow"
-                                                : "bg-gray-100 text-gray-800 hover:bg-black hover:text-white"
+                                            className={`flex-shrink-0 snap-center px-1 py-3 text-[0.65rem] xl:text-[0.7rem] uppercase tracking-[0.3em] font-medium transition-colors duration-500 relative group flex flex-col items-center ${selectedCategory === cat
+                                                ? "text-[#c8b390]"
+                                                : "text-white/40 hover:text-white/90"
                                                 }`}
                                         >
-                                            {cat}
+                                            <span className="relative z-10 mb-2">{cat}</span>
+                                            {selectedCategory === cat && (
+                                                <motion.div
+                                                    layoutId="activeCategoryLine"
+                                                    className="absolute bottom-0 left-0 right-0 h-[1px] bg-[#c8b390]"
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                    transition={{ duration: 0.4 }}
+                                                />
+                                            )}
+                                            {selectedCategory !== cat && (
+                                                <div className="absolute bottom-0 left-1/2 right-1/2 h-[1px] bg-white/20 group-hover:left-0 group-hover:right-0 transition-all duration-500" />
+                                            )}
                                         </button>
                                     ))}
                                 </div>
-                                <div className="relative w-full md:w-64 mt-4 md:mt-0">
-                                    <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                                        <FiSearch />
+
+                                {/* Hairline Divider for Mobile Only */}
+                                <div className="w-full h-[1px] bg-white/5 xl:hidden" />
+
+                                <div className="relative w-full xl:w-80 flex-shrink-0 group">
+                                    <div className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white/30 transition-colors duration-500 group-focus-within:text-[#c8b390]">
+                                        <FiSearch className="text-sm xl:text-base" />
                                     </div>
                                     <input
                                         type="text"
-                                        placeholder="Search projects..."
+                                        placeholder="SEARCH COLLECTION"
                                         value={searchTerm}
                                         onChange={(e) => setSearchTerm(e.target.value)}
-                                        className="w-full pl-10 pr-8 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                                        className="w-full pl-8 pr-0 py-3 bg-transparent border-b border-transparent focus:border-[#c8b390]/50 hover:border-white/10 text-white placeholder-white/20 transition-all duration-500 font-light text-[0.65rem] xl:text-xs tracking-[0.3em] rounded-none focus:outline-none"
                                     />
                                 </div>
+
                             </div>
                         </div>
                     </motion.section>
                 )}
             </AnimatePresence>
 
-            {/* Projects Grid */}
+            {/* Projects Grid Container Initialization */}
             <section
                 ref={secondSectionRef}
-                className="md:px-10 md:py-10 p-5 rounded-2xl bg-primary-brown text-white"
+                className="md:px-12 md:py-32 py-16 px-6 bg-gradient-to-b from-[#0a0a09] to-[#0f0e0d] relative z-10"
             >
                 <div className="container mx-auto">
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 transition-all">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-12 transition-all">
                         <AnimatePresence>
-                            {filteredImages.map((img, index) => (
-                                <motion.div
+                            {filteredImages.map((img: any, index: number) => (
+                                <div
                                     key={img.id}
-                                    layout
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
-                                    transition={{ duration: 0.3 }}
-                                    className={`group rounded overflow-hidden relative ${filteredImages.length <= 1 && index === 0 ? 'md:col-span-1' : ''
-                                        }`}
+                                    className={`${filteredImages.length <= 1 && index === 0 ? 'md:col-span-1' : ''}`}
                                 >
-                                    <Image
-                                        src={img.url}
-                                        width={1000}
-                                        height={1000}
-                                        alt={img.title}
-                                        className={`w-full ${filteredImages.length <= 1 && index === 0 ? 'h-72 max-w-sm' : 'h-72'
-                                            } object-cover rounded-xl relative`}
-                                    />
-
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-4">
-                                        <div className="transform translate-y-4 group-hover:translate-y-0 transition duration-300">
-                                            <span className="text-sm text-amber-300 font-medium">{img.client}</span>
-                                            <h3 className="text-xl font-bold text-white mt-1">{img.title}</h3>
-                                            <div className="flex justify-between items-center mt-2">
-                                                <span className="text-sm text-gray-300">{img.year || "2023"}</span>
-                                                <span className="text-xs px-2 py-1 bg-amber-500 text-white rounded-full">
-                                                    {img.category}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </motion.div>
+                                    <ImageCard img={img} />
+                                </div>
                             ))}
 
                             {/* Related content from existing images */}
@@ -202,28 +147,25 @@ export default function ProjectsContent() {
                                 >
                                     <div className="space-y-4">
                                         {filteredImages
-                                            .filter((_, i) => i !== 0) // Exclude the main image
+                                            .filter((_: any, i: number) => i !== 0) // Exclude the main image
                                             .concat( // Add some duplicates if less than 2 items
                                                 filteredImages.length === 1 ? [filteredImages[0]] : []
                                             )
                                             .slice(0, 2) // Show max 2 related items
-                                            .map((item, i) => (
+                                            .map((item: any, i: number) => (
                                                 <motion.div
                                                     key={`related-${item.id}-${i}`}
                                                     initial={{ opacity: 0 }}
                                                     animate={{ opacity: 1 }}
                                                     transition={{ delay: 0.3 + i * 0.1 }}
                                                     className="flex items-start rounded transition"
-                                                    onClick={() => {
-                                                        // Handle click to focus this item
-                                                    }}
                                                 >
                                                     <div>
-                                                        <h4 className="font-medium  text-xl">{item.title}</h4>
-                                                        <p className="text-sm text-gray-300 mt-1 line-clamp-2">
+                                                        <h4 className="font-medium  text-xl text-white">{item.title}</h4>
+                                                        <p className="text-sm text-[#c8b390] mt-1 line-clamp-2">
                                                             {item.client} • {item.category}
                                                         </p>
-                                                        <p className='py-5 text-justify leading-relaxed'>{item.descriptin}</p>
+                                                        <p className='py-5 text-justify leading-relaxed text-white/70 font-light'>{item.description}</p>
                                                     </div>
                                                 </motion.div>
                                             ))}
@@ -246,11 +188,13 @@ export default function ProjectsContent() {
             </section>
 
             {/* CTA Section */}
-            <GetInTouch
-                title="Ready to Start Your Project?"
-                subtitle="Get in touch with our team to discuss your ideas"
-                buttonText="Contact us call"
-            />
+            <div className="bg-[#0a0a09]">
+                <GetInTouch
+                    title={projectsData.cta.title}
+                    subtitle={projectsData.cta.subtitle}
+                    buttonText={projectsData.cta.buttonText}
+                />
+            </div>
         </div>
     );
 }

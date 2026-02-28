@@ -1,0 +1,157 @@
+{
+    "hero": [
+        {
+            "img": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772267708/_AVP6231_f50ksl.jpg",
+            "title": "Timeless Moments, Captured Forever",
+            "desc": "Because the best memories deserve to be preserved with authentic emotion and artistry.",
+            "heroImg": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772267708/_AVP6231_f50ksl.jpg",
+            "tags": [
+                {
+                    "name": "Portraiture"
+                },
+                {
+                    "name": "Wedding"
+                },
+                {
+                    "name": "Commercials"
+                }
+            ]
+        },
+        {
+            "img": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772267909/_MG_5704_copy_dfhplg.jpg",
+            "title": "Unforgettable Celebrations & Events",
+            "desc": "From grand galas to intimate gatherings, we frame the energy and soul of every occasion.",
+            "heroImg": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772267909/_MG_5704_copy_dfhplg.jpg",
+            "tags": [
+                {
+                    "name": "Event"
+                },
+                {
+                    "name": "Portrait"
+                },
+                {
+                    "name": "Products"
+                }
+            ]
+        },
+        {
+            "img": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772268051/WhatsApp_Image_2023-03-28_at_1.38.31_PM_3_hgsb4m.jpg",
+            "title": "Elegance in Every Frame",
+            "desc": "Highlighting your unique style through bold, striking, and meticulously crafted visuals.",
+            "heroImg": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772268051/WhatsApp_Image_2023-03-28_at_1.38.31_PM_3_hgsb4m.jpg",
+            "tags": [
+                {
+                    "name": "Wedding"
+                },
+                {
+                    "name": "Portrait"
+                }
+            ]
+        }
+    ],
+    "expertise": {
+        "categories": {
+            "Portraiture": {
+                "heading": "Emotions Illuminated, Stories Told",
+                "subheading": "Intimate portraits that reveal emotion and character — crafted with precision lighting and soul."
+            },
+            "Wedding": {
+                "heading": "Capturing Love Stories Across India",
+                "subheading": "From royal palaces of Rajasthan to beach weddings in Goa, we document your special day with elegance and emotion."
+            },
+            "Commercials": {
+                "heading": "Elevating Your Brand Identity",
+                "subheading": "Professional commercial photography designed to highlight the core essence of your business."
+            },
+            "Event": {
+                "heading": "Preserving Every Milestone",
+                "subheading": "From corporate gatherings to intimate celebrations, we ensure your most important moments are documented flawlessly."
+            },
+            "Modelling": {
+                "heading": "Where Style Meets Substance",
+                "subheading": "High-fashion portfolios and modelling shoots that capture your unique edge and personality."
+            },
+            "Products": {
+                "heading": "Showcasing Excellence in Detail",
+                "subheading": "Crisp, dynamic product photography that makes your merchandise speak for itself."
+            }
+        },
+        "slides": [
+            {
+                "title": "The Golden Hour Glow",
+                "location": "Outdoor Pre-Wedding",
+                "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772267708/_AVP6231_f50ksl.jpg",
+                "category": "Portraiture"
+            },
+            {
+                "title": "A Royal Promise",
+                "location": "Heritage Palace, Rajasthan",
+                "image": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png",
+                "category": "Wedding"
+            },
+            {
+                "title": "Modern Brand Aesthetics",
+                "location": "Downtown Studio",
+                "image": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg",
+                "category": "Commercials"
+            },
+            {
+                "title": "The Grand Reception",
+                "location": "Luxury Banquet, Delhi",
+                "image": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744716998/temple_vwcym5.jpg",
+                "category": "Event"
+            },
+            {
+                "title": "Avant-Garde Lookbook",
+                "location": "Fashion Week, Mumbai",
+                "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772268051/WhatsApp_Image_2023-03-28_at_1.38.31_PM_3_hgsb4m.jpg",
+                "category": "Modelling"
+            },
+            {
+                "title": "The Artisan's Craft",
+                "location": "Creative Workshop",
+                "image": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791051/street_Photography_xz99dw.avif",
+                "category": "Products"
+            }
+        ]
+    },
+    "work": {
+        "header": {
+            "subtitle": "Work",
+            "titleHighlight": "Capturing ",
+            "titleRest": "Life’s Most Precious Moments with Artistry and Soul.",
+            "description": "Every frame we capture is a blend of heartfelt emotion, timeless beauty, and a touch of magic. Our passion lies in preserving those fleeting moments that define love, joy, and the human experience — so you can relive them forever."
+        },
+        "cards": [
+            {
+                "title": "The Language of Connection",
+                "description": "Portraits that speak louder than words, bringing genuine chemistry and authentic bonds to the forefront.",
+                "image": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744794512/a_k2mxoq.png",
+                "tags": [
+                    "Couple",
+                    "Portrait"
+                ]
+            },
+            {
+                "title": "Symphony of Scenery",
+                "description": "Breathtaking landscapes that capture the serene beauty and immense scale of our world.",
+                "image": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744716998/temple_vwcym5.jpg",
+                "tags": [
+                    "Landscape",
+                    "Spiritual",
+                    "Travel"
+                ]
+            },
+            {
+                "title": "Soul in Focus",
+                "description": "Detailed, striking imagery that reveals the profound narrative living within every gaze.",
+                "image": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744717887/Framed_in_Portraits_bsoncf.avif",
+                "tags": [
+                    "Portrait",
+                    "Art",
+                    "Emotions"
+                ]
+            }
+        ]
+    }
+}

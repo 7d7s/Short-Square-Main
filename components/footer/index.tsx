@@ -27,10 +27,12 @@ const Footer = () => {
         <div className="lg:col-span-1 md:text-end text-center">
           <div className="lg:max-w-[420px] text-gray-300">
             <div className="space-y-1 md:space-y-2">
-              <p>Shotsquare, I-102, Second Floor, Block I,</p>
-              <p>Kirti Nagar, Delhi, 110015</p>
-              <p>+91 8800007740</p>
-              <p>support@shotsquare.com</p>
+              <p>SHOT SQUARE PHOTOGRAPHY STUDIO</p>
+              <p>CIN: U73100DL2026PTC461849</p>
+              <p>Plot No 88, 3rd Floor, Kh No 12/02/1 Hari Vihar,</p>
+              <p>Kakrola, South West Delhi, New Delhi, 110078</p>
+              <p>+91 8882758944</p>
+              <p>info@shortsquare.com</p>
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { motion, AnimatePresence } from "framer-motion";
 import Particles from "@/components/common/particles";
+import homeData from "@/data/home.json";
 
 interface SlideData {
   img: string;
@@ -24,35 +25,12 @@ function Hero() {
   const sliderRef = useRef<Slider>(null);
 
   const sliderData: SlideData[] = useMemo(
-    () => [
-      {
-        img: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/camera_q8ak7w.jpg",
-        title: "Capturing Love, One Moment at a Time.",
-        desc: "First Slide Description",
-        heroImg: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/camera_q8ak7w.jpg",
-      },
-      {
-        img: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744716998/temple_vwcym5.jpg",
-        title: "Untamed Beauty: The Art of Wildlife Photography",
-        desc: "Second Slide Description",
-        heroImg: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744716998/temple_vwcym5.jpg",
-      },
-      {
-        img: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg",
-        title: "Bold. Beautiful. Captured with Style",
-        desc: "Third Slide Description",
-        heroImg: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg",
-      },
-    ],
+    () => homeData.hero,
     []
   );
 
   const slideTags = useMemo(
-    () => [
-      [{ name: "Wedding" }, { name: "Portrait" }, { name: "Couple" }, { name: "Romance" }],
-      [{ name: "Travel" }, { name: "Nature" }, { name: "Adventure" }, { name: "Landscape" }],
-      [{ name: "Fashion" }, { name: "Portrait" }, { name: "Studio" }, { name: "Model" }],
-    ],
+    () => homeData.hero.map((slide) => slide.tags),
     []
   );
   const initialTitle = sliderData[0].title;
@@ -140,7 +118,8 @@ function Hero() {
                 priority
                 className="object-cover rounded-2xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a09] via-[#0a0a09]/40 to-[#0a0a09] rounded-2xl mix-blend-multiply opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a09]/90 via-transparent to-[#0a0a09]/90 rounded-2xl" />
             </motion.div>
           </AnimatePresence>
         </div>

@@ -4,6 +4,9 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   ...metadataConfig,
+  alternates: {
+    canonical: '/studio',
+  },
   openGraph: {
     ...metadataConfig.openGraph,
   },

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiMapPin, FiSend, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
+import { FiMail, FiPhone, FiMapPin, FiSend, FiCheckCircle, FiAlertCircle, FiCamera } from 'react-icons/fi';
 import Banner from '@/components/common/banner';
 import GetInTouch from '@/components/getInTouch';
 import Faq from '@/components/common/Faq';
@@ -82,6 +82,15 @@ export default function ContactContent() {
             question: "How long does it take to receive the final photos?",
             answer: "Delivery time depends on the project scope, but typically 2-3 weeks after the shoot."
         }
+    ];
+
+    const services = [
+        "Portraiture Photographer",
+        "Wedding Photography",
+        "Commercials Photography",
+        "Event Photography",
+        "Modelling",
+        "Products Photographer"
     ];
 
 
@@ -276,7 +285,7 @@ export default function ContactContent() {
                                         </motion.div>
                                         <div>
                                             <h4 className="font-semibold text-white mb-1">Email</h4>
-                                            <p className="text-white/70 group-hover:text-white transition-colors">contact@shotsquare.com</p>
+                                            <p className="text-white/70 group-hover:text-white transition-colors">info@shortsquare.com</p>
                                         </div>
                                     </motion.div>
 
@@ -292,7 +301,7 @@ export default function ContactContent() {
                                         </motion.div>
                                         <div>
                                             <h4 className="font-semibold text-white mb-1">Phone</h4>
-                                            <p className="text-white/70 group-hover:text-white transition-colors">+91 8800007740</p>
+                                            <p className="text-white/70 group-hover:text-white transition-colors">+91 8882758944</p>
                                             <p className="text-white/50 text-sm mt-1">Mon-Sat, 10AM-7PM</p>
                                         </div>
                                     </motion.div>
@@ -309,14 +318,14 @@ export default function ContactContent() {
                                         </motion.div>
                                         <div>
                                             <h4 className="font-semibold text-white mb-1">Studio Address</h4>
-                                            <p className="text-white/70 group-hover:text-white transition-colors">I-102, Second Floor, Block I,</p>
-                                            <p className="text-white/70 group-hover:text-white transition-colors">Kirti Nagar, Delhi, 110015</p>
+                                            <p className="text-white/70 group-hover:text-white transition-colors">Plot No 88, 3rd Floor, Kh No 12/02/1 Hari Vihar,</p>
+                                            <p className="text-white/70 group-hover:text-white transition-colors">Kakrola, South West Delhi, New Delhi, 110078</p>
                                         </div>
                                     </motion.div>
                                 </div>
                             </motion.div>
 
-                            {/* Map */}
+                            {/* Services List */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -324,21 +333,31 @@ export default function ContactContent() {
                                 transition={{ duration: 0.6, delay: 0.4 }}
                                 className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden hover:bg-white/15 transition-all duration-500"
                             >
-                                <div className="p-5 border-b border-white/10">
+                                <div className="p-6 border-b border-white/10 bg-gradient-to-r from-white/5 to-transparent">
                                     <h4 className="text-xl font-semibold text-white flex items-center">
-                                        <FiMapPin className="mr-2 text-[#c8b390]" />
-                                        Find Our Studio
+                                        <FiCamera className="mr-3 text-[#c8b390] text-2xl" />
+                                        Our Services
                                     </h4>
                                 </div>
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28011.80940513879!2d77.12064333312232!3d28.64545765523457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0304934fb67d%3A0x232534e44837b1bf!2sKirti%20Nagar%2C%20Delhi!5e0!3m2!1sen!2sin!4v1745056433107!5m2!1sen!2sin"
-                                    width="100%"
-                                    height="100%"
-                                    className="border-0"
-                                    allowFullScreen={true}
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                ></iframe>
+                                <div className="p-6">
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {services.map((service, index) => (
+                                            <motion.li
+                                                key={index}
+                                                initial={{ opacity: 0, x: -10 }}
+                                                whileInView={{ opacity: 1, x: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                                                className="flex items-center group cursor-default"
+                                            >
+                                                <div className="w-2 h-2 rounded-full bg-[#c8b390] mr-3 group-hover:scale-150 transition-transform duration-300 shadow-[0_0_8px_rgba(200,179,144,0.6)]" />
+                                                <span className="text-white/80 group-hover:text-white transition-colors duration-300 font-medium tracking-wide">
+                                                    {service}
+                                                </span>
+                                            </motion.li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </motion.div>
                         </div>
                     </div>

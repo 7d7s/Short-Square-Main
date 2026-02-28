@@ -3,6 +3,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import homeData from "@/data/home.json";
 
 type Card = {
   title: string;
@@ -11,26 +12,7 @@ type Card = {
   tags: string[];
 };
 
-const cards: Card[] = [
-  {
-    title: "Capturing Love, One Moment at a Time.",
-    description: "We capture the magic of love, one beautiful moment at a time.",
-    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744794512/a_k2mxoq.png",
-    tags: ["Couple", "Portrait"],
-  },
-  {
-    title: "A Temple's Serene Silhouette",
-    description: "A beautiful temple surrounded by nature's calmness.",
-    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744716998/temple_vwcym5.jpg",
-    tags: ["Landscape", "Spiritual", "Travel"],
-  },
-  {
-    title: "Moments Framed in Portraits",
-    description: "Capturing the emotions and beauty in human portraits.",
-    image: "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744717887/Framed_in_Portraits_bsoncf.avif",
-    tags: ["Portrait", "Art", "Emotions"],
-  },
-];
+const cards: Card[] = homeData.work.cards as Card[];
 
 const CardSlider = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);

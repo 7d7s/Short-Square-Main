@@ -2,7 +2,11 @@ import { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['res.cloudinary.com', 'img.freepik.com', 'framerusercontent.com'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+      { protocol: 'https', hostname: 'img.freepik.com' },
+      { protocol: 'https', hostname: 'framerusercontent.com' }
+    ],
   },
   reactStrictMode: true, // Recommended for better development practices
 

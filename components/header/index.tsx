@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes, FaInstagram, FaPinterest, FaTwitter, FaFacebook } from "react-icons/fa";
@@ -35,12 +36,35 @@ export default function Navbar() {
             {/* LOGO */}
             <motion.div
               className="flex items-center"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <Link href="/" className="group">
-                <span className="text-2xl font-bold bg-gradient-to-r from-white to-[#c8b390] bg-clip-text text-transparent group-hover:opacity-90 transition">
-                  ShotSquare
-                </span>
+              <Link href="/" className="group flex items-center gap-3">
+                {/* 
+                  Drop your actual logo image here when ready. For example:
+                  <Image src="/your-logo.png" alt="ShortSquare Logo" width={40} height={40} className="w-10 h-10 object-contain drop-shadow-xl" priority /> 
+                */}
+                <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-tr from-[#c8b390]/20 to-white/5 border border-white/10 shadow-[0_0_20px_rgba(200,179,144,0.1)] backdrop-blur-md overflow-hidden group-hover:border-[#c8b390]/50 transition-all duration-500">
+                  <div className="absolute inset-0 bg-[#c8b390]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="w-6 h-6 text-[#c8b390] transform group-hover:scale-110 transition-transform duration-500"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                  </svg>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-2xl tracking-tighter font-extrabold bg-gradient-to-r from-white via-white/90 to-[#c8b390] bg-clip-text text-transparent group-hover:opacity-90 transition-opacity duration-300">
+                    ShortSquare
+                  </span>
+                  <span className="text-[0.65rem] uppercase tracking-[0.3em] text-[#c8b390]/70 -mt-1 font-medium pl-0.5">
+                    Studios
+                  </span>
+                </div>
               </Link>
             </motion.div>
 
@@ -88,7 +112,7 @@ export default function Navbar() {
                 {/* BOOK A CALL */}
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Link
-                    href="tel:+918800007740"
+                    href="tel:+918882758944"
                     className="relative rounded-full font-semibold px-6 py-3 shadow-2xl overflow-hidden text-white bg-gradient-to-r from-[#c8b390] to-[#9a8368] backdrop-blur-lg transition-all duration-500 ease-in-out flex items-center gap-2 group"
                   >
                     <span className="absolute inset-0 bg-white/10 transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100"></span>
@@ -105,38 +129,41 @@ export default function Navbar() {
               <motion.button
                 onClick={() => setIsOpen((prev) => !prev)}
                 aria-label="Toggle menu"
-                className="w-10 h-10 flex items-center justify-center bg-white/10 border border-white/20 backdrop-blur-lg rounded-full shadow-xl"
-                whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.15)" }}
-                whileTap={{ scale: 0.9 }}
+                className="group relative w-12 h-12 flex items-center justify-center bg-white/5 border border-white/10 backdrop-blur-xl rounded-full shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-all duration-300 hover:border-[#c8b390]/50"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
+                {/* Subtle Inner Glow */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#c8b390]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+
                 {/* Animated Hamburger */}
                 <motion.div
                   animate={isOpen ? "open" : "closed"}
-                  className="relative w-5 h-4"
+                  className="relative w-5 h-4 flex flex-col justify-between z-10"
                 >
                   <motion.span
-                    className="absolute block w-full h-0.5 bg-white rounded-full"
+                    className="block h-[2px] w-full bg-white rounded-full origin-center transition-colors duration-300 group-hover:bg-[#c8b390]"
                     variants={{
-                      closed: { top: 0, rotate: 0 },
-                      open: { top: "50%", rotate: 45 },
+                      closed: { rotate: 0, y: 0 },
+                      open: { rotate: 45, y: 7 },
                     }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                   />
                   <motion.span
-                    className="absolute block w-full h-0.5 bg-white rounded-full"
+                    className="block h-[2px] w-full bg-white rounded-full transition-colors duration-300 group-hover:bg-[#c8b390]"
                     variants={{
-                      closed: { top: "50%", opacity: 1 },
-                      open: { top: "50%", opacity: 0 },
+                      closed: { opacity: 1, x: 0 },
+                      open: { opacity: 0, x: -10 },
                     }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                   />
                   <motion.span
-                    className="absolute block w-full h-0.5 bg-white rounded-full"
+                    className="block h-[2px] w-[60%] group-hover:w-full bg-white rounded-full origin-center ml-auto transition-all duration-300 group-hover:bg-[#c8b390]"
                     variants={{
-                      closed: { top: "100%", rotate: 0 },
-                      open: { top: "50%", rotate: -45 },
+                      closed: { rotate: 0, y: 0 },
+                      open: { rotate: -45, y: -7, width: "100%" },
                     }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                   />
                 </motion.div>
               </motion.button>
@@ -170,9 +197,22 @@ export default function Navbar() {
 
                 {/* header */}
                 <div className="flex justify-between items-center pb-8 border-b border-white/10">
-                  <span className="text-2xl font-bold bg-gradient-to-r from-white to-[#c8b390] bg-clip-text text-transparent">
-                    Shotsquare
-                  </span>
+                  <div className="flex items-center gap-2.5">
+                    <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-tr from-[#c8b390]/20 to-white/5 border border-white/10 shadow-lg backdrop-blur-md">
+                      <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-[#c8b390]" stroke="currentColor" strokeWidth="1.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                      </svg>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xl tracking-tighter font-extrabold bg-gradient-to-r from-white via-white/90 to-[#c8b390] bg-clip-text text-transparent">
+                        ShortSquare
+                      </span>
+                      <span className="text-[0.55rem] uppercase tracking-[0.3em] text-[#c8b390]/70 -mt-1 font-medium pl-0.5">
+                        Studios
+                      </span>
+                    </div>
+                  </div>
 
                   <motion.button
                     onClick={closeMenu}
@@ -244,7 +284,7 @@ export default function Navbar() {
                   </Link>
 
                   <div className="mt-6 text-center text-white/70 text-sm">
-                    <p>+91 8800007740</p>
+                    <p>+91 8882758944</p>
                   </div>
 
                   <div className="mt-6 flex justify-center space-x-6">

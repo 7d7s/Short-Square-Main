@@ -12,7 +12,7 @@ function Home() {
       <AboutUs />
       <ExpertiseSec />
       <Work />
-      <Awards />
+      {/* <Awards /> */}
     </div>
   );
 }

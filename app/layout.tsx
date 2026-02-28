@@ -13,6 +13,43 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   ...metadataConfig,
   metadataBase: new URL(metadataConfig.metadataBase as string),
+  applicationName: 'ShortSquare Photography',
+  authors: [{ name: 'ShortSquare Photography' }],
+  generator: 'Next.js',
+  keywords: ['Photography', 'Wedding Photography', 'Portrait', 'Fashion Photography', 'Event Photography', 'India', 'Studio Rental'],
+  referrer: 'origin-when-cross-origin',
+  creator: 'ShortSquare',
+  publisher: 'ShortSquare',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({

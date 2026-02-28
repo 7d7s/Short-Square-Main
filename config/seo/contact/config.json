@@ -1,25 +1,28 @@
 {
-    "title": "Contact Us - ShotSquare Photography",
-    "description": "Get in touch with ShotSquare Photography for your wedding, fashion, or portrait photography needs. Visit our studio in Delhi or book a shoot.",
+    "title": "Contact Us - ShortSquare Photography",
+    "description": "Get in touch with ShortSquare Photography for your wedding, fashion, or portrait photography needs. Visit our studio in Delhi or book a shoot.",
     "openGraph": {
-        "title": "Contact ShotSquare Photography - Let's Create Magic",
-        "description": "Ready to collaborate? Reach out today for inquiries about wedding photography, fashion shoots, or studio rentals in Delhi.",
-        "url": "https://www.shotsquare.com/contact",
+        "title": "Contact ShortSquare Photography - Let's Create Magic",
+        "description": "Ready to discuss your next photography project? Reach out to our team in Delhi today.",
+        "url": "https://www.shortsquare.com/contact",
+        "siteName": "ShortSquare Photography",
         "images": [
             {
-                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/d_pmkzwt.jpg",
+                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg",
                 "width": 1200,
                 "height": 630,
-                "alt": "Contact ShotSquare Photography"
+                "alt": "Contact ShortSquare Photography"
             }
-        ]
+        ],
+        "locale": "en_US",
+        "type": "website"
     },
     "twitter": {
         "card": "summary_large_image",
-        "title": "Contact ShotSquare Photography",
-        "description": "Book your photography session with ShotSquare. We capture your best moments.",
+        "title": "Contact ShortSquare Photography",
+        "description": "Book your photography session with ShortSquare. We capture your best moments.",
         "images": [
-            "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/d_pmkzwt.jpg"
+            "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg"
         ]
     }
 }

@@ -9,9 +9,10 @@ import { LuSquareArrowOutUpRight } from "react-icons/lu";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import homeData from "@/data/home.json";
 
 // ---------- Types ----------
-type CategoryName = "Wedding" | "Nature" | "Fashion" | "Travel" | "Portrait";
+type CategoryName = "Portraiture" | "Wedding" | "Commercials" | "Event" | "Modelling" | "Products";
 
 interface Slide {
   title: string;
@@ -26,71 +27,9 @@ interface CategoryContent {
 }
 
 // ---------- Data ----------
-const categoryContent: Record<CategoryName, CategoryContent> = {
-  Wedding: {
-    heading: "Capturing Love Stories Across India",
-    subheading:
-      "From royal palaces of Rajasthan to beach weddings in Goa, we document your special day with elegance and emotion.",
-  },
-  Nature: {
-    heading: "India's Untamed Beauty",
-    subheading:
-      "From the Himalayas to Kerala's backwaters — experience India's breathtaking natural wonders through our lens.",
-  },
-  Fashion: {
-    heading: "Where Tradition Meets Trend",
-    subheading:
-      "Bold, vibrant, and timeless — we capture fashion that celebrates India's artistry and spirit.",
-  },
-  Travel: {
-    heading: "Incredible India Through Our Lens",
-    subheading:
-      "Discover hidden gems and iconic landmarks through frames that tell cultural stories beyond words.",
-  },
-  Portrait: {
-    heading: "Emotions Illuminated, Stories Told",
-    subheading:
-      "Intimate portraits that reveal emotion and character — crafted with precision lighting and soul.",
-  },
-};
-
-const slides: Slide[] = [
-  {
-    title: "Royal Wedding at Udaipur Palace",
-    location: "City Palace, Udaipur, Rajasthan",
-    image:
-      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png",
-    category: "Wedding",
-  },
-  {
-    title: "Sunrise at Dal Lake",
-    location: "Dal Lake, Srinagar, Jammu & Kashmir",
-    image:
-      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791310/sun_jgovbq.png",
-    category: "Nature",
-  },
-  {
-    title: "Traditional Handloom Photoshoot",
-    location: "Pochampally, Telangana",
-    image:
-      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791600/traditional_ltnzlb.avif",
-    category: "Fashion",
-  },
-  {
-    title: "Street Photography in Old Delhi",
-    location: "Chandni Chowk, Delhi",
-    image:
-      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791051/street_Photography_xz99dw.avif",
-    category: "Travel",
-  },
-  {
-    title: "Bridal Portrait Session",
-    location: "Leela Palace, Bengaluru",
-    image:
-      "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg",
-    category: "Portrait",
-  },
-];
+// Cast the JSON data to match the expected types in this component
+const categoryContent = homeData.expertise.categories as Record<CategoryName, CategoryContent>;
+const slides: Slide[] = homeData.expertise.slides as Slide[];
 
 // ---------- Component ----------
 const ExpertiseSec = () => {
