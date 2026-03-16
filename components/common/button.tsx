@@ -32,7 +32,8 @@ const DynamicButton = ({
         </span>
       </Link>
       <Link
-        href="#"
+        href="/contact"
+        aria-label="Start a project"
         className={`relative rounded-full font-semibold lg:p-4 p-2 md:h-[50px] md:w-[50px] h-[35px] w-[35px] shadow-lg overflow-hidden dark:text-black text-white dark:bg-white bg-black transition-all duration-500 ease-in-out flex items-center justify-center gap-2 group`}
       >
         <MdArrowOutward className="" size={22} />

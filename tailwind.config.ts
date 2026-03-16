@@ -10,10 +10,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        golden: '#b4b2b5',
         primary: {
           brown: '#373833',
-          gunmetal : '#22333b',
-          umber : '#5d4f3f',
+          gunmetal: '#22333b',
+          umber: '#5d4f3f',
         },
       },
     },

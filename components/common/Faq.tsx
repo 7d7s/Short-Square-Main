@@ -32,7 +32,7 @@ const Faq = ({ faqs }: { faqs: FAQItem[] }) => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.1 }}
                     >
-                        F<span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#c8b390]">AQs</span>
+                        F<span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-golden">AQs</span>
                     </motion.h2>
                     <motion.p
                         className="text-white/80 text-xl mb-8 max-w-xl"

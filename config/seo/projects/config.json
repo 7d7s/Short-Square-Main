@@ -1,17 +1,17 @@
 {
-    "title": "Our Portfolio - ShortSquare Photography",
+    "title": "Our Portfolio - ShotSquare Photography",
     "description": "Explore our extensive portfolio featuring weddings, corporate events, fashion shoots, and majestic landscapes. See the world through our lens.",
     "openGraph": {
-        "title": "ShortSquare Photography Portfolio - Capturing Stories",
+        "title": "ShotSquare Photography Portfolio - Capturing Stories",
         "description": "Browse our latest photography projects across India. From intimate portraits to grand celebrations.",
-        "url": "https://www.shortsquare.com/projects",
-        "siteName": "ShortSquare Photography",
+        "url": "https://www.shotsquare.com/projects",
+        "siteName": "ShotSquare Photography",
         "images": [
             {
                 "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791051/street_Photography_xz99dw.avif",
                 "width": 1200,
                 "height": 630,
-                "alt": "ShortSquare Projects Portfolio"
+                "alt": "ShotSquare Projects Portfolio"
             }
         ],
         "locale": "en_US",
@@ -19,7 +19,7 @@
     },
     "twitter": {
         "card": "summary_large_image",
-        "title": "ShortSquare Portfolio",
+        "title": "ShotSquare Portfolio",
         "description": "Browse our latest photography projects. From intimate portraits to grand celebrations.",
         "images": [
             "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791051/street_Photography_xz99dw.avif"

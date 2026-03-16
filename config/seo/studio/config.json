@@ -1,17 +1,17 @@
 {
-    "title": "Studio Rental & Services - ShortSquare Photography",
+    "title": "Studio Rental & Services - ShotSquare Photography",
     "description": "State-of-the-art photography studio available for rent in Delhi. Equipped with premium lighting, backdrops, and professional amenities for your next shoot.",
     "openGraph": {
-        "title": "Professional Photography Studio Rental - ShortSquare",
+        "title": "Professional Photography Studio Rental - ShotSquare",
         "description": "State-of-the-art photography studio in Delhi equipped with premium lighting and cyclorama walls.",
-        "url": "https://www.shortsquare.com/studio",
-        "siteName": "ShortSquare Photography",
+        "url": "https://www.shotsquare.com/studio",
+        "siteName": "ShotSquare Photography",
         "images": [
             {
                 "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744717887/Framed_in_Portraits_bsoncf.avif",
                 "width": 1200,
                 "height": 630,
-                "alt": "ShortSquare Studio"
+                "alt": "ShotSquare Studio"
             }
         ],
         "locale": "en_US",
@@ -19,7 +19,7 @@
     },
     "twitter": {
         "card": "summary_large_image",
-        "title": "Rent Our Studio - ShortSquare",
+        "title": "Rent Our Studio - ShotSquare",
         "description": "State-of-the-art photography studio in Delhi equipped with premium lighting and professional gear.",
         "images": [
             "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744717887/Framed_in_Portraits_bsoncf.avif"

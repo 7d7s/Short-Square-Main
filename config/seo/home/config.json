@@ -1,18 +1,18 @@
 {
-  "metadataBase": "https://www.shortsquare.com",
-  "title": "ShortSquare Photography - Professional Photography Services in India",
-  "description": "ShortSquare Photography specializes in wedding, portrait, fashion, travel, and nature photography across India. Capturing life's precious moments with artistry and elegance.",
+  "metadataBase": "https://www.shotsquare.com",
+  "title": "ShotSquare Photography - Professional Photography Services in India",
+  "description": "ShotSquare Photography offers professional product, fashion, corporate, lifestyle, and commercial photography services across India. High-end visuals, cinematic storytelling, and brand-focused imagery for businesses and individuals.",
   "openGraph": {
-    "title": "ShortSquare Photography - Professional Photography Services",
-    "description": "Expert photography services capturing weddings, portraits, fashion, travel, and nature across India with artistic excellence.",
-    "url": "https://www.shortsquare.com",
-    "siteName": "ShortSquare Photography",
+    "title": "ShotSquare Photography - Professional Photography Services",
+    "description": "ShotSquare Photography offers professional product, fashion, corporate, lifestyle, and commercial photography services across India. High-end visuals, cinematic storytelling, and brand-focused imagery for businesses and individuals.",
+    "url": "https://www.shotsquare.com",
+    "siteName": "ShotSquare Photography",
     "images": [
       {
         "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png",
         "width": 1200,
         "height": 630,
-        "alt": "ShortSquare Photography Portfolio"
+        "alt": "ShotSquare Photography Portfolio"
       }
     ],
     "locale": "en_US",
@@ -20,8 +20,8 @@
   },
   "twitter": {
     "card": "summary_large_image",
-    "title": "ShortSquare Photography",
-    "description": "Expert photography services capturing weddings, portraits, fashion, travel, and nature across India with artistic excellence.",
+    "title": "ShotSquare Photography",
+    "description": "ShotSquare Photography offers professional product, fashion, corporate, lifestyle, and commercial photography services across India. High-end visuals, cinematic storytelling, and brand-focused imagery for businesses and individuals.",
     "images": [
       "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png"
     ]

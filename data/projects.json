@@ -1,99 +1,99 @@
 {
     "banner": {
-        "title": "Masterworks Portfolio",
-        "description": "Each frame is a meticulously crafted narrative—an intersection of raw emotion, perfect light, and timeless artistry.",
-        "imageUrl": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/d3_ourkxr.jpg"
+        "title": "Our Portfolio",
+        "description": "Each frame is a meticulously crafted narrative—an intersection of perfect light, commercial appeal, and timeless style.",
+        "imageUrl": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773658544/IMG_0905_uldbba.jpg"
     },
     "categories": [
         "All",
-        "Wedding",
-        "Portrait",
-        "Travel",
-        "Nature",
         "Fashion",
-        "Commercial"
+        "Ecommerce",
+        "Commercial",
+        "Corporate",
+        "Campaign",
+        "Products"
     ],
     "projects": [
         {
             "id": 1,
-            "title": "A Royal Vow",
-            "client": "Rajeev & Sunita",
-            "year": "2023",
-            "category": "Wedding",
-            "description": "Capturing the pure magic of your special day with timeless, highly-curated wedding photography that tells your unique love story in cinematic detail.",
-            "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744794512/a_k2mxoq.png"
+            "title": "Vogue Editorial Focus",
+            "client": "Fashion Week",
+            "year": "2024",
+            "category": "Fashion",
+            "description": "High-end editorial fashion photography showcasing profound style and striking elegance. We immortalize the essence of every garment and model.",
+            "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772267708/_AVP6231_f50ksl.jpg"
         },
         {
             "id": 2,
-            "title": "Vogue Editorial Focus",
-            "client": "Delhi Fashion Week",
-            "year": "2022",
-            "category": "Fashion",
-            "description": "High-end editorial fashion photography showcasing profound style and striking elegance. We immortalize the essence of every garment and model.",
-            "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744789303/fashio_exfcmi.avif"
-        },
-        {
-            "id": 3,
-            "title": "Untamed Horizons",
-            "client": "Wilderness Magazine",
-            "year": "2023",
-            "category": "Nature",
-            "description": "Breathtaking nature photography that captures the raw, pristine beauty of our planet. From sweeping twilight landscapes to intimate wildlife moments.",
-            "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744795662/aa_spqgjh.avif"
-        },
-        {
-            "id": 4,
-            "title": "Journey to the Edge",
-            "client": "Global Roamers",
-            "year": "2021",
-            "category": "Travel",
-            "description": "Travel photography that transports you to distant, exotic lands. We capture the authentic pulse of localized cultures and the people who define them.",
-            "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744795283/trsvel_v4ouvo.avif"
-        },
-        {
-            "id": 5,
-            "title": "The First Look",
-            "client": "Vijay & Seema",
-            "year": "2025",
-            "category": "Wedding",
-            "description": "Highly elegant wedding portraits that freeze the rushing emotion and delicate beauty of your celebration. Every tear and smile preserved in perfect clarity.",
-            "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png"
-        },
-        {
-            "id": 6,
-            "title": "Candid Devotion",
-            "client": "Shivam & Sonam",
-            "year": "2023",
-            "category": "Wedding",
-            "description": "Authentic, photojournalism-style wedding photography that documents the organic flow of your love story without intrusion.",
-            "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744799492/wedding3_n8k84l.avif"
-        },
-        {
-            "id": 7,
-            "title": "The Soul's Reflection",
-            "client": "Private Commission",
-            "year": "2025",
-            "category": "Portrait",
-            "description": "Stunning, intimate portrait photography that reveals the true essence of the subject through dramatic lighting and meticulous composition.",
-            "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744799740/potraits2_i2xaaf.avif"
-        },
-        {
-            "id": 8,
             "title": "Avant-Garde Studio",
             "client": "Premium Label",
             "year": "2024",
             "category": "Fashion",
             "description": "Bold, avant-garde fashion photography designed to disrupt the norm. Creating powerful visual stories that elevate luxury brands.",
-            "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744799960/po_stddub.avif"
+            "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773659659/manik40879_1_imipdr.jpg"
         },
         {
-            "id": 9,
+            "id": 3,
+            "title": "The Daily Lookbook",
+            "client": "Urban Apparel",
+            "year": "2023",
+            "category": "Ecommerce",
+            "description": "Clean, highly detailed e-commerce catalogue shots designed to highlight fit, texture, and color accuracy for online shoppers.",
+            "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773660403/jtee9362_1_kqwp0t.jpg"
+        },
+        {
+            "id": 4,
             "title": "Executive Distinction",
             "client": "Corporate Faces",
             "year": "2024",
-            "category": "Portrait",
+            "category": "Corporate",
             "description": "Polished, masterful portrait sessions that establish absolute authority and character. Designed specifically for elite professional headshots.",
-            "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744799741/potraits_p2euvj.avif"
+            "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772271110/preeta_mehta_9-9-2562001_1_fu0bkd.jpg"
+        },
+        {
+            "id": 5,
+            "title": "The Power of Sound",
+            "client": "Audio Dynamics",
+            "year": "2023",
+            "category": "Products",
+            "description": "Premium product photography focusing on sleek design, metallic finishes, and the premium quality of high-end electronics.",
+            "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773660405/satwaa-792_1_s7ffeq.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Athletic Momentum",
+            "client": "Active Wear Co.",
+            "year": "2024",
+            "category": "Campaign",
+            "description": "Dynamic, high-energy brand campaign visuals capturing the speed, power, and lifestyle of the modern athlete.",
+            "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773656781/_DSC3191_1_aokpy5.jpg"
+        },
+        {
+            "id": 7,
+            "title": "Minimalist Accessories",
+            "client": "Leather & Co.",
+            "year": "2023",
+            "category": "Products",
+            "description": "Exquisite still-life and lifestyle product compositions emphasizing texture, craftsmanship, and sophisticated minimalism.",
+            "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773655409/d1184129-c4d1-4691-8b11-dcbdda313712_rw_1200_nbu3px.jpg"
+        },
+        {
+            "id": 8,
+            "title": "The Startup Vision",
+            "client": "FinTech Innovators",
+            "year": "2024",
+            "category": "Commercial",
+            "description": "Modern corporate and commercial imagery designed for brand storytelling, websites, and professional marketing materials.",
+            "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772453536/Exclusive_shoot_mcjxap.png"
+        },
+        {
+            "id": 9,
+            "title": "Evening Elegance",
+            "client": "Designer Gala",
+            "year": "2024",
+            "category": "Fashion",
+            "description": "Cinematic and moody fashion photography capturing the allure and grace of premium evening wear collections.",
+            "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773660259/_DSC3520_1_ybgjz2.jpg"
         }
     ],
     "cta": {
