@@ -1,12 +1,8 @@
 "use client";
 
-import Slider from "react-slick";
 import Image from "next/image";
-import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Particles from "@/components/common/particles";
 import homeData from "@/data/home.json";
 
 interface SlideData {
@@ -14,187 +10,216 @@ interface SlideData {
   title: string;
   desc: string;
   heroImg: string;
+  tags?: { name: string }[];
 }
+
+function parseTitle(title: string) {
+  const parts = title.split(",");
+  if (parts.length > 1) {
+    return {
+      line1: parts[0].trim(),
+      line2: parts.slice(1).join(",").trim(),
+    };
+  }
+  return { line1: title, line2: "" };
+}
+
+const isVideo = (url: string) => {
+  return /\.(mp4|webm|ogg|mov)$/i.test(url);
+};
+
+// Cinematic Apple-grade transition curves
+const DURATION = 12000; // 12 seconds per slide
+const springElite = { type: "spring", stiffness: 45, damping: 25, mass: 1 };
+const easeSleek = [0.16, 1, 0.3, 1];
 
 function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [displayTitle, setDisplayTitle] = useState("");
-  const [typingComplete, setTypingComplete] = useState(false);
-  const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const cursorRef = useRef<HTMLSpanElement>(null);
-  const sliderRef = useRef<Slider>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
-  const sliderData: SlideData[] = useMemo(
-    () => homeData.hero,
-    []
-  );
+  const sliderData: SlideData[] = useMemo(() => homeData.hero, []);
 
-  const slideTags = useMemo(
-    () => homeData.hero.map((slide) => slide.tags),
-    []
-  );
-  const initialTitle = sliderData[0].title;
-
-  const startTypingAnimation = useCallback((text: string) => {
-    setTypingComplete(false);
-    setDisplayTitle("");
-
-    if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
-
-    if (cursorRef.current) {
-      cursorRef.current.style.opacity = "1";
-      cursorRef.current.style.animation = "none";
-    }
-
-    let i = 0;
-
-    const typeNext = () => {
-      if (i < text.length) {
-        setDisplayTitle(text.slice(0, i + 1));
-        i++;
-        typingTimeoutRef.current = setTimeout(typeNext, 35 + Math.random() * 25);
-      } else {
-        setTypingComplete(true);
-        if (cursorRef.current)
-          cursorRef.current.style.animation = "blink 1s infinite";
-      }
-    };
-
-    typingTimeoutRef.current = setTimeout(typeNext, 200);
-  }, []);
+  // Hydration fix for client animations
   useEffect(() => {
-    startTypingAnimation(initialTitle);
+    setIsMounted(true);
+  }, []);
 
-    return () => {
-      if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
-    };
-  }, [startTypingAnimation, initialTitle]);
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 900,
-    slidesToShow: 1.1,
-    slidesToScroll: 1,
-    autoplay: true,
-    arrows: false,
-    centerMode: true,
-    centerPadding: "8%",
-    autoplaySpeed: 5000,
-    beforeChange: (_: number, next: number) => setActiveSlide(next),
-    afterChange: (next: number) => {
-      setTimeout(() => {
-        startTypingAnimation(sliderData[next].title);
-      }, 280);
-    },
-  };
+  const slideNext = useCallback(() => {
+    setActiveSlide((prev) => (prev + 1) % sliderData.length);
+  }, [sliderData.length]);
+
+  useEffect(() => {
+    const timer = setInterval(slideNext, DURATION);
+    return () => clearInterval(timer);
+  }, [slideNext]);
+
+  const activeTitle = parseTitle(sliderData[activeSlide].title);
+  const currentMedia = sliderData[activeSlide].heroImg;
+  const isMediaVideo = isVideo(currentMedia);
 
   return (
-    <>
-      {/* Cursor Blink Animation */}
-      <style jsx global>{`
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
-      `}</style>
+    <div className="relative w-full h-[90svh] md:h-[95vh] rounded-[24px] md:rounded-[32px] overflow-hidden bg-[#000] select-none group touch-pan-y">
 
-      <div className="relative h-[90vh] md:h-[80vh] lg:h-[93vh] px-4 md:px-8 overflow-hidden rounded-2xl">
+      {/* 1. LAYER: CINEMATIC CANVAS (Scale, Blur, & Grade) */}
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={`bg-${activeSlide}`}
+          initial={{ opacity: 0, scale: 1.05 }} // Start slightly zoomed in
+          animate={{ opacity: 1, scale: 1 }} // Settle elegantly to 1.0 over 12s
+          exit={{ opacity: 0, transition: { duration: 1.2, ease: "easeInOut" } }} // Fade out slow
+          transition={{
+            opacity: { duration: 1.5, ease: "easeOut" },
+            scale: { duration: DURATION / 1000, ease: "linear" }
+          }}
+          className="absolute inset-0 w-full h-full will-change-transform"
+        >
+          {isMediaVideo ? (
+            <video
+              src={currentMedia}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : (
+            <Image
+              src={currentMedia}
+              alt="ShortSquare Photography"
+              fill
+              priority
+              quality={100}
+              className="object-cover"
+              sizes="100vw"
+            />
+          )}
+          {/* Graded Neutral Density Filters - Mobile optimized vs Desktop */}
+          <div className="absolute inset-0 bg-black/15 mix-blend-multiply" />
+          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-[60vh] bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none opacity-90 md:h-[50vh] md:opacity-100" />
+        </motion.div>
+      </AnimatePresence>
 
-        <div className="absolute inset-0">
-          <Particles />
-          <AnimatePresence mode="wait">
+      {/* 2. LAYER: UI CONTROLS & PAGINATION (Absolute Alignment) */}
+      {isMounted && (
+        <>
+          {/* Mobile Specific Progress Bar (Absolute Bottom Edge) */}
+          <div className="absolute bottom-0 left-0 w-full h-[2px] bg-white/10 z-30 lg:hidden pointer-events-none">
             <motion.div
-              key={activeSlide}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="absolute inset-0"
-            >
-              <Image
-                src={sliderData[activeSlide].heroImg}
-                alt="Hero background"
-                fill
-                priority
-                className="object-cover rounded-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a09] via-[#0a0a09]/40 to-[#0a0a09] rounded-2xl mix-blend-multiply opacity-90" />
-              <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a09]/90 via-transparent to-[#0a0a09]/90 rounded-2xl" />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        <div className="relative z-20 container mx-auto flex flex-col justify-between h-full">
-
-          <div className="pt-56 md:pt-72 text-center lg:text-left">
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-7xl font-semibold text-white tracking-tight w-11/12 lg:w-8/12 mx-auto lg:mx-0"
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              {displayTitle}
-
-              {!typingComplete && (
-                <span
-                  ref={cursorRef}
-                  className="inline-block w-[3px] h-[1em] bg-white ml-1 align-bottom"
-                />
-              )}
-            </motion.h1>
+              key={`progress-mobile-${activeSlide}`}
+              initial={{ x: "-100%" }}
+              animate={{ x: "0%" }}
+              transition={{ duration: DURATION / 1000, ease: "linear" }}
+              className="w-full h-full bg-white"
+            />
           </div>
 
-          <div className="absolute bottom-10 left-0 w-full">
-            <div className="grid grid-cols-3 items-end gap-y-6">
+          {/* Invisible Touch/Click Navigation Zones */}
+          <div
+            className="absolute inset-y-0 left-0 w-1/3 z-40 cursor-w-resize"
+            onClick={() => setActiveSlide((prev) => (prev - 1 + sliderData.length) % sliderData.length)}
+            aria-label="Previous Slide"
+          />
+          <div
+            className="absolute inset-y-0 right-0 w-1/3 z-40 cursor-e-resize"
+            onClick={slideNext}
+            aria-label="Next Slide"
+          />
+        </>
+      )}
 
-              {/* Tags */}
-              <div className="lg:col-span-2 col-span-3 text-white/90 text-sm md:text-base">
-                <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-                  {slideTags[activeSlide].map((tag, index) => (
-                    <motion.span
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.25 + index * 0.08 }}
-                      className="px-4 py-2 border border-white/20 rounded-full bg-white/10 hover:bg-white/25 backdrop-blur-md transition-all cursor-pointer shadow-sm"
-                    >
-                      {tag.name}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
+      {/* 3. LAYER: CENTERPIECE TYPOGRAPHY (Responsive & Brutal) */}
+      <div className="relative z-20 flex flex-col justify-end w-full h-full pt-20 px-6 pb-12 md:px-12 md:pb-16 lg:px-20 lg:pb-[8vh] pointer-events-none">
 
-              {/* Thumbnail Slider */}
-              <div className="lg:col-span-1 col-span-3">
-                <Slider ref={sliderRef} {...settings}>
-                  {sliderData.map((item, index) => (
-                    <div key={index} className="px-2">
-                      <motion.div
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.05 }}
-                        className="p-2.5 border border-white/10 rounded-xl bg-white/10 backdrop-blur-md shadow-md flex items-center hover:shadow-lg transition-all"
-                      >
-                        <Image
-                          src={item.img}
-                          width={80}
-                          height={80}
-                          alt="Slide"
-                          className="rounded-lg object-cover w-20 h-20"
-                        />
-                        <p className="ml-3 text-sm lg:text-base font-medium text-white/90 line-clamp-2">
-                          {item.title}
-                        </p>
-                      </motion.div>
-                    </div>
-                  ))}
-                </Slider>
-              </div>
-            </div>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-0">
+
+          {/* Left Hero Monolith */}
+          <div className="flex flex-col">
+            <AnimatePresence mode="popLayout" initial={false}>
+              <motion.div
+                key={`tag-${activeSlide}`}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ ...springElite, delay: 0.1 }}
+                className="mb-4 md:mb-6"
+              >
+                <span className="inline-block py-1 px-3 border border-white/20 rounded-full text-[9px] md:text-[10px] uppercase font-medium tracking-[0.2em] text-white/80 backdrop-blur-md bg-white/[0.03]">
+                  {sliderData[activeSlide].tags?.[0]?.name || "Exclusive Capture"}
+                </span>
+              </motion.div>
+            </AnimatePresence>
+
+            <AnimatePresence mode="popLayout">
+              <motion.div key={`title-${activeSlide}`} className="flex flex-col pointer-events-auto">
+                {/* 
+                  Typography magic formula:
+                  - Clamp for perfect scaling between iPhone SE and 4K displays.
+                  - Negative tracking for massive impact (-0.03em).
+                  - Ultra-tight leading (0.9 to 0.95). 
+                */}
+                <motion.h1
+                  initial={{ opacity: 0, filter: "blur(8px)", y: 30 }}
+                  animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                  exit={{ opacity: 0, filter: "blur(4px)", y: -20 }}
+                  transition={{ duration: 1.4, ease: easeSleek }}
+                  className="text-white text-[clamp(2.5rem,7vw,6rem)] font-light tracking-tight md:tracking-[-0.03em] leading-[1.05] md:leading-[0.9] max-w-4xl"
+                >
+                  {activeTitle.line1}
+                </motion.h1>
+
+                {activeTitle.line2 && (
+                  <motion.h1
+                    initial={{ opacity: 0, filter: "blur(8px)", y: 30 }}
+                    animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                    exit={{ opacity: 0, filter: "blur(4px)", y: -20 }}
+                    transition={{ duration: 1.4, delay: 0.08, ease: easeSleek }}
+                    className="text-white/70 text-[clamp(2rem,5.5vw,5.5rem)] font-light tracking-[-0.01em] md:tracking-[-0.03em] leading-[1.1] md:leading-[0.95] mt-1 md:mt-2 max-w-4xl"
+                  >
+                    {activeTitle.line2}
+                  </motion.h1>
+                )}
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Added Description back per MNC Grade rule "Show, Don't Tell... but gracefully guide" */}
+            <AnimatePresence mode="popLayout">
+              <motion.p
+                key={`desc-${activeSlide}`}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, filter: "blur(4px)" }}
+                transition={{ duration: 1, delay: 0.3, ease: easeSleek }}
+                className="text-white/50 font-light text-[10px] md:text-[20px] leading-relaxed max-w-sm md:max-w-4xl mt-6 hidden sm:block pointer-events-auto"
+              >
+                {sliderData[activeSlide].desc}
+              </motion.p>
+            </AnimatePresence>
           </div>
+
+          {/* Right Hero Action */}
+          <motion.div
+            className="flex items-center lg:items-end w-full lg:w-auto mt-4 lg:mt-0 pointer-events-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 2 }}
+          >
+            <button
+              className="group flex items-center justify-between w-full lg:w-auto gap-4 py-4 px-6 md:py-4 md:px-8 border border-white/20 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-xl transition-all duration-500 ease-out sm:w-auto 
+               hover:pr-6 md:hover:pr-10" // Pad out right side on hover for arrow movement
+            >
+              <span className="text-[11px] md:text-xs font-medium uppercase tracking-[0.15em] text-white">
+                View Gallery
+              </span>
+              <span className="text-white/60 group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-1 sm:group-hover:translate-x-2 ease-[0.16,1,0.3,1]">
+                →
+              </span>
+            </button>
+          </motion.div>
+
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

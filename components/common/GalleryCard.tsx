@@ -35,6 +35,9 @@ const ImageCard = ({ img }: ImageCardProps) => {
         priority={false}
       />
 
+      {/* Persistent slight black filter */}
+      <div className="absolute inset-0 bg-light/20 z-[5] transition-opacity duration-1000 group-hover:opacity-40" />
+
       {/* Deep Sheer Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-out z-10" />
 
@@ -44,16 +47,20 @@ const ImageCard = ({ img }: ImageCardProps) => {
         {/* Floating Typography Block */}
         <div className="transform translate-y-12 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col items-start gap-4">
 
-          <div className="flex gap-4 w-full justify-between items-center text-[#c8b390] font-light text-[0.65rem] tracking-[0.3em] uppercase">
-            <span>{img.category}</span>
-            <span>{img.year}</span>
+          <div className="flex gap-4 w-full justify-between items-center text-white/90 font-medium text-[0.65rem] tracking-[0.3em] uppercase">
+            <span className="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+              {img.category}
+            </span>
+            <span className="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+              {img.year}
+            </span>
           </div>
 
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-tight font-light drop-shadow-2xl">
             {img.title}
           </h3>
 
-          <div className="w-8 h-[1px] bg-[#c8b390]/50 my-2" />
+          <div className="w-8 h-[1px] bg-golden/50 my-2" />
 
           <span className="text-white/60 text-xs tracking-widest uppercase font-light">
             {img.client}

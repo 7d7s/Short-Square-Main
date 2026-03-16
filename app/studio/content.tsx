@@ -1,191 +1,181 @@
 "use client";
 import { FaCamera, FaLightbulb, FaRulerCombined, FaWifi, FaParking, FaCoffee } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import ImageCard from '@/components/common/GalleryCard';
-import Banner from '@/components/common/banner';
-import GetInTouch from '@/components/getInTouch'
+import GetInTouch from '@/components/getInTouch';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import studioData from '@/data/studio.json';
 
 const iconMap: Record<string, React.ReactNode> = {
-    FaCamera: <FaCamera className="text-white text-3xl md:text-4xl" />,
-    FaLightbulb: <FaLightbulb className="text-white text-3xl md:text-4xl" />,
-    FaRulerCombined: <FaRulerCombined className="text-white text-3xl md:text-4xl" />,
-    FaWifi: <FaWifi className="text-white text-3xl md:text-4xl" />,
-    FaParking: <FaParking className="text-white text-3xl md:text-4xl" />,
-    FaCoffee: <FaCoffee className="text-white text-3xl md:text-4xl" />
+    FaCamera: <FaCamera className="text-white/40 text-2xl group-hover:text-white transition-colors duration-700" />,
+    FaLightbulb: <FaLightbulb className="text-white/40 text-2xl group-hover:text-white transition-colors duration-700" />,
+    FaRulerCombined: <FaRulerCombined className="text-white/40 text-2xl group-hover:text-white transition-colors duration-700" />,
+    FaWifi: <FaWifi className="text-white/40 text-2xl group-hover:text-white transition-colors duration-700" />,
+    FaParking: <FaParking className="text-white/40 text-2xl group-hover:text-white transition-colors duration-700" />,
+    FaCoffee: <FaCoffee className="text-white/40 text-2xl group-hover:text-white transition-colors duration-700" />
+};
+
+const ease = [0.16, 1, 0.3, 1];
+
+// Ultra-Sleek List Component
+const FeatureRow = ({ feature, index }: { feature: any, index: number }) => {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px", amount: 0.2 }}
+            transition={{ duration: 1, delay: index * 0.1, ease }}
+            className="group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 py-10 md:py-16 border-b border-white/[0.04] hover:bg-white/[0.01] px-6 md:px-12 transition-colors duration-700 cursor-default"
+        >
+            <div className="flex items-center gap-8 md:gap-16 w-full md:w-auto">
+                {/* Minimal Dark Icon Box */}
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-[1.5rem] border border-white/[0.05] flex items-center justify-center bg-[#030303] shadow-[inset_0_2px_10px_rgba(255,255,255,0.02)] group-hover:border-golden/30 transition-all duration-700 overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-golden/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <motion.div
+                        className="relative z-10"
+                        whileHover={{ rotate: [-5, 5, 0], scale: 1.1 }}
+                        transition={{ duration: 0.8, ease }}
+                    >
+                        {iconMap[feature.iconName]}
+                    </motion.div>
+                </div>
+
+                <h3 className="text-3xl md:text-5xl lg:text-6xl font-light text-white tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-golden transition-all duration-700">
+                    {feature.title}
+                </h3>
+            </div>
+
+            <p className="text-white/30 leading-relaxed font-light text-base md:text-lg max-w-md group-hover:text-white/60 transition-colors duration-700 md:text-right mt-4 md:mt-0">
+                {feature.description}
+            </p>
+        </motion.div>
+    );
 };
 
 export default function StudioContent() {
+    const heroRef = useRef(null);
+    const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+    const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+    const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
 
     return (
-        <div className="container mx-auto overflow-x-hidden">
-            {/* Banner Section */}
-            <Banner
-                title={studioData.banner.title}
-                description={studioData.banner.description}
-                imageUrl={studioData.banner.imageUrl}
-            />
-
-            {/* Studio Features section with ambient background glow */}
-            <section className="py-24 my-6 px-4 md:px-12 lg:px-20 text-white relative">
-                {/* Immersive Background Decor */}
-                <div className="absolute inset-0 bg-[#0f0e0d] rounded-[3rem] shadow-2xl overflow-hidden -z-10 border border-white/5">
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#c8b390] rounded-full mix-blend-multiply filter blur-[150px] opacity-10 animate-pulse-slow"></div>
-                    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#756447] rounded-full mix-blend-multiply filter blur-[150px] opacity-10 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-                </div>
-
+        <div className="bg-black min-h-screen text-white w-full overflow-hidden font-sans">
+            {/* Cinematic Hero Section - Floating with Parallax */}
+            <section ref={heroRef} className="relative w-[calc(100%-1rem)] md:w-[calc(100%-2rem)] mx-auto mt-2 md:mt-4 h-[85vh] md:h-[95vh] flex items-center justify-center overflow-hidden rounded-[3rem] md:rounded-[4rem] border border-white/[0.05] shadow-[0_20px_100px_rgba(0,0,0,0.8)] bg-[#050505]">
                 <motion.div
-                    className="text-center mb-24 relative z-10"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ y, opacity }}
+                    className="absolute inset-0 z-0 pointer-events-none"
                 >
-                    <motion.p
-                        className="text-[#c8b390] font-medium tracking-[0.2em] uppercase text-sm mb-4"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.2, duration: 0.6 }}
-                    >
-                        Unrivaled Excellence
-                    </motion.p>
-                    <motion.h2
-                        className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 tracking-tight font-serif"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, delay: 0.1 }}
-                    >
-                        {studioData.features.section.titleRest}{" "}
-                        <span className="italic text-transparent bg-clip-text bg-gradient-to-br from-[#f8f0dd] via-[#c8b390] to-[#756447]">
-                            {studioData.features.section.titleHighlight}
-                        </span>
-                    </motion.h2>
-                    <motion.p
-                        className="max-w-2xl mx-auto text-white/70 text-lg md:text-xl font-light leading-relaxed"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                    >
-                        {studioData.features.section.description}
-                    </motion.p>
+                    <div className="absolute inset-0 bg-black/40 z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent z-10" />
+                    <motion.img
+                        initial={{ scale: 1.1 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 2.5, ease }}
+                        src={studioData.banner.imageUrl}
+                        alt="Studio"
+                        className="w-full h-full object-cover"
+                    />
                 </motion.div>
 
-                {/* Feature Cards */}
-                <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={{
-                        hidden: {},
-                        visible: {
-                            transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-                        },
-                    }}
-                >
-                    {studioData.features.items.map((feature, index) => (
-                        <motion.div
-                            key={index}
-                            variants={{
-                                hidden: { opacity: 0, y: 40 },
-                                visible: {
-                                    opacity: 1,
-                                    y: 0,
-                                    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
-                                },
-                            }}
-                            className="group relative h-full flex flex-col pt-8 sm:pr-8"
-                        >
-                            {/* Minimalist Top Border */}
-                            <div className="absolute top-0 left-0 right-8 h-[1px] bg-white/10 group-hover:bg-[#c8b390] transition-colors duration-700" />
-
-                            {/* Animated Glint on Hover */}
-                            <div className="absolute top-0 left-0 w-0 h-[1px] bg-white group-hover:w-16 transition-all duration-[800ms] ease-out" />
-
-                            <div className="flex flex-col h-full relative z-20">
-
-                                <div className="flex justify-between items-start mb-8 w-full">
-                                    <h3 className="text-xl md:text-2xl font-serif text-white tracking-wide max-w-[70%] leading-tight group-hover:text-[#c8b390] transition-colors duration-500">
-                                        {feature.title}
-                                    </h3>
-                                    <div className="text-white/40 group-hover:text-[#c8b390] transition-all duration-500 transform group-hover:scale-110">
-                                        {iconMap[feature.iconName]}
-                                    </div>
-                                </div>
-
-                                <p className="text-white/50 leading-relaxed font-light text-sm md:text-base group-hover:text-white/80 transition-colors duration-500 mt-auto">
-                                    {feature.description}
-                                </p>
-
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-
-                <style jsx>{`
-    @keyframes pulse-slow {
-      0%, 100% { opacity: 0.2; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.1); }
-    }
-    .animate-pulse-slow {
-      animation: pulse-slow 10s ease-in-out infinite;
-    }
-  `}</style>
-            </section>
-
-
-            {/* Gallery Section */}
-            <section className="py-20 mb-12">
-                <div className="container mx-auto px-4 md:px-8">
+                <div className="relative z-20 container mx-auto px-6 text-center mt-24">
                     <motion.div
-                        className="flex flex-col md:flex-row justify-between items-end mb-16 relative z-10"
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.4, duration: 1.5, ease }}
+                        className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-white/10 bg-black/20 backdrop-blur-xl mb-8"
                     >
-                        <div className="max-w-xl">
-                            <motion.p
-                                className="text-[#c8b390] font-medium tracking-[0.2em] uppercase text-sm mb-4"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.2, duration: 0.6 }}
-                            >
-                                Portfolio
-                            </motion.p>
-                            <motion.h2
-                                className="text-4xl md:text-5xl lg:text-7xl font-light tracking-tight font-serif"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.7, delay: 0.1 }}
-                            >
-                                {studioData.gallery.section.titleRest} <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-[#e8d5b5] to-[#c8b390]">{studioData.gallery.section.titleHighlight}</span>
-                            </motion.h2>
-                        </div>
-                        <motion.div
-                            className="hidden md:block w-32 h-[1px] bg-gradient-to-r from-[#c8b390] to-transparent mb-6"
-                            initial={{ scaleX: 0, transformOrigin: 'left' }}
-                            whileInView={{ scaleX: 1 }}
-                            transition={{ duration: 1, delay: 0.5 }}
-                        />
+                        <span className="w-2 h-2 rounded-full bg-golden animate-pulse shadow-[0_0_10px_rgba(var(--golden-rgb),0.5)]" />
+                        <span className="text-[10px] md:text-xs font-medium tracking-[0.3em] uppercase text-white/70">
+                            Welcome to ShotSquare
+                        </span>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-                        {studioData.gallery.images.map((img) => (
+                    <motion.h1
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6, duration: 1.2, ease }}
+                        className="text-[18vw] md:text-[15vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/10 leading-[0.75] pb-4"
+                    >
+                        STUDIO
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.9, duration: 1.5, ease }}
+                        className="max-w-xl mx-auto text-white/50 text-base md:text-xl font-light leading-relaxed mt-6 tracking-wide"
+                    >
+                        {studioData.banner.description}
+                    </motion.p>
+                </div>
+            </section>
+
+            {/* Cinematic Gallery Section - Lazy Loaded */}
+            <section className="py-24 md:py-32 mt-8 md:mt-16 mb-12 relative overflow-hidden">
+                <div className="container mx-auto px-6 md:px-12 max-w-[1600px] relative z-10">
+                    <motion.div
+                        className="flex flex-col md:flex-row justify-between items-end mb-20 md:mb-32 relative z-10"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 1.2, ease }}
+                    >
+                        <div className="max-w-3xl">
+                            <h2 className="text-5xl md:text-7xl lg:text-[7rem] font-light tracking-tighter leading-[0.9] mb-6">
+                                The <span className="italic font-serif text-golden">Portfolio</span>
+                            </h2>
+                            <p className="text-white/40 text-lg md:text-xl font-light max-w-lg">
+                                Explore a curated selection of our finest cinematic captures and bespoke photography.
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-10">
+                        {studioData.gallery.images.map((img, i) => (
                             <motion.div
                                 key={img.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6 }}
+                                initial={{ opacity: 0, scale: 0.95, y: 40 }}
+                                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                                viewport={{ once: true, margin: "50px", amount: 0.1 }} // Lazy load threshold
+                                transition={{ duration: 1, delay: (i % 4) * 0.1, ease }}
+                                className="group cursor-pointer rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border border-white/[0.03] transform transition-transform duration-700 ease-out hover:scale-[1.02] bg-[#080808]"
                             >
                                 <ImageCard img={img} />
                             </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Ultra-Sleek Minimalist Features List */}
+            <section className="py-32 md:py-48 px-4 md:px-8 lg:px-12 relative max-w-[1600px] mx-auto bg-[#020202] rounded-[4rem] md:rounded-[6rem] border border-white/[0.03] mb-24 shadow-[0_-20px_100px_rgba(0,0,0,0.5)] mx-2 md:mx-6">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-golden opacity-[0.02] blur-[150px] rounded-full pointer-events-none" />
+
+                <div className="container mx-auto max-w-6xl relative z-10">
+                    <motion.div
+                        className="mb-24 md:mb-32 flex flex-col items-center md:items-start"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 1.2, ease }}
+                    >
+                        <p className="text-golden font-semibold tracking-[0.3em] uppercase text-[11px] mb-6">
+                            Excellence Engineered
+                        </p>
+                        <h2 className="text-5xl md:text-7xl lg:text-[6rem] font-light tracking-tighter leading-[0.95] text-center md:text-left">
+                            {studioData.features.section.titleRest}{" "}
+                            <span className="italic font-serif text-transparent bg-clip-text bg-gradient-to-br from-white via-golden to-white/40 block md:inline mt-2 md:mt-0">
+                                {studioData.features.section.titleHighlight}
+                            </span>
+                        </h2>
+                    </motion.div>
+
+                    {/* Highly Refined List Layout */}
+                    <div className="flex flex-col border-t border-white/[0.04]">
+                        {studioData.features.items.map((feature, index) => (
+                            <FeatureRow key={index} feature={feature} index={index} />
                         ))}
                     </div>
                 </div>

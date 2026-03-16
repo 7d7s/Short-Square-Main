@@ -1,8 +1,8 @@
 {
     "banner": {
         "title": "Our Creative Space",
-        "description": "A premium, state-of-the-art photography studio designed to bring your grandest visions to life.",
-        "imageUrl": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198089/d3_ourkxr.jpg"
+        "description": "A premium, state-of-the-art photography studio designed for high-end fashion, product, and commercial shoots.",
+        "imageUrl": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773658544/IMG_0905_uldbba.jpg"
     },
     "features": {
         "section": {
@@ -51,67 +51,67 @@
         "images": [
             {
                 "id": 1,
-                "title": "Bride Portrait",
-                "client": "Vijay Weds Seema",
-                "year": "2020",
-                "category": "Wedding",
-                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png"
+                "title": "Editorial Fashion",
+                "client": "Vogue Series",
+                "year": "2024",
+                "category": "Fashion",
+                "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772267708/_AVP6231_f50ksl.jpg"
             },
             {
                 "id": 2,
-                "title": "Fashion Shoot",
-                "client": "Vogue Series",
-                "year": "2023",
-                "category": "Fashion",
+                "title": "Corporate Executive",
+                "client": "Business Leadership",
+                "year": "2024",
+                "category": "Corporate",
                 "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772271110/preeta_mehta_9-9-2562001_1_fu0bkd.jpg"
             },
             {
                 "id": 3,
-                "title": "Architecture Marvel",
-                "client": "Heritage Estates",
-                "year": "2022",
-                "category": "Architecture",
-                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/a_wkz3id.jpg"
+                "title": "Premium Product Showcase",
+                "client": "Luxury Brand",
+                "year": "2023",
+                "category": "Products",
+                "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773655409/d1184129-c4d1-4691-8b11-dcbdda313712_rw_1200_nbu3px.jpg"
             },
             {
                 "id": 4,
-                "title": "Urban Street",
-                "client": "Cityscapes",
+                "title": "E-commerce Catalogue",
+                "client": "Online Apparel",
                 "year": "2023",
-                "category": "Travel",
-                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791051/street_Photography_xz99dw.avif"
+                "category": "Ecommerce",
+                "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773660403/jtee9362_1_kqwp0t.jpg"
             },
             {
                 "id": 5,
-                "title": "Natural Horizon",
-                "client": "Wilderness Mag",
-                "year": "2021",
-                "category": "Nature",
-                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744791310/sun_jgovbq.png"
+                "title": "Commercial Brand Visual",
+                "client": "Tech Startup",
+                "year": "2024",
+                "category": "Commercial",
+                "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772453536/Exclusive_shoot_mcjxap.png"
             },
             {
                 "id": 6,
-                "title": "Cultural Legacy",
-                "client": "Taj Mahal",
+                "title": "Apparel Lookbook",
+                "client": "Designer Collection",
                 "year": "2024",
-                "category": "Portrait",
-                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744798263/tajmahal_tl1hwc.avif"
+                "category": "Fashion",
+                "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773659659/manik40879_1_imipdr.jpg"
             },
             {
                 "id": 7,
-                "title": "Portrait Perfection",
-                "client": "Intimate Frames",
+                "title": "Product Still Life",
+                "client": "Cosmetics Line",
                 "year": "2023",
-                "category": "Portrait",
-                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744717887/Framed_in_Portraits_bsoncf.avif"
+                "category": "Products",
+                "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772267815/1000029263_lfarpr.jpg"
             },
             {
                 "id": 8,
-                "title": "Sunset Serenity",
-                "client": "Golden Hour",
+                "title": "Brand Campaign Poster",
+                "client": "Athleisure Brand",
                 "year": "2024",
-                "category": "Nature",
-                "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744794923/sunset_wsbvva.avif"
+                "category": "Campaign",
+                "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773656781/_DSC3191_1_aokpy5.jpg"
             }
         ]
     },
