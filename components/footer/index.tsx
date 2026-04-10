@@ -40,9 +40,9 @@ const Footer = () => {
 
             <div className="flex items-center gap-4">
               {[
-                { icon: <FiInstagram size={18} />, href: "https://www.instagram.com/shortsquare.studio", name: "Instagram" },
-                { icon: <FiLinkedin size={18} />, href: "https://www.linkedin.com/company/shortsquare", name: "LinkedIn" },
-                { icon: <FiTwitter size={18} />, href: "https://twitter.com/shortsquare", name: "Twitter" }
+                { icon: <FiInstagram size={18} />, href: "https://www.instagram.com/shotsquare.studio", name: "Instagram" },
+                { icon: <FiLinkedin size={18} />, href: "https://www.linkedin.com/company/shotsquare", name: "LinkedIn" },
+                { icon: <FiTwitter size={18} />, href: "https://twitter.com/shotsquare", name: "Twitter" }
               ].map((social, index) => (
                 <a
                   key={index}
@@ -85,7 +85,7 @@ const Footer = () => {
             <h4 className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-semibold mb-8">Contact & Legal</h4>
             <div className="space-y-5 text-white/60 font-light text-[15px] tracking-wide">
               <p className="hover:text-white transition-colors duration-300 w-fit cursor-pointer">
-                <a href="mailto:info@shortsquare.com" className="focus-visible:outline-none focus-visible:text-white">info@shortsquare.com</a>
+                <a href="mailto:info@shotsquare.com" className="focus-visible:outline-none focus-visible:text-white">info@shotsquare.com</a>
               </p>
               <p className="hover:text-white transition-colors duration-300 w-fit cursor-pointer">
                 <a href="tel:+918882758944" className="focus-visible:outline-none focus-visible:text-white">+91 888 275 8944</a>

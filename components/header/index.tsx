@@ -13,8 +13,8 @@ import {
 import { MdArrowOutward } from "react-icons/md";
 
 const navItems = [
+  { name: "Gallery", href: "/gallery" },
   { name: "Studio", href: "/studio" },
-  { name: "Projects", href: "/projects" },
   { name: "Journal", href: "/blog" },
   { name: "Contact", href: "/contact" }
 ];
@@ -226,8 +226,8 @@ export default function Header() {
             >
               <span className="text-[9px] uppercase tracking-[0.25em] text-white/40 font-semibold">Say Hello</span>
               <div className="flex flex-col gap-1">
-                <a href="mailto:hello@shortsquare.com" className="text-lg md:text-xl text-white/80 hover:text-golden transition-colors duration-500">
-                  hello@shortsquare.com
+                <a href="mailto:hello@shotsquare.com" className="text-lg md:text-xl text-white/80 hover:text-golden transition-colors duration-500">
+                  hello@shotsquare.com
                 </a>
                 <a href="tel:+918882758944" className="text-lg md:text-xl text-white/40 hover:text-white transition-colors duration-500">
                   +91 888 275 8944

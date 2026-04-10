@@ -70,7 +70,7 @@ export default function PrivacyPolicyPage() {
                         </p>
                         <div className="bg-white/[0.02] border border-white/[0.05] rounded-2xl p-6 inline-block mt-4">
                             <p className="text-white font-medium">ShotSquare Legal Team</p>
-                            <p className="text-golden mt-1">legal@shortsquare.com</p>
+                            <p className="text-golden mt-1">legal@shotsquare.com</p>
                         </div>
                     </section>
 

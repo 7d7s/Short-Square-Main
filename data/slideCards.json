@@ -1,0 +1,92 @@
+[
+    {
+        "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1775727924/IMG_20231230_120249_643_1_shotsquare_u3ofh6.jpg",
+        "brand": "Colour Background",
+        "category": "Fashion",
+        "link": "/gallery/colour-background",
+        "colSpan": 2,
+        "rowSpan": 2,
+        "objPos": "center 20%"
+    },
+    {
+        "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1775727976/1R5A2894-F1shotsquare_okgi4l.jpg",
+        "brand": "Colour Background",
+        "category": "Fashion",
+        "link": "/gallery/colour-background",
+        "colSpan": 1,
+        "rowSpan": 1,
+        "objPos": "center 25%"
+    },
+    {
+        "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1775727972/aditya-197shotsquare_i5new1.jpg",
+        "brand": "Colour Background",
+        "category": "Commercial",
+        "link": "/gallery/colour-background",
+        "colSpan": 1,
+        "rowSpan": 1,
+        "objPos": "center 25%"
+    },
+    {
+        "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1775727953/aditya-309shotsquare_xjzmma.jpg",
+        "brand": "Colour Background",
+        "category": "Fashion",
+        "link": "/gallery/colour-background",
+        "colSpan": 1,
+        "rowSpan": 1,
+        "objPos": "center 30%"
+    },
+    {
+        "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1775727978/11-02-22-059shotsquare_belb27.jpg",
+        "brand": "Colour Background",
+        "category": "Fashion",
+        "link": "/gallery/colour-background",
+        "colSpan": 1,
+        "rowSpan": 2,
+        "objPos": "center 15%"
+    },
+    {
+        "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1775734771/IMG_20230521_211008_825shotsquare_idtat1.webp",
+        "brand": "Creative Product Shoot",
+        "category": "Commercial",
+        "link": "/gallery/creative-product-shoot",
+        "colSpan": 1,
+        "rowSpan": 1,
+        "objPos": "center 20%"
+    },
+    {
+        "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1775829060/DSC08404shotsquare_xq1jgu.jpg",
+        "brand": "Jewellery",
+        "category": "Campaign",
+        "link": "/gallery/jewellery",
+        "colSpan": 1,
+        "rowSpan": 1,
+        "objPos": "center 30%"
+    },
+    {
+        "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1775734771/IMG_5423shotsquare_gy4m3v.jpg",
+        "brand": "Creative Product Shoot",
+        "category": "Corporate",
+        "link": "/gallery/creative-product-shoot",
+        "colSpan": 1,
+        "rowSpan": 1,
+        "objPos": "center 20%"
+    },
+    {
+        "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1775829067/hairshotsquare_axtzbo.jpg",
+        "brand": "Jewellery",
+        "category": "Campaign",
+        "link": "/gallery/jewellery",
+        "colSpan": 1,
+        "rowSpan": 2,
+        "objPos": "center 35%"
+    },
+    {
+        "image": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773655409/d1184129-c4d1-4691-8b11-dcbdda313712_rw_1200_nbu3px.jpg",
+        "brand": "Patanjali",
+        "category": "Products",
+        "link": "/",
+        "colSpan": 2,
+        "rowSpan": 2,
+        "objPos": "center 25%"
+    }
+]

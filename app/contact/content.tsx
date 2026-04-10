@@ -141,7 +141,7 @@ export default function ContactContent() {
                                     </div>
                                     <div>
                                         <h4 className="text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase text-white/40 mb-2">Email</h4>
-                                        <p className="text-lg md:text-xl text-white font-light group-hover:text-golden transition-colors duration-500">info@shortsquare.com</p>
+                                        <p className="text-lg md:text-xl text-white font-light group-hover:text-golden transition-colors duration-500">info@shotsquare.com</p>
                                     </div>
                                 </motion.a>
 
