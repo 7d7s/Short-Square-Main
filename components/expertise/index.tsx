@@ -273,56 +273,37 @@ const ExpertiseSec = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Premium Content Overlay lifted in Z-Space for Parallax depth - encapsulated in a sleek glass dock */}
+              {/* Floating Explore Button - Minimalist Link to Gallery */}
               <div
-                className="absolute bottom-6 left-6 md:bottom-10 md:left-10 z-30 w-[calc(100%-3rem)] md:w-full max-w-[380px] lg:max-w-[440px] will-change-transform"
-                style={{ transform: "translateZ(80px)" }} // Increased depth
+                className="absolute bottom-10 left-10 z-30 will-change-transform"
+                style={{ transform: "translateZ(100px)" }}
               >
                 <AnimatePresence mode="popLayout" initial={false}>
                   <motion.div
-                    key={`content-${activeIdx}`}
-                    initial={{ opacity: 0, y: 30, filter: "blur(12px)", scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
-                    exit={{ opacity: 0, y: -15, filter: "blur(8px)", scale: 1.02, transition: { duration: 0.4 } }}
-                    transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex flex-col gap-4 p-6 md:p-8 rounded-[24px] backdrop-blur-[30px] bg-black/40 border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] relative overflow-hidden group/card"
+                    key={`explore-${activeIdx}`}
+                    initial={{ opacity: 0, x: -20, filter: "blur(8px)" }}
+                    animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                    exit={{ opacity: 0, x: 10, filter: "blur(8px)" }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    {/* Subtle internal glass flare */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent pointer-events-none opacity-50 block" />
+                    <Link href="/gallery" passHref>
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="flex items-center gap-4 py-4 px-10 border border-white/30 rounded-full bg-black/40 backdrop-blur-xl hover:bg-white hover:text-black hover:border-white transition-all duration-500 cursor-pointer group/btn shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+                      >
+                        <span className="text-[11px] md:text-[13px] font-bold uppercase tracking-[0.3em]">
+                          Explore Gallery
+                        </span>
 
-                    <div className="relative z-10">
-                      <span className="text-white/70 text-[9px] lg:text-[10px] uppercase tracking-[0.4em] font-medium mb-3 block">
-                        {activeSlide.location}
-                      </span>
-                      <h4 className="text-[1.8rem] md:text-[2.2rem] lg:text-[2.6rem] font-light text-white leading-[1.1] tracking-tighter">
-                        {activeContent.heading}
-                      </h4>
-                    </div>
-
-                    <p className="text-white/70 text-[12px] lg:text-[14px] font-light leading-[1.6] max-w-[360px] relative z-10 mt-2">
-                      {activeContent.subheading}
-                    </p>
-
-                    <div className="pt-4 w-fit relative z-10">
-                      <Link href="/projects" passHref>
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="flex items-center gap-4 py-2.5 px-6 border border-white/20 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-500 ease-[0.16,1,0.3,1] cursor-pointer"
-                        >
-                          <span className="text-[9px] lg:text-[10px] font-medium uppercase tracking-[0.2em] text-white">
-                            Explore
+                        {/* Magnetic Arrow Circle */}
+                        <div className="w-8 h-8 rounded-full bg-white group-hover/btn:bg-black flex items-center justify-center transition-colors duration-500 ml-2">
+                          <span className="text-black group-hover/btn:text-white text-[12px] font-bold">
+                            →
                           </span>
-
-                          {/* Magnetic Arrow Circle */}
-                          <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center transform group-hover/card:scale-110 transition-transform duration-500 shadow-sm ml-2">
-                            <span className="text-black text-[10px] font-bold">
-                              →
-                            </span>
-                          </div>
-                        </motion.div>
-                      </Link>
-                    </div>
+                        </div>
+                      </motion.div>
+                    </Link>
                   </motion.div>
                 </AnimatePresence>
               </div>

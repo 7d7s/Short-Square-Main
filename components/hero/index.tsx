@@ -85,7 +85,7 @@ function Hero() {
           ) : (
             <Image
               src={currentMedia}
-              alt="ShortSquare Photography"
+              alt="ShotSquare Photography"
               fill
               priority
               quality={100}
@@ -94,26 +94,15 @@ function Hero() {
             />
           )}
           {/* Graded Neutral Density Filters - Mobile optimized vs Desktop */}
-          <div className="absolute inset-0 bg-black/15 mix-blend-multiply" />
-          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-[60vh] bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none opacity-90 md:h-[50vh] md:opacity-100" />
+          <div className="absolute inset-0 bg-black/20 mix-blend-multiply" />
+          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-[65vh] bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none md:h-[60vh]" />
         </motion.div>
       </AnimatePresence>
 
       {/* 2. LAYER: UI CONTROLS & PAGINATION (Absolute Alignment) */}
       {isMounted && (
         <>
-          {/* Mobile Specific Progress Bar (Absolute Bottom Edge) */}
-          <div className="absolute bottom-0 left-0 w-full h-[2px] bg-white/10 z-30 lg:hidden pointer-events-none">
-            <motion.div
-              key={`progress-mobile-${activeSlide}`}
-              initial={{ x: "-100%" }}
-              animate={{ x: "0%" }}
-              transition={{ duration: DURATION / 1000, ease: "linear" }}
-              className="w-full h-full bg-white"
-            />
-          </div>
-
           {/* Invisible Touch/Click Navigation Zones */}
           <div
             className="absolute inset-y-0 left-0 w-1/3 z-40 cursor-w-resize"
@@ -129,7 +118,7 @@ function Hero() {
       )}
 
       {/* 3. LAYER: CENTERPIECE TYPOGRAPHY (Responsive & Brutal) */}
-      <div className="relative z-20 flex flex-col justify-end w-full h-full pt-20 px-6 pb-12 md:px-12 md:pb-16 lg:px-20 lg:pb-[8vh] pointer-events-none">
+      <div className="relative z-20 flex flex-col justify-end w-full h-full pt-20 px-6 pb-8 md:px-12 md:pb-12 lg:px-20 lg:pb-[6vh] pointer-events-none">
 
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-0">
 
@@ -142,9 +131,9 @@ function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ ...springElite, delay: 0.1 }}
-                className="mb-4 md:mb-6"
+                className="mb-4 md:mb-5 flex items-center"
               >
-                <span className="inline-block py-1 px-3 border border-white/20 rounded-full text-[9px] md:text-[10px] uppercase font-medium tracking-[0.2em] text-white/80 backdrop-blur-md bg-white/[0.03]">
+                <span className="inline-flex py-[6px] px-4 border border-white/10 rounded-full text-[7px] md:text-[8px] uppercase font-medium tracking-[0.25em] text-white/90 backdrop-blur-md bg-white/[0.05] shadow-lg">
                   {sliderData[activeSlide].tags?.[0]?.name || "Exclusive Capture"}
                 </span>
               </motion.div>
@@ -163,7 +152,7 @@ function Hero() {
                   animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                   exit={{ opacity: 0, filter: "blur(4px)", y: -20 }}
                   transition={{ duration: 1.4, ease: easeSleek }}
-                  className="text-white text-[clamp(2.5rem,7vw,6rem)] font-light tracking-tight md:tracking-[-0.03em] leading-[1.05] md:leading-[0.9] max-w-4xl"
+                  className="text-white text-[clamp(1.75rem,5vw,4.25rem)] font-light tracking-tight md:tracking-[-0.03em] leading-[1.05] md:leading-[0.9] max-w-4xl drop-shadow-2xl"
                 >
                   {activeTitle.line1}
                 </motion.h1>
@@ -174,7 +163,7 @@ function Hero() {
                     animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                     exit={{ opacity: 0, filter: "blur(4px)", y: -20 }}
                     transition={{ duration: 1.4, delay: 0.08, ease: easeSleek }}
-                    className="text-white/70 text-[clamp(2rem,5.5vw,5.5rem)] font-light tracking-[-0.01em] md:tracking-[-0.03em] leading-[1.1] md:leading-[0.95] mt-1 md:mt-2 max-w-4xl"
+                    className="text-white/70 text-[clamp(1.35rem,3.5vw,3.25rem)] font-light tracking-[-0.01em] md:tracking-[-0.03em] leading-[1.1] md:leading-[0.95] mt-1 md:mt-2 max-w-4xl drop-shadow-xl"
                   >
                     {activeTitle.line2}
                   </motion.h1>
@@ -183,7 +172,7 @@ function Hero() {
             </AnimatePresence>
 
             {/* Added Description back per MNC Grade rule "Show, Don't Tell... but gracefully guide" */}
-            <AnimatePresence mode="popLayout">
+            {/* <AnimatePresence mode="popLayout">
               <motion.p
                 key={`desc-${activeSlide}`}
                 initial={{ opacity: 0, y: 15 }}
@@ -194,7 +183,7 @@ function Hero() {
               >
                 {sliderData[activeSlide].desc}
               </motion.p>
-            </AnimatePresence>
+            </AnimatePresence> */}
           </div>
 
           {/* Right Hero Action */}

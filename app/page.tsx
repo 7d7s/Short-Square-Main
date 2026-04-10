@@ -10,7 +10,7 @@ export default function App() {
     "url": "https://www.shotsquare.com/",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://www.shotsquare.com/projects?q={search_term_string}",
+      "target": "https://www.shotsquare.com/gallery?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

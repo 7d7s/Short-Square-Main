@@ -191,9 +191,14 @@ export default function BlogArticleContent({ article }: ArticleProps) {
                             className="prose prose-invert prose-xl max-w-none 
                             prose-p:text-white/65 prose-p:font-light prose-p:leading-[1.9] prose-p:tracking-[0.015em] prose-p:mb-10
                             prose-headings:text-white prose-headings:font-light prose-headings:tracking-tight
-                            prose-h3:text-4xl prose-h3:mt-24 prose-h3:mb-8 prose-h3:leading-tight
+                            prose-h2:text-4xl prose-h2:md:text-5xl prose-h2:mt-24 prose-h2:mb-10 prose-h2:leading-tight prose-h2:font-extralight
+                            prose-h3:text-3xl prose-h3:mt-20 prose-h3:mb-8 prose-h3:leading-tight
                             prose-blockquote:border-l-4 prose-blockquote:border-golden prose-blockquote:bg-white/[0.03] prose-blockquote:py-6 prose-blockquote:px-8 prose-blockquote:my-16 prose-blockquote:rounded-r-3xl prose-blockquote:font-medium prose-blockquote:text-white/85 prose-blockquote:text-2xl prose-blockquote:leading-snug prose-blockquote:italic
                             prose-strong:text-white prose-strong:font-normal
+                            prose-ul:text-white/60 prose-ul:font-light prose-ul:leading-[1.9] prose-ul:my-8
+                            prose-ol:text-white/60 prose-ol:font-light prose-ol:leading-[1.9] prose-ol:my-8
+                            prose-li:text-white/60 prose-li:mb-3 prose-li:marker:text-golden
+                            prose-hr:border-white/10 prose-hr:my-16
                             prose-img:rounded-3xl prose-img:my-16 prose-img:w-full"
                         >
                             <ReactMarkdown>{article.content}</ReactMarkdown>
