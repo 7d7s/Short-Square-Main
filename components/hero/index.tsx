@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import homeData from "@/data/home.json";
 
@@ -193,17 +194,19 @@ function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 2 }}
           >
-            <button
-              className="group flex items-center justify-between w-full lg:w-auto gap-4 py-4 px-6 md:py-4 md:px-8 border border-white/20 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-xl transition-all duration-500 ease-out sm:w-auto 
+            <Link href="/gallery">
+              <button
+                className="group flex items-center justify-between w-full lg:w-auto gap-4 py-4 px-6 md:py-4 md:px-8 border border-white/20 rounded-full bg-white/5 hover:bg-white/10 backdrop-blur-xl transition-all duration-500 ease-out sm:w-auto 
                hover:pr-6 md:hover:pr-10" // Pad out right side on hover for arrow movement
-            >
-              <span className="text-[11px] md:text-xs font-medium uppercase tracking-[0.15em] text-white">
-                View Gallery
-              </span>
-              <span className="text-white/60 group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-1 sm:group-hover:translate-x-2 ease-[0.16,1,0.3,1]">
-                →
-              </span>
-            </button>
+              >
+                <span className="text-[11px] md:text-xs font-medium uppercase tracking-[0.15em] text-white">
+                  View Gallery
+                </span>
+                <span className="text-white/60 group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-1 sm:group-hover:translate-x-2 ease-[0.16,1,0.3,1]">
+                  →
+                </span>
+              </button>
+            </Link>
           </motion.div>
 
         </div>
