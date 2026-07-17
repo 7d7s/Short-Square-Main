@@ -4,20 +4,20 @@ import Head from "next/head";
 import blogData from "@/data/blog.json";
 
 export const metadata: Metadata = {
-    title: "Journal | ShotSquare",
-    description: "Examine the technical frameworks, editorial campaigns, and visual philosophy driving ShotSquare studio.",
+    title: "Insights & Editorials | ShotSquare Studio Journal",
+    description: "Industry insights, behind-the-scenes production breakdowns, and photography techniques from the creative directors at ShotSquare Studio.",
 };
 
 export default function BlogPage() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Blog",
-        "name": "ShotSquare Photography Journal",
-        "description": "Examine the technical frameworks, editorial campaigns, and visual philosophy driving our studio.",
+        "name": "ShotSquare Studio Journal",
+        "description": "Industry insights, behind-the-scenes production breakdowns, and photography techniques from the creative directors at ShotSquare Studio.",
         "url": "https://www.shotsquare.com/blog",
         "publisher": {
             "@type": "Organization",
-            "name": "ShotSquare Photography",
+            "name": "ShotSquare Studio",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png"

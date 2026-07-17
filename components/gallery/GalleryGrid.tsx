@@ -277,8 +277,8 @@ export default function GalleryGrid({ items, linkToBrand = false }: { items: Gri
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
                 
-                {/* Mobile Brand Tag & Lightbox - Shown only on Active/Hover/Tap */}
-                <div className="absolute bottom-4 left-4 right-4 z-40 flex items-center justify-between opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300">
+                {/* Mobile Brand Tag & Lightbox - Always visible for touch accessibility */}
+                <div className="absolute bottom-4 left-4 right-4 z-40 flex items-center justify-between">
                   <div>
                     {item.brand && (
                       <span className="text-[10px] px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-xl text-black uppercase tracking-[0.2em] font-extrabold shadow-xl inline-block pointer-events-none">
@@ -287,18 +287,18 @@ export default function GalleryGrid({ items, linkToBrand = false }: { items: Gri
                     )}
                   </div>
                   
-                  {brandLink && (
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setLightboxIndex(items.findIndex((i) => i.id === item.id));
-                      }}
-                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white"
-                    >
-                      <FiMaximize2 size={16} />
-                    </button>
-                  )}
+                  {/* Expand button always visible on mobile */}
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setLightboxIndex(items.findIndex((i) => i.id === item.id));
+                    }}
+                    className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white active:bg-white active:text-black transition-all shadow-lg"
+                    aria-label="Expand image"
+                  >
+                    <FiMaximize2 size={16} />
+                  </button>
                 </div>
               </motion.div>
             );

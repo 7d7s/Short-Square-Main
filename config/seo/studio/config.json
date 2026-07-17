@@ -1,17 +1,17 @@
 {
-    "title": "Studio Rental & Services - ShotSquare Photography",
-    "description": "State-of-the-art photography studio available for rent in Delhi. Equipped with premium lighting, backdrops, and professional amenities for your next shoot.",
+    "title": "Premium Studio Rental & Production Space | ShotSquare Studio",
+    "description": "Book state-of-the-art photography and film studios at ShotSquare Studio. Fully equipped with cutting-edge lighting, cycloramas, and premium amenities for MNC-grade productions.",
     "openGraph": {
-        "title": "Professional Photography Studio Rental - ShotSquare",
-        "description": "State-of-the-art photography studio in Delhi equipped with premium lighting and cyclorama walls.",
+        "title": "Premium Studio Rental & Production Space | ShotSquare Studio",
+        "description": "Book state-of-the-art photography and film studios at ShotSquare Studio. Fully equipped with cutting-edge lighting, cycloramas, and premium amenities for MNC-grade productions.",
         "url": "https://www.shotsquare.com/studio",
-        "siteName": "ShotSquare Photography",
+        "siteName": "ShotSquare Studio",
         "images": [
             {
                 "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744717887/Framed_in_Portraits_bsoncf.avif",
                 "width": 1200,
                 "height": 630,
-                "alt": "ShotSquare Studio"
+                "alt": "ShotSquare Studio Rental Space"
             }
         ],
         "locale": "en_US",
@@ -19,8 +19,8 @@
     },
     "twitter": {
         "card": "summary_large_image",
-        "title": "Rent Our Studio - ShotSquare",
-        "description": "State-of-the-art photography studio in Delhi equipped with premium lighting and professional gear.",
+        "title": "Premium Studio Rental & Production Space | ShotSquare Studio",
+        "description": "Book state-of-the-art photography and film studios at ShotSquare Studio. Fully equipped with cutting-edge lighting, cycloramas, and premium amenities for MNC-grade productions.",
         "images": [
             "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744717887/Framed_in_Portraits_bsoncf.avif"
         ]

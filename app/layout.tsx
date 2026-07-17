@@ -6,6 +6,7 @@ import Navbar from "@/components/header";
 import Footer from "@/components/footer";
 import Preloader from "@/components/common/Preloader";
 import CookieConsent from "@/components/common/CookieConsent";
+import CustomCursor from "@/components/common/CustomCursor";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -15,13 +16,13 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   ...metadataConfig,
   metadataBase: new URL(metadataConfig.metadataBase as string),
-  applicationName: 'ShotSquare Photography',
-  authors: [{ name: 'ShotSquare Photography' }],
+  applicationName: 'ShotSquare Studio',
+  authors: [{ name: 'ShotSquare Studio' }],
   generator: 'Next.js',
-  keywords: ['Photography', 'Wedding Photography', 'Portrait', 'Fashion Photography', 'Event Photography', 'India', 'Studio Rental'],
+  keywords: ['Commercial Photography', 'Editorial Fashion', 'Brand Campaigns', 'Studio Rental', 'Product Photography', 'India', 'Production House'],
   referrer: 'origin-when-cross-origin',
-  creator: 'ShotSquare',
-  publisher: 'ShotSquare',
+  creator: 'ShotSquare Studio',
+  publisher: 'ShotSquare Studio',
   formatDetection: {
     email: false,
     address: false,
@@ -65,7 +66,7 @@ export default function RootLayout({
       {
         "@type": "Organization",
         "@id": "https://www.shotsquare.com/#organization",
-        "name": "ShotSquare Photography",
+        "name": "ShotSquare Studio",
         "url": "https://www.shotsquare.com/",
         "logo": {
           "@type": "ImageObject",
@@ -81,7 +82,7 @@ export default function RootLayout({
       {
         "@type": "LocalBusiness",
         "@id": "https://www.shotsquare.com/#localbusiness",
-        "name": "ShotSquare Photography",
+        "name": "ShotSquare Studio",
         "image": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png",
         "telephone": "+918882758944",
         "email": "info@shotsquare.com",
@@ -108,7 +109,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <script
           type="application/ld+json"
@@ -118,6 +119,7 @@ export default function RootLayout({
       <body
         className={`bg-black md:pt-7 md:px-7 pb-0 p-4 ${dmSans.variable} antialiased`}
       >
+        <CustomCursor />
         <Preloader />
         <Navbar />
         <main>

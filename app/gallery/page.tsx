@@ -1,9 +1,10 @@
 import allImages from "@/data/allImages.json";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
+import GalleryHero from "@/components/gallery/GalleryHero";
 
 export const metadata = {
-  title: "The Archive | Production Grade Gallery",
-  description: "A complete visual timeline mapped through advanced masonry lazy loading protocols.",
+  title: "The Archive | High-End Visual Portfolio by ShotSquare Studio",
+  description: "Explore the definitive visual portfolio of ShotSquare Studio. A curated showcase of international brand campaigns, creative product shoots, and dynamic studio captures.",
 };
 
 export default function GalleryPage() {
@@ -36,16 +37,7 @@ export default function GalleryPage() {
   return (
     <main className="min-h-screen bg-[#0a0a0a] pt-[120px] md:pt-[180px] pb-20 px-4 md:px-8 lg:px-12">
       <div className="max-w-[1600px] mx-auto">
-        <div className="mb-12 md:mb-20">
-          <h1 className="text-[40px] md:text-[80px] leading-[1.1] font-extrabold text-white uppercase tracking-tight mb-6">
-            ShotSquare <br className="md:hidden" /> Gallery
-          </h1>
-          <p className="text-white/50 text-[12px] md:text-[14px] uppercase tracking-[0.1em] max-w-xl font-medium leading-[1.8]">
-            Immerse yourself in the definitive visual portfolio of ShotSquare. 
-            A curated showcase of our high-end brand campaigns, creative product shoots, 
-            and dynamic studio captures.
-          </p>
-        </div>
+        <GalleryHero />
 
         <GalleryGrid items={formattedItems} linkToBrand={true} />
       </div>

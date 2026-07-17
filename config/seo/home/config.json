@@ -1,28 +1,39 @@
 {
   "metadataBase": "https://www.shotsquare.com",
-  "title": "ShotSquare Photography - Professional Photography Services in Delhi NCR",
-  "description": "ShotSquare Photography offers professional product, fashion, corporate, lifestyle, and commercial photography services across India. High-end visuals, cinematic storytelling, and brand-focused imagery for businesses and individuals.",
-  "keywords": "shotsquare, photography, product photography, fashion photography, corporate photography, lifestyle photography, commercial photography, shotsquare media, shotsquare photography, shotsquare photography delhi ncr, shotsquare photography gurugram, shotsquare photography noida, shotsquare photography faridabad, shotsquare photography ghaziabad",
+  "title": "ShotSquare Studio | Photography, Videography & Creative Production Company",
+  "description": "ShotSquare Studio is a creative production company delivering commercial photography, videography, brand films, campaign production, product photography, and visual content that helps brands connect, engage, and grow.",
+  "keywords": "ShotSquare Studio, Creative Production Company, Photography Studio, Commercial Photography, Product Photography, Fashion Photography, Corporate Photography, Food Photography, Jewellery Photography, Interior Photography, Architectural Photography, E-commerce Photography, Videography, Commercial Videography, Video Production Company, Brand Films, Corporate Films, Product Videos, Campaign Production, Creative Direction, Content Production, Visual Storytelling, Advertising Photography, Advertising Production, Production House, Creative Agency",
+  "robots": {
+    "index": true,
+    "follow": true,
+    "googleBot": {
+      "index": true,
+      "follow": true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
+  },
   "openGraph": {
-    "title": "ShotSquare Photography - Professional Photography Services",
-    "description": "ShotSquare Photography offers professional product, fashion, corporate, lifestyle, and commercial photography services across India. High-end visuals, cinematic storytelling, and brand-focused imagery for businesses and individuals.",
-    "url": "https://www.shotsquare.com",
-    "siteName": "ShotSquare Photography",
+    "title": "ShotSquare Studio | Photography, Videography & Creative Production Company",
+    "description": "Creative production company delivering commercial photography, videography, brand films, campaign production, and visual content for modern businesses and brands.",
+    "url": "https://www.shotsquare.com/",
+    "siteName": "ShotSquare Studio",
     "images": [
       {
         "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png",
         "width": 1200,
         "height": 630,
-        "alt": "ShotSquare Photography Portfolio"
+        "alt": "ShotSquare Studio"
       }
     ],
-    "locale": "en_US",
+    "locale": "en_IN",
     "type": "website"
   },
   "twitter": {
     "card": "summary_large_image",
-    "title": "ShotSquare Photography",
-    "description": "ShotSquare Photography offers professional product, fashion, corporate, lifestyle, and commercial photography services across India. High-end visuals, cinematic storytelling, and brand-focused imagery for businesses and individuals.",
+    "title": "ShotSquare Studio | Photography, Videography & Creative Production Company",
+    "description": "Commercial photography, videography, brand films, campaign production, and creative content for businesses and brands.",
     "images": [
       "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png"
     ]
