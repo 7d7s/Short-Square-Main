@@ -6,7 +6,7 @@ export default function App() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "ShotSquare Photography",
+    "name": "ShotSquare Studio",
     "url": "https://www.shotsquare.com/",
     "potentialAction": {
       "@type": "SearchAction",

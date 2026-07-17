@@ -2,6 +2,7 @@ import AboutUs from "@/components/about";
 import ExpertiseSec from "@/components/expertise";
 import Hero from "@/components/hero";
 import Work from "@/components/work";
+import Services from "@/components/services";
 
 
 function Home() {
@@ -9,6 +10,7 @@ function Home() {
     <div className="container mx-auto">
       <Hero />
       <AboutUs />
+      <Services />
       <Work />
       <ExpertiseSec />
     </div>

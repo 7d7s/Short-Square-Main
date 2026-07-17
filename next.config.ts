@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'res.cloudinary.com' },
       { protocol: 'https', hostname: 'img.freepik.com' },
-      { protocol: 'https', hostname: 'framerusercontent.com' }
+      { protocol: 'https', hostname: 'framerusercontent.com' },
+      { protocol: 'https', hostname: 'images.unsplash.com' }
     ],
     // Deep tuning: Cache optimizations and authorizing dynamic qualities mapping 
     minimumCacheTTL: 31536000,
