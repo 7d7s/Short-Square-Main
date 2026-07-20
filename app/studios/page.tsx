@@ -1,11 +1,22 @@
 import ServicesPage from "@/components/servicesPage";
 import AosInit from "@/components/AosInit";
 import Head from "next/head";
+import metadataConfig from '@/config/seo/studio/config.json';
+import { Metadata } from 'next';
 
-export const metadata = {
-  title: "Production Services | ShotSquare Studio",
-  description: "Comprehensive production services by ShotSquare Studio. From art direction and set design to high-end retouching and commercial photography execution.",
+export const metadata: Metadata = {
+  ...metadataConfig,
+  alternates: {
+    canonical: '/studios',
+  },
+  openGraph: {
+    ...metadataConfig.openGraph,
+  },
+  twitter: {
+    ...metadataConfig.twitter,
+  },
 };
+
 
 export default function Services() {
   const jsonLd = {

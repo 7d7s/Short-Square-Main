@@ -1,17 +1,17 @@
 {
-    "title": "Premium Studio Rental & Production Space | ShotSquare Studio",
-    "description": "Book state-of-the-art photography and film studios at ShotSquare Studio. Fully equipped with cutting-edge lighting, cycloramas, and premium amenities for MNC-grade productions.",
+    "title": "Studios | ShotSquare Studio",
+    "description": "Explore ShotSquare Studio's creative production spaces designed for photography, videography, brand campaigns, commercial productions, content creation, and visual storytelling.",
     "openGraph": {
-        "title": "Premium Studio Rental & Production Space | ShotSquare Studio",
-        "description": "Book state-of-the-art photography and film studios at ShotSquare Studio. Fully equipped with cutting-edge lighting, cycloramas, and premium amenities for MNC-grade productions.",
-        "url": "https://www.shotsquare.com/studio",
+        "title": "Studios | ShotSquare Studio",
+        "description": "Discover creative production spaces built for photography, videography, brand campaigns, commercial productions, and content creation.",
+        "url": "https://www.shotsquare.com/studios",
         "siteName": "ShotSquare Studio",
         "images": [
             {
                 "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744717887/Framed_in_Portraits_bsoncf.avif",
                 "width": 1200,
                 "height": 630,
-                "alt": "ShotSquare Studio Rental Space"
+                "alt": "ShotSquare Studio Studios"
             }
         ],
         "locale": "en_US",
@@ -19,8 +19,8 @@
     },
     "twitter": {
         "card": "summary_large_image",
-        "title": "Premium Studio Rental & Production Space | ShotSquare Studio",
-        "description": "Book state-of-the-art photography and film studios at ShotSquare Studio. Fully equipped with cutting-edge lighting, cycloramas, and premium amenities for MNC-grade productions.",
+        "title": "Studios | ShotSquare Studio",
+        "description": "Explore creative production spaces for photography, videography, commercial productions, brand campaigns, and content creation.",
         "images": [
             "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744717887/Framed_in_Portraits_bsoncf.avif"
         ]

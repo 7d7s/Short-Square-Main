@@ -83,7 +83,7 @@ export default function ContactContent() {
                 </motion.div>
 
                 <div className="relative z-20 container mx-auto px-6 text-center mt-12">
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.4, duration: 1.5, ease }}
@@ -91,9 +91,9 @@ export default function ContactContent() {
                     >
                         <span className="w-2 h-2 rounded-full bg-golden animate-pulse shadow-[0_0_10px_rgba(var(--golden-rgb),0.5)]" />
                         <span className="text-[10px] md:text-xs font-semibold tracking-[0.3em] uppercase text-white/70">
-                            Available Worldwide
+                            Available for New Projects
                         </span>
-                    </motion.div>
+                    </motion.div> */}
 
                     <motion.h1
                         initial={{ opacity: 0, y: 40 }}
@@ -101,7 +101,7 @@ export default function ContactContent() {
                         transition={{ delay: 0.6, duration: 1.2, ease }}
                         className="text-[14vw] sm:text-[14vw] md:text-[13vw] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/10 leading-[0.75] pb-4 uppercase"
                     >
-                        Connect
+                        Let&apos;s Talk
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0 }}
@@ -146,7 +146,7 @@ export default function ContactContent() {
                                 </motion.a>
 
                                 <motion.a
-                                    href="tel:+918882758944"
+                                    href="tel:+918585906629"
                                     whileHover={{ x: 10 }}
                                     transition={{ duration: 0.4, ease }}
                                     className="flex items-start group relative"
@@ -193,8 +193,8 @@ export default function ContactContent() {
                         <div className="absolute top-0 right-0 w-96 h-96 bg-golden/10 blur-[120px] rounded-full pointer-events-none" />
 
                         <div className="mb-10 relative z-10">
-                            <h3 className="text-2xl md:text-3xl font-light text-white mb-2">Send a Transmission</h3>
-                            <p className="text-white/40 font-light text-sm tracking-wide">Secure channel initialized. Awaiting your coordinates.</p>
+                            <h3 className="text-2xl md:text-3xl font-light text-white mb-2">Tell Us About Your Project</h3>
+                            <p className="text-white/40 font-light text-sm tracking-wide">Share your project details and our team will get back to you within one business day.</p>
                         </div>
 
                         {submitStatus === 'success' && (
@@ -205,8 +205,8 @@ export default function ContactContent() {
                             >
                                 <FiCheckCircle className="text-[#33ff33] text-2xl mr-4 flex-shrink-0 mt-0.5" />
                                 <div>
-                                    <h4 className="text-[#33ff33] font-medium mb-1">Transmission Received</h4>
-                                    <p className="text-[#33ff33]/50 text-sm font-light">Your message has been securely delivered to our mainframe. We will respond shortly.</p>
+                                    <h4 className="text-[#33ff33] font-medium mb-1">Message Sent Successfully</h4>
+                                    <p className="text-[#33ff33]/50 text-sm font-light">Thank you for contacting ShotSquare Studio. We've received your inquiry and will be in touch shortly.</p>
                                 </div>
                             </motion.div>
                         )}
@@ -219,8 +219,8 @@ export default function ContactContent() {
                             >
                                 <FiAlertCircle className="text-[#ff3333] text-2xl mr-4 flex-shrink-0 mt-0.5" />
                                 <div>
-                                    <h4 className="text-[#ff3333] font-medium mb-1">Transmission Failed</h4>
-                                    <p className="text-[#ff3333]/50 text-sm font-light">Interference detected. Please check your connection and try again.</p>
+                                    <h4 className="text-[#ff3333] font-medium mb-1">Message Sending Failed</h4>
+                                    <p className="text-[#ff3333]/50 text-sm font-light">There was an error sending your message. Please try again or contact us directly at [EMAIL_ADDRESS]</p>
                                 </div>
                             </motion.div>
                         )}

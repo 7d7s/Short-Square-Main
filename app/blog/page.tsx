@@ -4,7 +4,7 @@ import Head from "next/head";
 import blogData from "@/data/blog.json";
 
 export const metadata: Metadata = {
-    title: "Insights & Editorials | ShotSquare Studio Journal",
+    title: "Insights & Editorials | ShotSquare Journal",
     description: "Industry insights, behind-the-scenes production breakdowns, and photography techniques from the creative directors at ShotSquare Studio.",
 };
 
@@ -12,7 +12,7 @@ export default function BlogPage() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Blog",
-        "name": "ShotSquare Studio Journal",
+        "name": "ShotSquare Journal",
         "description": "Industry insights, behind-the-scenes production breakdowns, and photography techniques from the creative directors at ShotSquare Studio.",
         "url": "https://www.shotsquare.com/blog",
         "publisher": {

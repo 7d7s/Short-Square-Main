@@ -229,8 +229,8 @@ export default function Header() {
                 <a href="mailto:hello@shotsquare.com" className="text-lg md:text-xl text-white/80 hover:text-golden transition-colors duration-500">
                   hello@shotsquare.com
                 </a>
-                <a href="tel:+918882758944" className="text-lg md:text-xl text-white/40 hover:text-white transition-colors duration-500">
-                  +91 888 275 8944
+                <a href="tel:+918585906629" className="text-lg md:text-xl text-white/40 hover:text-white transition-colors duration-500">
+                  +91 8585906629
                 </a>
               </div>
             </motion.div>

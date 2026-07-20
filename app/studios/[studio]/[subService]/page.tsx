@@ -1,61 +1,60 @@
 import React from 'react';
 import { servicesData } from '@/data/servicesData';
 import { notFound } from 'next/navigation';
-import StudioHero from '@/components/studio/StudioHero';
-import SubServiceGrid from '@/components/studio/SubServiceGrid';
+import SubServiceHero from '@/components/subService/SubServiceHero';
+import SubServiceNarrative from '@/components/subService/SubServiceNarrative';
+import SubServiceDetails from '@/components/subService/SubServiceDetails';
 import ServicesCTA from '@/components/servicesPage/ServicesCTA';
 import AosInit from '@/components/AosInit';
-import Head from 'next/head';
 import { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: Promise<{ studio: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ studio: string, subService: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
   const studio = servicesData.find((s) => s.slug === resolvedParams.studio);
-  
-  if (!studio) return { title: 'Not Found' };
+  const subService = studio?.subServices.find((s) => s.slug === resolvedParams.subService);
+
+  if (!subService || !studio) return { title: 'Not Found' };
 
   return {
-    title: `${studio.title} | ShotSquare Photography`,
-    description: studio.description,
+    title: `${subService.title} - ${studio.title} | ShotSquare Studio`,
+    description: subService.description,
     openGraph: {
-      title: `${studio.title} | ShotSquare`,
-      description: studio.description,
-      images: [{ url: studio.image }],
+      title: `${subService.title} | ShotSquare`,
+      description: subService.description,
+      images: [{ url: subService.image }],
     }
   };
 }
 
-export default async function StudioPage({ params }: { params: Promise<{ studio: string }> }) {
+export default async function SubServicePage({ params }: { params: Promise<{ studio: string, subService: string }> }) {
   const resolvedParams = await params;
   const studioSlug = resolvedParams.studio;
-  
+  const subServiceSlug = resolvedParams.subService;
+
   const studio = servicesData.find((s) => s.slug === studioSlug);
-  
   if (!studio) {
+    notFound();
+  }
+
+  const subService = studio.subServices.find((s) => s.slug === subServiceSlug);
+  if (!subService) {
     notFound();
   }
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": studio.title,
-    "description": studio.description,
+    "name": subService.title,
+    "description": subService.description,
     "provider": {
       "@type": "Organization",
-      "name": "ShotSquare Photography",
+      "name": "ShotSquare Studio",
       "url": "https://www.shotsquare.com"
     },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": `${studio.title} Services`,
-      "itemListElement": studio.subServices.map((sub, index) => ({
-        "@type": "OfferCatalog",
-        "position": index + 1,
-        "name": sub.title,
-        "description": sub.description,
-        "url": `https://www.shotsquare.com/services/${studio.slug}/${sub.slug}`
-      }))
-    }
+    "serviceType": subService.title,
+    "areaServed": "Global",
+    "url": `https://www.shotsquare.com/studios/${studio.slug}/${subService.slug}`,
+    "image": subService.image
   };
 
   return (
@@ -68,8 +67,9 @@ export default async function StudioPage({ params }: { params: Promise<{ studio:
       {/* Global Grain/Noise layer for premium texture */}
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none mix-blend-screen z-50" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
 
-      <StudioHero studio={studio} />
-      <SubServiceGrid studio={studio} />
+      <SubServiceHero studio={studio} subService={subService} />
+      <SubServiceNarrative subService={subService} />
+      <SubServiceDetails subService={subService} />
       <ServicesCTA />
     </main>
   );

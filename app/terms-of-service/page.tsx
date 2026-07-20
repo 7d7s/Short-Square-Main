@@ -1,3 +1,32 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Terms & Conditions | ShotSquare Studio",
+    description:
+        "Read the ShotSquare Studio Terms & Conditions governing the use of our website, creative services, studio bookings, and related policies.",
+    alternates: {
+        canonical: "https://www.shotsquare.com/terms-and-conditions",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+    openGraph: {
+        title: "Terms & Conditions | ShotSquare Studio",
+        description:
+            "Review the terms governing the use of the ShotSquare Studio website, creative services, and studio bookings.",
+        url: "https://www.shotsquare.com/terms-and-conditions",
+        siteName: "ShotSquare Studio",
+        type: "website",
+        locale: "en_IN",
+    },
+    twitter: {
+        card: "summary",
+        title: "Terms & Conditions | ShotSquare Studio",
+        description:
+            "Review the terms governing the use of the ShotSquare Studio website, creative services, and studio bookings.",
+    },
+};
 export default function TermsOfServicePage() {
     return (
         <div className="bg-[#050505] min-h-screen pt-32 pb-24 text-white">

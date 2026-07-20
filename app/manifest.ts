@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: 'ShotSquare Photography',
+        name: 'ShotSquare Studio',
         short_name: 'ShotSquare',
         description: 'Expert photography services capturing weddings, portraits, fashion, travel, and nature across India with artistic excellence.',
         start_url: '/',

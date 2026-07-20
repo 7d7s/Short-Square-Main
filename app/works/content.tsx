@@ -37,7 +37,7 @@ export default function ProjectsContent() {
 
                 {/* Left: Typography */}
                 <div className="relative z-20 w-full md:w-1/2 flex flex-col justify-center items-start pt-12 md:pt-0">
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5, duration: 1.5, ease }}
@@ -47,7 +47,7 @@ export default function ProjectsContent() {
                         <span className="text-[10px] md:text-xs font-medium tracking-[0.4em] uppercase text-white/50">
                             Index // 01
                         </span>
-                    </motion.div>
+                    </motion.div> */}
 
                     <div className="overflow-hidden">
                         <motion.h1
@@ -79,9 +79,9 @@ export default function ProjectsContent() {
                         {projectsData.banner.description}
                     </motion.p>
                 </div>
-                
+
                 {/* Right: Floating Imagery */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.8, duration: 2, ease }}
@@ -99,7 +99,7 @@ export default function ProjectsContent() {
                         <div className="absolute inset-0 border border-white/10 pointer-events-none" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-transparent to-transparent opacity-60 pointer-events-none" />
                     </div>
-                    
+
                     {/* Ornamental Details */}
                     <div className="absolute -bottom-6 -right-6 text-[10px] tracking-[0.3em] text-white/30 rotate-90 origin-bottom-right uppercase hidden lg:block">
                         ShotSquare Studio &copy; {new Date().getFullYear()}
@@ -107,14 +107,14 @@ export default function ProjectsContent() {
                 </motion.div>
 
                 {/* Vertical Scroll Indicator */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.5, duration: 2 }}
                     className="absolute bottom-0 left-6 md:left-12 flex flex-col items-center gap-4 z-20 hidden md:flex"
                 >
                     <div className="w-[1px] h-24 bg-white/10 relative overflow-hidden">
-                        <motion.div 
+                        <motion.div
                             className="absolute top-0 left-0 w-full h-1/2 bg-white/60"
                             animate={{ y: ["-100%", "200%"] }}
                             transition={{ duration: 2, ease: "linear", repeat: Infinity }}
@@ -208,7 +208,7 @@ export default function ProjectsContent() {
                                                     loading="lazy"
                                                     className="w-full h-full object-cover object-center transform transition-transform duration-[1.5s] ease-[0.16,1,0.3,1] group-hover/card:scale-[1.05]"
                                                 />
-                                                
+
                                                 {/* Sophisticated Hover Gradient */}
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 transition-opacity duration-700 ease-[0.16,1,0.3,1] group-hover/card:opacity-100 z-10" />
 
@@ -225,7 +225,7 @@ export default function ProjectsContent() {
                                                             {img.title}
                                                         </h3>
                                                     </div>
-                                                    
+
                                                     <div className="w-10 h-10 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center transform translate-y-8 opacity-0 transition-all duration-700 delay-200 group-hover/card:translate-y-0 group-hover/card:opacity-100 bg-white/5 backdrop-blur-md">
                                                         <FiArrowUpRight className="text-white text-lg md:text-xl" />
                                                     </div>
@@ -255,7 +255,7 @@ export default function ProjectsContent() {
                 <div className="relative py-32 md:py-48 border-t border-white/[0.04] bg-[#020202] overflow-hidden">
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.15] mix-blend-overlay pointer-events-none" />
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-white/[0.02] blur-[150px] rounded-full pointer-events-none" />
-                    
+
                     <div className="relative z-10">
                         <GetInTouch
                             title={projectsData.cta.title}

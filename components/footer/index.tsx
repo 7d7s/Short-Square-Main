@@ -62,9 +62,9 @@ const Footer = () => {
             <ul className="flex flex-col gap-5">
               {[
                 { label: 'Home', href: '/' },
-                { label: 'Studio', href: '/studio' },
-                { label: 'Projects', href: '/projects' },
-                { label: 'Journal', href: '/blog' },
+                { label: 'Studio', href: '/studios' },
+                { label: 'Works', href: '/works' },
+                { label: 'Gallery', href: '/gallery' },
                 { label: 'Contact', href: '/contact' },
               ].map(({ label, href }) => (
                 <li key={label}>
@@ -88,7 +88,7 @@ const Footer = () => {
                 <a href="mailto:info@shotsquare.com" className="focus-visible:outline-none focus-visible:text-white">info@shotsquare.com</a>
               </p>
               <p className="hover:text-white transition-colors duration-300 w-fit cursor-pointer">
-                <a href="tel:+918882758944" className="focus-visible:outline-none focus-visible:text-white">+91 888 275 8944</a>
+                <a href="tel:+918585906629" className="focus-visible:outline-none focus-visible:text-white">+91 8585906629</a>
               </p>
               <div className="pt-6 space-y-2.5">
                 <p className="text-white/20 uppercase text-[9px] tracking-[0.25em] font-semibold mb-3">Studio Location</p>
@@ -117,7 +117,7 @@ const Footer = () => {
           </motion.div>
 
           <div className="w-full flex flex-col md:flex-row justify-between items-center gap-6 mt-8 md:mt-12 text-[10px] md:text-[11px] text-white/40 font-light uppercase tracking-[0.2em]">
-            <p>&copy; {currentYear} ShotSquare Photography</p>
+            <p>&copy; {currentYear} ShotSquare Studio</p>
             <div className="flex gap-8">
               <Link href="/privacy-policy" className="hover:text-white transition-colors duration-300 focus-visible:outline-none focus-visible:text-white">Privacy</Link>
               <Link href="/terms-of-service" className="hover:text-white transition-colors duration-300 focus-visible:outline-none focus-visible:text-white">Terms</Link>

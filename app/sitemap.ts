@@ -7,8 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Base static routes
     const staticRoutes: MetadataRoute.Sitemap = [
         '',
-        '/projects',
-        '/studio',
+        '/works',
+        '/studios',
         '/contact',
         '/blog',
         '/cookie-policy',
@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${baseUrl}${route}`,
         lastModified: new Date().toISOString(),
         changeFrequency: (route === '' ? 'weekly' : 'monthly') as 'weekly' | 'monthly',
-        priority: route === '' ? 1.0 : route === '/projects' ? 0.9 : 0.8,
+        priority: route === '' ? 1.0 : route === '/works' ? 0.9 : 0.8,
     }));
 
     // Dynamic blog routes

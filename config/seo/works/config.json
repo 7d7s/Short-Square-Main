@@ -1,7 +1,6 @@
 {
-  "title": "Our Portfolio — Commercial Photography, Fashion & Brand Campaigns | ShotSquare Studio",
-  "description": "Explore the complete portfolio of ShotSquare Studio — featuring award-worthy commercial photography, high-fashion editorials, e-commerce catalogues, cinematic brand campaigns, corporate headshots, and premium product photography crafted for modern brands.",
-  "keywords": "ShotSquare Studio portfolio, commercial photography portfolio, fashion photography India, brand campaign photography, e-commerce product photography, corporate headshot photographer, product photography studio, creative agency portfolio, visual storytelling, luxury brand photography, campaign production, editorial fashion photography, professional photography studio India",
+  "title": "Our Work | ShotSquare Studio",
+  "description": "Explore the ShotSquare Studio portfolio featuring commercial photography, fashion photography, product photography, corporate photography, brand campaigns, videography, and creative production for modern businesses and brands.",
   "robots": {
     "index": true,
     "follow": true,
@@ -14,8 +13,8 @@
     }
   },
   "openGraph": {
-    "title": "Our Portfolio — Commercial Photography & Brand Campaigns | ShotSquare Studio",
-    "description": "Browse a curated collection of commercial photography, high-fashion editorials, e-commerce catalogues, cinematic brand campaigns, and premium product photography by ShotSquare Studio.",
+    "title": "Our Work | ShotSquare Studio",
+    "description": "Browse commercial photography, fashion photography, product photography, corporate photography, brand campaigns, videography, and creative production by ShotSquare Studio.",
     "url": "https://www.shotsquare.com/works",
     "siteName": "ShotSquare Studio",
     "images": [
@@ -23,7 +22,7 @@
         "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773658544/IMG_0905_uldbba.jpg",
         "width": 1200,
         "height": 630,
-        "alt": "ShotSquare Studio portfolio — commercial photography, fashion editorials, and brand campaigns"
+        "alt": "ShotSquare Studio portfolio showcasing commercial photography and creative production"
       }
     ],
     "locale": "en_IN",
@@ -31,8 +30,8 @@
   },
   "twitter": {
     "card": "summary_large_image",
-    "title": "Our Portfolio — Commercial Photography & Brand Campaigns | ShotSquare Studio",
-    "description": "Browse commercial photography, fashion editorials, e-commerce catalogues, and brand campaigns by ShotSquare Studio.",
+    "title": "Our Work | ShotSquare Studio",
+    "description": "Explore the ShotSquare Studio portfolio featuring photography, videography, brand campaigns, and creative production.",
     "images": [
       "https://res.cloudinary.com/dufzctlaj/image/upload/v1773658544/IMG_0905_uldbba.jpg"
     ]
