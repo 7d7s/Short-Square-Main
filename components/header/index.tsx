@@ -14,7 +14,7 @@ import { MdArrowOutward } from "react-icons/md";
 
 const navItems = [
   { name: "Gallery", href: "/gallery" },
-  { name: "Studio", href: "/studio" },
+  { name: "Studio", href: "/studios" },
   { name: "Journal", href: "/blog" },
   { name: "Contact", href: "/contact" }
 ];
