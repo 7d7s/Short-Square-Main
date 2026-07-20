@@ -47,7 +47,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ id
                 },
                 "publisher": {
                     "@type": "Organization",
-                    "name": "ShotSquare Photography",
+                    "name": "ShotSquare Studio",
                     "logo": {
                         "@type": "ImageObject",
                         "url": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png"

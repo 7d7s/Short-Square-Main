@@ -27,7 +27,7 @@ export default function ContactPage() {
       "@type": "LocalBusiness",
       "name": "ShotSquare Photography",
       "image": "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744790523/w2_r01a8b.png",
-      "telephone": "+918882758944",
+      "telephone": "+918585906629",
       "email": "info@shotsquare.com"
     }
   };

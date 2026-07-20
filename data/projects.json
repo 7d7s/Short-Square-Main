@@ -1,104 +1,104 @@
 {
     "banner": {
-        "title": "Our Portfolio",
-        "description": "Each frame is a meticulously crafted narrative—an intersection of perfect light, commercial appeal, and timeless style.",
+        "title": "Our Work",
+        "description": "Explore a curated collection of photography, videography, brand campaigns, commercial productions, and creative projects crafted for businesses, brands, and growing companies.",
         "imageUrl": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773658544/IMG_0905_uldbba.jpg"
     },
     "categories": [
         "All",
         "Fashion",
-        "Ecommerce",
         "Commercial",
+        "Campaigns",
         "Corporate",
-        "Campaign",
-        "Products"
+        "Products",
+        "E-commerce"
     ],
     "projects": [
         {
             "id": 1,
-            "title": "Vogue Editorial Focus",
-            "client": "Fashion Week",
+            "title": "Editorial Fashion Photography",
+            "client": "Fashion Brand",
             "year": "2024",
             "category": "Fashion",
-            "description": "High-end editorial fashion photography showcasing profound style and striking elegance. We immortalize the essence of every garment and model.",
+            "description": "Editorial photography crafted for fashion campaigns, lookbooks, digital marketing, and brand storytelling with refined styling and visual direction.",
             "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772267708/_AVP6231_f50ksl.jpg"
         },
         {
             "id": 2,
-            "title": "Avant-Garde Studio",
-            "client": "Premium Label",
+            "title": "Fashion Campaign Production",
+            "client": "Apparel Brand",
             "year": "2024",
             "category": "Fashion",
-            "description": "Bold, avant-garde fashion photography designed to disrupt the norm. Creating powerful visual stories that elevate luxury brands.",
+            "description": "Creative production for seasonal collections featuring campaign photography, visual storytelling, and brand-focused creative execution.",
             "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773659659/manik40879_1_imipdr.jpg"
         },
         {
             "id": 3,
-            "title": "The Daily Lookbook",
-            "client": "Urban Apparel",
+            "title": "E-commerce Product Photography",
+            "client": "Retail Brand",
             "year": "2023",
-            "category": "Ecommerce",
-            "description": "Clean, highly detailed e-commerce catalogue shots designed to highlight fit, texture, and color accuracy for online shoppers.",
+            "category": "E-commerce",
+            "description": "Professional product photography optimized for online stores, marketplaces, catalogs, and digital commerce with clean, consistent presentation.",
             "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773660403/jtee9362_1_kqwp0t.jpg"
         },
         {
             "id": 4,
-            "title": "Executive Distinction",
-            "client": "Corporate Faces",
+            "title": "Corporate Brand Portraits",
+            "client": "Corporate Client",
             "year": "2024",
             "category": "Corporate",
-            "description": "Polished, masterful portrait sessions that establish absolute authority and character. Designed specifically for elite professional headshots.",
+            "description": "Professional corporate portraits created for executive profiles, business websites, employer branding, and corporate communications.",
             "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772271110/preeta_mehta_9-9-2562001_1_fu0bkd.jpg"
         },
         {
             "id": 5,
-            "title": "The Power of Sound",
-            "client": "Audio Dynamics",
+            "title": "Commercial Product Photography",
+            "client": "Consumer Brand",
             "year": "2023",
             "category": "Products",
-            "description": "Premium product photography focusing on sleek design, metallic finishes, and the premium quality of high-end electronics.",
+            "description": "Creative product photography highlighting craftsmanship, materials, textures, and product design for advertising and marketing campaigns.",
             "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773660405/satwaa-792_1_s7ffeq.jpg"
         },
         {
             "id": 6,
-            "title": "Athletic Momentum",
-            "client": "Active Wear Co.",
+            "title": "Brand Campaign Photography",
+            "client": "Lifestyle Brand",
             "year": "2024",
-            "category": "Campaign",
-            "description": "Dynamic, high-energy brand campaign visuals capturing the speed, power, and lifestyle of the modern athlete.",
+            "category": "Campaigns",
+            "description": "Campaign photography designed to strengthen brand identity through impactful visuals across digital, print, and social media platforms.",
             "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773656781/_DSC3191_1_aokpy5.jpg"
         },
         {
             "id": 7,
-            "title": "Minimalist Accessories",
-            "client": "Leather & Co.",
+            "title": "Lifestyle Product Photography",
+            "client": "Retail Brand",
             "year": "2023",
             "category": "Products",
-            "description": "Exquisite still-life and lifestyle product compositions emphasizing texture, craftsmanship, and sophisticated minimalism.",
+            "description": "Lifestyle-focused product photography created to showcase products in authentic environments while supporting advertising and e-commerce goals.",
             "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773655409/d1184129-c4d1-4691-8b11-dcbdda313712_rw_1200_nbu3px.jpg"
         },
         {
             "id": 8,
-            "title": "The Startup Vision",
-            "client": "FinTech Innovators",
+            "title": "Commercial Brand Photography",
+            "client": "Business Client",
             "year": "2024",
             "category": "Commercial",
-            "description": "Modern corporate and commercial imagery designed for brand storytelling, websites, and professional marketing materials.",
+            "description": "Commercial photography produced for websites, advertising campaigns, digital marketing, corporate branding, and promotional content.",
             "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1772453536/Exclusive_shoot_mcjxap.png"
         },
         {
             "id": 9,
-            "title": "Evening Elegance",
-            "client": "Designer Gala",
+            "title": "Fashion Lookbook Photography",
+            "client": "Designer Label",
             "year": "2024",
             "category": "Fashion",
-            "description": "Cinematic and moody fashion photography capturing the allure and grace of premium evening wear collections.",
+            "description": "Lookbook photography capturing apparel collections with a focus on styling, movement, detail, and consistent visual storytelling.",
             "url": "https://res.cloudinary.com/dufzctlaj/image/upload/v1773660259/_DSC3520_1_ybgjz2.jpg"
         }
     ],
     "cta": {
-        "title": "Let's Capture Greatness",
-        "subtitle": "Reach out to discuss how we can bring an ultra-premium vision to your next project.",
-        "buttonText": "Book a Strategy Call"
+        "title": "Let's Create Something Remarkable",
+        "subtitle": "From photography and videography to brand campaigns and creative production, we partner with businesses to create visual work that leaves a lasting impression.",
+        "buttonText": "Start Your Project"
     }
 }

@@ -35,7 +35,7 @@ const AboutUs = () => {
 
         {/* Section Header (Matching Services Design) */}
         <div className="w-full flex justify-center mb-16 md:mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -44,7 +44,7 @@ const AboutUs = () => {
           >
             <div className="relative inline-block pr-4">
               <span className="text-[18px] sm:text-[22px] md:text-[26px] tracking-[0.2em] md:tracking-[0.3em] text-white font-semibold pb-2 relative z-10 uppercase block drop-shadow-md">
-                About The Studio
+                Who We Are
               </span>
               <svg
                 className="absolute bottom-0 left-0 w-full h-[12px] text-white/50 overflow-visible translate-y-[2px]"
@@ -70,7 +70,7 @@ const AboutUs = () => {
         {/* In-Text Media Heading */}
         <div className="w-full flex flex-col items-center justify-center mb-20 md:mb-32">
           <h3 className="text-white text-center text-[clamp(2.5rem,6vw,8rem)] leading-[1.1] tracking-[-0.03em] font-bold uppercase w-full">
-            We Craft{" "}
+            We Create{" "}
             <motion.span
               initial={{ width: "0vw", opacity: 0 }} whileInView={{ width: "16vw", opacity: 1 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }} viewport={{ once: true, margin: "-10%" }}
               className="inline-block h-[clamp(2.2rem,5vw,7rem)] bg-white/10 rounded-full mx-3 md:mx-8 align-middle overflow-hidden relative shadow-[0_0_30px_rgba(255,255,255,0.05)] border border-white/20"
@@ -79,9 +79,9 @@ const AboutUs = () => {
                 <Image src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070" alt="Product" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-crosshair" />
               </motion.div>
             </motion.span>{" "}
-            Premium{" "}
+            Visual{" "}
             <br className="hidden md:block" />
-            Visuals{" "}
+            Production{" "}
             <motion.span
               initial={{ width: "0vw", opacity: 0 }} whileInView={{ width: "12vw", opacity: 1 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.15 }} viewport={{ once: true, margin: "-10%" }}
               className="inline-block h-[clamp(2.2rem,5vw,7rem)] bg-white/10 rounded-full mx-3 md:mx-8 align-middle overflow-hidden relative shadow-[0_0_30px_rgba(255,255,255,0.05)] border border-white/20"
@@ -107,13 +107,14 @@ const AboutUs = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[60px] transform translate-x-1/2 -translate-y-1/2 group-hover:bg-white/10 transition-colors duration-1000 pointer-events-none"></div>
 
             <div className="relative z-10">
-              <p className="text-transparent bg-clip-text bg-gradient-to-br from-white to-white/40 text-6xl md:text-7xl font-bold tracking-tighter mb-2 group-hover:scale-105 transform origin-left transition-transform duration-700">10<span className="text-white/20 font-light">+</span></p>
-              <p className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.2em] group-hover:text-white/80 transition-colors duration-500">Years Exp</p>
+              <p className="text-transparent bg-clip-text bg-gradient-to-br from-white to-white/40 text-6xl md:text-7xl font-bold tracking-tighter mb-2 group-hover:scale-105 transform origin-left transition-transform duration-700">5<span className="text-white/20 font-light">+</span></p>
+              <p className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.2em] group-hover:text-white/80 transition-colors duration-500">Years of Experience
+              </p>
             </div>
             <div className="w-full h-[1px] bg-gradient-to-r from-white/10 to-transparent relative z-10"></div>
             <div className="relative z-10">
               <p className="text-transparent bg-clip-text bg-gradient-to-br from-white to-white/40 text-6xl md:text-7xl font-bold tracking-tighter mb-2 group-hover:scale-105 transform origin-left transition-transform duration-700 delay-75">200<span className="text-white/20 font-light">+</span></p>
-              <p className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.2em] group-hover:text-white/80 transition-colors duration-500">Clients</p>
+              <p className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.2em] group-hover:text-white/80 transition-colors duration-500">Projects Delivered</p>
             </div>
           </motion.div>
 
@@ -125,24 +126,24 @@ const AboutUs = () => {
             <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none z-0"></div>
 
             <p className="relative z-10 text-white/50 text-base md:text-lg leading-[1.8] font-light mb-12 group-hover:text-white/90 transition-colors duration-700">
-              ShotSquare is an elite photography studio specializing in high-end fashion, product, and commercial imagery. We blend technical mastery with raw artistic vision.
+              ShotSquare Studio is a creative production company specializing in photography, videography, brand campaigns, and visual content. We partner with businesses to create purposeful work that communicates clearly, connects with audiences, and delivers lasting impact.
             </p>
 
             {/* Massive Animated Pill Button */}
-            <Link href="/studio" className="relative z-10 flex items-center justify-between w-full bg-white/[0.03] border border-white/10 rounded-full p-2 pl-8 group/btn overflow-hidden transition-all duration-700 shadow-[0_0_40px_rgba(255,255,255,0)] hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]">
-              
+            <Link href="/studios" className="relative z-10 flex items-center justify-between w-full bg-white/[0.03] border border-white/10 rounded-full p-2 pl-8 group/btn overflow-hidden transition-all duration-700 shadow-[0_0_40px_rgba(255,255,255,0)] hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+
               {/* Animated Hover Background Fill */}
               <div className="absolute inset-0 bg-white translate-y-[100%] rounded-full group-hover/btn:translate-y-0 transition-transform duration-[0.8s] ease-[0.16,1,0.3,1] z-0"></div>
 
               <span className="relative z-10 text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/60 group-hover/btn:text-black font-bold transition-all duration-700 group-hover/btn:translate-x-2 transform">Discover Studio</span>
-              
+
               {/* Arrow Container */}
               <div className="relative z-10 w-12 h-12 rounded-full bg-white group-hover/btn:bg-black flex items-center justify-center overflow-hidden transition-colors duration-700">
-                 {/* Current Arrow (Leaves) */}
-                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="absolute text-black group-hover/btn:text-white transform group-hover/btn:translate-x-8 group-hover/btn:-translate-y-8 transition-transform duration-[0.8s] ease-[0.16,1,0.3,1]"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                 
-                 {/* New Arrow (Enters) */}
-                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="absolute text-white transform -translate-x-8 translate-y-8 group-hover/btn:translate-x-0 group-hover/btn:translate-y-0 transition-transform duration-[0.8s] ease-[0.16,1,0.3,1]"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                {/* Current Arrow (Leaves) */}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="absolute text-black group-hover/btn:text-white transform group-hover/btn:translate-x-8 group-hover/btn:-translate-y-8 transition-transform duration-[0.8s] ease-[0.16,1,0.3,1]"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+
+                {/* New Arrow (Enters) */}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="absolute text-white transform -translate-x-8 translate-y-8 group-hover/btn:translate-x-0 group-hover/btn:translate-y-0 transition-transform duration-[0.8s] ease-[0.16,1,0.3,1]"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </div>
             </Link>
           </motion.div>

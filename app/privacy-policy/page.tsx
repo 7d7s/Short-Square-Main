@@ -1,3 +1,32 @@
+import { Metadata } from "next";
+export const metadata: Metadata = {
+    title: "Privacy Policy | ShotSquare Studio",
+    description:
+        "Read the ShotSquare Studio Privacy Policy to understand how we collect, use, store, and protect your personal information when you use our website and services.",
+    alternates: {
+        canonical: "https://www.shotsquare.com/privacy-policy",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+    openGraph: {
+        title: "Privacy Policy | ShotSquare Studio",
+        description:
+            "Learn how ShotSquare Studio collects, uses, stores, and protects your personal information.",
+        url: "https://www.shotsquare.com/privacy-policy",
+        siteName: "ShotSquare Studio",
+        type: "website",
+        locale: "en_IN",
+    },
+    twitter: {
+        card: "summary",
+        title: "Privacy Policy | ShotSquare Studio",
+        description:
+            "Learn how ShotSquare Studio collects, uses, stores, and protects your personal information.",
+    },
+};
+
 export default function PrivacyPolicyPage() {
     return (
         <div className="bg-[#050505] min-h-screen pt-32 pb-24 text-white">

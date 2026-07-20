@@ -1,9 +1,9 @@
 {
-    "title": "Contact ShotSquare Studio | Bookings & Inquiries",
-    "description": "Connect with ShotSquare Studio for commercial bookings, production inquiries, and studio rentals. Based in India, servicing global brands.",
+    "title": "Contact | ShotSquare Studio",
+    "description": "Get in touch with ShotSquare Studio for photography, videography, creative production, brand campaigns, commercial projects, and business inquiries.",
     "openGraph": {
-        "title": "Contact ShotSquare Studio | Bookings & Inquiries",
-        "description": "Connect with ShotSquare Studio for commercial bookings, production inquiries, and studio rentals. Based in India, servicing global brands.",
+        "title": "Contact | ShotSquare Studio",
+        "description": "Connect with ShotSquare Studio for photography, videography, creative production, brand campaigns, commercial projects, and business inquiries.",
         "url": "https://www.shotsquare.com/contact",
         "siteName": "ShotSquare Studio",
         "images": [
@@ -14,13 +14,13 @@
                 "alt": "Contact ShotSquare Studio"
             }
         ],
-        "locale": "en_US",
+        "locale": "en_IN",
         "type": "website"
     },
     "twitter": {
         "card": "summary_large_image",
-        "title": "Contact ShotSquare Studio | Bookings & Inquiries",
-        "description": "Connect with ShotSquare Studio for commercial bookings, production inquiries, and studio rentals. Based in India, servicing global brands.",
+        "title": "Contact | ShotSquare Studio",
+        "description": "Get in touch with ShotSquare Studio for photography, videography, creative production, brand campaigns, and commercial projects.",
         "images": [
             "https://res.cloudinary.com/ddgbehuxg/image/upload/v1744198088/fasion2_mc2vh9.jpg"
         ]

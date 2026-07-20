@@ -86,7 +86,7 @@ function Hero() {
           ) : (
             <Image
               src={currentMedia}
-              alt="ShotSquare Photography"
+              alt="ShotSquare Studio"
               fill
               priority
               quality={100}
